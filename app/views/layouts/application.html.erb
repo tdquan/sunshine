@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TODO</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>TODO</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-  </head>
-  <body>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+</head>
+<body>
+
+  <% if  @homepage %>
+    <%= yield %>
+  <% else %>
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= render 'shared/navbar' %>
     <div class="container">
-    <%= yield %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
     </div>
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-  </body>
+  <% end %>
+
+
+  <%= javascript_include_tag 'application' %>
+</body>
 </html>
