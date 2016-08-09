@@ -1,0 +1,7 @@
+<%= form_for @solar_panel do |f| %>
+  <%= f.number_field :size, placeholder: "Size of panel" %>
+  <%= f.number_field :price, placeholder: "Price per sol" %>
+  <%= f.number_field :efficiency, placeholder: "Efficiency" %>
+  <%= f.submit value: "Save Panel" %>
+<% end %>
+
