@@ -13,11 +13,12 @@
 @import "layout/navbar";
 @import "layout/footer";
 @import "components/index";
+@import "components/home";
 @import "pages/index";
 @import "vendor/index";
 
 
-html, body, #container { height: 100%; }
-body > #container { height: auto; min-height: 100%; }
+// html, body, #container { height: 100%; }
+// body > #container { height: auto; min-height: 100%; }
 
 
