@@ -17,7 +17,19 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_one :solar_panel
+  has_many :solar_panels
+
+  has_many :contracts
+
+  # def contracts
+  #   Contract.where(user_id: self.id)
+  # end
+
+  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+
+  def solar_panel
+    self.solar_panels.first
+  end
 
 end
 
