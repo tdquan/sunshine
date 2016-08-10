@@ -4,10 +4,6 @@ class SolarPanelsController < ApplicationController
     @solar_panels = SolarPanel.where.not(user_id: current_user.id)
   end
 
-  def my_panels
-    @solar_panels = SolarPanel.find(user_id: current_user.id)
-  end
-
   def new
     @solar_panel = current_user.solar_panels.new
   end

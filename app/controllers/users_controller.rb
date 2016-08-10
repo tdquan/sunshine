@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   # For APIs, you may want to use :null_session instead.
   def my_panels
     @solar_panels = SolarPanel.where(user_id: current_user.id)
-    redirect_to my_panels_path
   end
 
 end
