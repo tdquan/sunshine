@@ -1,1 +1,37 @@
 // Your footer style
+#footer {
+  height: 150px;
+  bottom: 0;
+  background-color: $gray;
+  position: relative;
+  width: 100%;
+  padding: 30px;
+  color: #FFFFFF;
+  font-size: 16;
+  font-weight: bold;
+  margin-top: 20px;
+
+  li {
+    padding: 0 20px;
+  }
+
+  a {
+    color: #FFFFFF;
+
+  }
+
+  .footer-item-container {
+      border-color: #aaa;
+      border-color: rgba(255,255,255,0.2);
+      height: 36px;
+      width: 36px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 50%;
+      text-align: center;
+      display: block;
+      padding-top: 6px;
+    }
+
+}
+
