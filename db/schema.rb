@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 20160809140536) do
     t.string   "last_name"
     t.integer  "family_size"
     t.integer  "apartment_size"
-    t.string   "provider"
-    t.string   "uid"
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
