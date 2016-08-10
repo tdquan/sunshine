@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  def dashboard
+  def my_panels
+    @solar_panels = SolarPanel.where(user_id: current_user.id)
+    redirect_to my_panels_path
   end
+
 end

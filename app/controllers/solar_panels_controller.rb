@@ -1,8 +1,11 @@
 class SolarPanelsController < ApplicationController
-  # before_action :user_session
 
   def index
-    @solar_panels = SolarPanel.all
+    @solar_panels = SolarPanel.where.not(user_id: current_user.id)
+  end
+
+  def my_panels
+    @solar_panels = SolarPanel.find(user_id: current_user.id)
   end
 
   def new
@@ -16,6 +19,10 @@ class SolarPanelsController < ApplicationController
   end
 
   def show
+    @solar_panel = SolarPanel.find(params[:id])
+  end
+
+  def show_my
     @solar_panel = current_user.solar_panels.find(params[:id])
   end
 

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
 
+  # User
+
+  get "/users/dashboard" => "users#dashboard", as: "users_dashboard"
+
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  # Solar panels
+
   resources :solar_panels
+  get 'users/my_panels' => "users#my_panels", as: "user_my_panels"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
