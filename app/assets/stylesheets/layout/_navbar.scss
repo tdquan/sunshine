@@ -23,7 +23,7 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 100px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -37,13 +37,14 @@
 .navbar-wagon-item {
   flex: 0 1 auto;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 15px;
 }
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: $gray  ;
+  font-size: 15px;
+  transition: all 0.2s ease;
 }
 .navbar-wagon-link:hover {
   color: $orange;
@@ -60,11 +61,21 @@
   color: white;
   font-size: 14px;
   border: 2px solid $orange;
+  transition: all 0.2s ease;
 }
 .navbar-wagon-button:hover {
   color: white;
-  background: #D23333;
-  border-color: #ac2626;
+  background: darken($orange, 5%);
+  border-color: darken($orange, 5%);
+}
+
+a.navbar-wagon-item {
+  color: white;
+}
+
+
+a.navbar-wagon-item:visited {
+  color: white;
 }
 
 /* Navbar search form */
