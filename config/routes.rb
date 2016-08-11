@@ -1,8 +1,25 @@
 Rails.application.routes.draw do
+
+  root to: 'pages#home'
+
+  # User
+  resources :current_user, only: [] do
+    collection do
+      resources :solar_panels, only: [:new, :create]
+    end
+  end
+
+  get "/current_user/dashboard" => "users#dashboard", as: "user_dashboard"
+  get "/current_user/my_panels" => "solar_panels#show_my", as: "user_my_panels"
+  get "/current_user/my_panels/:id" => "solar_panels#show", as: "my_solar_panel"
+
+  get "/current_user/solar_panels" => "solar_panels#index", as: "user_solar_panels"
+  get "/current_user/solar_panels/:id" => "solar_panels#show", as: "show_solar_panel"
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  get '/users/dashboard', to: 'users#dashboard'
-  root to: 'pages#home'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

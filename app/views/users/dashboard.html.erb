@@ -1,4 +1,4 @@
-<% @homepage = !true %>
-<div>
-<%= image_tag "dashboard_nonavbar.jpg", class:"dash-mockup"%>
-</div>
+
+<%= link_to "Solar panels around me", user_solar_panels_path, class: "btn btn-default" %>
+<%= link_to "My solar panels", user_my_panels_path, class: "btn btn-default" %>
+<%= link_to "Create new panel", new_solar_panel_path, class: "btn btn-default" %>

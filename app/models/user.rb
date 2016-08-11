@@ -5,9 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :contracts
-  belongs_to :solar_panel
-
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -18,6 +15,17 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+  # As a Prosumer
+  has_many :solar_panels
+  has_many :contracts
+
+  # As a Consumer
+  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+
+  def solar_panel
+    self.solar_panels.first
   end
 
 end

@@ -1,3 +1,4 @@
 class SolarPanel < ActiveRecord::Base
-  has_many :users
+  # Prosumer
+  belongs_to :user
 end
