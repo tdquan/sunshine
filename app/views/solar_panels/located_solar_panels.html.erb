@@ -1,14 +1,15 @@
+<h1><%= params[:street] %></h1>
+
 <% if @solar_panels.empty? %>
-  <p>You have no solar panel registered yet</p>
-  <%= link_to "Create new panel", new_solar_panel_path, class: "btn btn-default" %>
+  <p>Noone is selling in your street</p>
 <% end %>
 
 <% @solar_panels.each do |solar_panel| %>
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card">
       <div class="text-center">
-       <% if user_signed_in? && current_user.facebook_picture_url %>
-            <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <% if solar_panel.user.facebook_picture_url %>
+            <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
         <% else %>
           <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
         <% end %>
@@ -21,7 +22,7 @@
         <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
       </div>
       <hr>
-      <%= link_to "Details", show_solar_panel_path(solar_panel), class: "btn card-bottom-button-orange" %>
+      <%= link_to "Details", show_solar_panel_path(solar_panel), class: "btn card-bottom-button-full" %>
     </div>
   </div>
 <% end %>
