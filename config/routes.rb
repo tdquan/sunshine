@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # User
+  resources :current_user, only: [] do
+    collection do
+      resources :solar_panels, only: [:new, :create]
+    end
+  end
+
   get "/current_user/dashboard" => "users#dashboard", as: "user_dashboard"
   get "/current_user/my_panels" => "solar_panels#show_my", as: "user_my_panels"
   get "/current_user/my_panels/:id" => "solar_panels#show", as: "my_solar_panel"
