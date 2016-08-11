@@ -1,10 +1,57 @@
-<%= link_to "Solar panels around me", user_solar_panels_path, class: "btn btn-default" %>
-<%= link_to "My solar panels", user_my_panels_path, class: "btn btn-default" %>
-<%= link_to "Create new panel", new_solar_panel_path, class: "btn btn-default" %>
-<%= link_to "Terminated Contracts", current_user_contracts_terminated_path, class: "btn btn-default" %>
 
-
-<% current_user.contracts.each do |contract| %>
-  <% next unless contract.end_date.nil? %>
-  <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %> <%= link_to "Details", contract_path(contract)  %></li>
-<% end %>
+<!-- SIDEBAR -->
+<div class="container">
+  <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <%= image_tag current_user.facebook_picture_url%>
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            <%= current_user.first_name %>
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <!-- <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm">Follow</button>
+          <button type="button" class="btn btn-danger btn-sm">Message</button>
+        </div> -->
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li>
+              <%= link_to "Solar panels around me", user_solar_panels_path %>
+            </li>
+            <li>
+              <%= link_to "My solar panels", user_my_panels_path%>
+            </li>
+            <li>
+              <%= link_to "Create new panel", new_solar_panel_path%>
+            </li>
+            <li>
+              <%= link_to "Terminated Contracts", current_user_contracts_terminated_path%>
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="profile-content">
+        <h2>HERE WE PUT THE INFORMATION OF THE DASHBOARD</h2>
+        <% current_user.contracts.each do |contract| %>
+        <% next unless contract.end_date.nil? %>
+        <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "Details", contract_path(contract)  %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
