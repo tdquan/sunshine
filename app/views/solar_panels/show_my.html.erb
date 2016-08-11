@@ -9,7 +9,7 @@
       <div>
        <% if user_signed_in? && current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
-        <% else %
+        <% else %>
           <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
         <% end %>
       </div>
