@@ -10,6 +10,13 @@ class SolarPanelsController < ApplicationController
     else
       @solar_panels = SolarPanel.near(params[:street], 5)
     end
+
+    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
+      marker.lat solar_panel.latitude
+      marker.lng solar_panel.longitude
+      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+    end
+
   end
 
   def new
