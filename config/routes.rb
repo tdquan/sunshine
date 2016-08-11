@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # User
   resources :current_user, only: [] do
     collection do
-      resources :solar_panels, only: [:new, :create]
+      resources :solar_panels, only: [:new, :create] do
+        resources :contracts
+      end
     end
   end
 
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
 
 
 
