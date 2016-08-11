@@ -5,7 +5,9 @@
 <%= link_to "Terminated Contracts", current_user_contracts_terminated_path, class: "btn btn-default" %>
 
 
-<% current_user.contracts.each do |contract| %>
-  <% next unless contract.end_date.nil? %>
-  <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "Details", contract_path(contract)  %></li>
-<% end %>
+<ul>
+  <% current_user.contracts.each do |contract| %>
+    <% next if contract.end_date.nil? %>
+    <li>ContractID: <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.email %>, Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
+  <% end %>
+</ul>
