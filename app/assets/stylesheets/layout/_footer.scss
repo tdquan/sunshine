@@ -2,27 +2,21 @@
 #footer {
   height: 150px;
   bottom: 0;
-  background-color: $gray;
+  background-color: $gray-darker;
   position: relative;
   width: 100%;
   padding: 30px;
   color: #FFFFFF;
   font-size: 16;
   font-weight: bold;
-  margin-top: 20px;
 
   li {
     padding: 0 20px;
   }
 
-  a {
-    color: #FFFFFF;
-
-  }
-
-  .footer-item-container {
-      border-color: #aaa;
-      border-color: rgba(255,255,255,0.2);
+  a.footer-item-container {
+      color: #fff;
+      border-color: #fff;
       height: 36px;
       width: 36px;
       border-width: 1px;
@@ -31,6 +25,12 @@
       text-align: center;
       display: block;
       padding-top: 6px;
+      transition: 0.3s ease;
+
+      &:hover {
+        border-color: $orange;
+        background-color: $orange;
+      }
     }
 
 }
