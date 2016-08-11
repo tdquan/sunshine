@@ -1,0 +1,20 @@
+<h1>Contract Details</h1>
+
+<h3>ContractID: <%= @contract.id %></h3>
+
+<ul>
+  <li>Seller: <%= @contract.solar_panel.user.first_name + " " + @contract.solar_panel.user.last_name %></li>
+  <li>Buyer: <%= @contract.user.first_name + " " + @contract.user.last_name %></li>
+  <li>Price: <%= @contract.solar_panel.price %></li>
+  <li>Start-Date: <%= @contract.start_date %></li>
+
+  <% if @contract.end_date %>
+    <li>End-Date_ <%= @contract.end_date %></li>
+  <% end %>
+
+</ul>
+
+<% unless @contract.end_date %>
+  <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch  %>
+
+<% end %>

@@ -1,3 +1,10 @@
 <%= link_to "Solar panels around me", user_solar_panels_path, class: "btn btn-default" %>
 <%= link_to "My solar panels", user_my_panels_path, class: "btn btn-default" %>
 <%= link_to "Create new panel", new_solar_panel_path, class: "btn btn-default" %>
+<%= link_to "Terminated Contracts", current_user_contracts_terminated_path, class: "btn btn-default" %>
+
+
+<% current_user.contracts.each do |contract| %>
+  <% next unless contract.end_date.nil? %>
+  <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "Details", contract_path(contract)  %></li>
+<% end %>
