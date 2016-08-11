@@ -7,5 +7,5 @@
 
 <% current_user.contracts.each do |contract| %>
   <% next unless contract.end_date.nil? %>
-  <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "Details", contract_path(contract)  %></li>
+  <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %> <%= link_to "Details", contract_path(contract)  %></li>
 <% end %>
