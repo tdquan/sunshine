@@ -3,6 +3,38 @@ a:hover {
   color: inherit;
 }
 
-.container {
+.container.uncolapsible {
   min-height: calc(100vh - 365px);
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.orange-bg {
+  background-color: $orange;
+}
+
+.green-bg {
+  background-color: $green;
+}
+
+.dark-gray-bg {
+  background-color: $gray;
+}
+
+.orange-text {
+  color: $orange;
+}
+
+.green-text {
+  color: $green;
+}
+
+.white-text {
+  color: white;
 }

@@ -149,3 +149,104 @@ a.navbar-wagon-button:visited {
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+// Homepage video
+
+.video-container {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+}
+
+body {
+  margin: 0;
+  background: #000;
+}
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
+
+#info-box {
+  font-family: "Open-Sans", "Helvetica", "Arial Narrow", sans-serif;
+  font-weight:100;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  font-size: 1.2rem;
+  margin: 10% auto 0;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+  text-align: center;
+  color: $orange;
+}
+#info-box button {
+  display: block;
+  width: 80%;
+  padding: 0 20px;
+  border: none;
+  margin: 1rem auto;
+  font-size: 14px;
+  line-height: 40px;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 20em;
+  cursor: pointer;
+  transition: .3s background;
+}
+#info-box button:hover {
+   background: rgba(0,0,0,0.5);
+}
+
+#info-box a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background;
+}
+#info-box a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) {
+  div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url("http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg") #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+// Homepage navbar
+
+.homepage-navbar {
+  background-color: rgba(0,0,0,0.3);
+  padding: 5px;
+}
+
+.homepage-navbar-logo {
+  display: inline-block;
+  width: 50px;
+}
+
+.navbar-avatar-group {
+  display: inline-block;
+}

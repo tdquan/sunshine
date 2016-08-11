@@ -13,13 +13,13 @@
 </head>
 <body>
 
-  <% if  @homepage %>
+  <% if @homepage %>
     <%= yield %>
   <% else %>
     <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div class="container">
+    <div class="container uncolapsible">
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
