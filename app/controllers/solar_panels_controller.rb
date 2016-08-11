@@ -4,6 +4,14 @@ class SolarPanelsController < ApplicationController
     @solar_panels = SolarPanel.where.not(user_id: current_user.id)
   end
 
+  def located_solar_panels
+    if current_user
+      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 5)
+    else
+      @solar_panels = SolarPanel.near(params[:street], 5)
+    end
+  end
+
   def new
     @solar_panel = current_user.solar_panels.new
   end
