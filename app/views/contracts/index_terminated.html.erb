@@ -1,0 +1,6 @@
+<ul>
+  <% current_user.contracts.each do |contract| %>
+    <% next if contract.end_date.nil? %>
+    <li>ContractID: <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.email %>, Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
+  <% end %>
+</ul>
