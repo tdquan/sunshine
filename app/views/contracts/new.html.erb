@@ -1,0 +1,11 @@
+<h1>Contract Details</h1>
+
+<ul>
+
+  <li>Seller: <%= @solar_panel.user.email %></li>
+  <li>Buyer: <%= current_user.email %></li>
+  <li>Price/Sol: <%= @solar_panel.price %></li>
+
+</ul>
+
+<%= link_to 'Sign Contract', solar_panel_contracts_path, :method => :post%>
