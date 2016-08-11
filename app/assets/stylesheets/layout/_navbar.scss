@@ -153,8 +153,7 @@ a.navbar-wagon-button:visited {
 // Homepage video
 
 .video-container {
-  position: absolute;
-  height: 100vh;
+  height: 100%;
   top: 0;
 }
 
@@ -239,7 +238,7 @@ h1 {
 
 .homepage-navbar {
   background-color: rgba(0,0,0,0.3);
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .homepage-navbar-logo {
@@ -249,4 +248,5 @@ h1 {
 
 .navbar-avatar-group {
   display: inline-block;
+  cursor: pointer;
 }
