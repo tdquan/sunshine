@@ -1,6 +1,12 @@
+<% if current_user.contracts.where(end_date: nil).nil? %>
+  <p>No terminated contracts</p>
+<% end %>
+
 <ul>
   <% current_user.contracts.each do |contract| %>
     <% next if contract.end_date.nil? %>
-    <li>ContractID: <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.email %>, Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
+    <li>ContractID: <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.first_name + " " + contract.solar_panel.user.last_name%> , Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
   <% end %>
 </ul>
+
+<%= link_to "Back", user_dashboard_path, class: "btn btn-default" %>

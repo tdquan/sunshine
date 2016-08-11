@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root to: 'pages#home'
 
   get "/current_user/contracts/terminated" => 'contracts#index_terminated'
@@ -24,10 +25,9 @@ Rails.application.routes.draw do
   get "/current_user/solar_panels" => "solar_panels#index", as: "user_solar_panels"
   get "/current_user/solar_panels/:id" => "solar_panels#show", as: "show_solar_panel"
 
-  devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
-
+  devise_for :users, :controllers => {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
 
   # The priority is based upon order of creation: first created -> highest priority.
