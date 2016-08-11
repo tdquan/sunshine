@@ -8,6 +8,11 @@ body {
   margin: 20px 0;
 }
 
+.user-city{
+  color: #5a7391;
+  font-size: 13px;
+  font-weight: 600;
+}
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
@@ -15,13 +20,8 @@ body {
 }
 
 .profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .profile-usertitle {
@@ -106,4 +106,6 @@ body {
   background: #fff;
   min-height: 460px;
 }
+
+
 

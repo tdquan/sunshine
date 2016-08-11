@@ -5,7 +5,7 @@
     <div class="col-md-3">
       <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
+        <div class="profile-userpic text-center">
           <%= image_tag current_user.facebook_picture_url%>
         </div>
         <!-- END SIDEBAR USERPIC -->
@@ -13,6 +13,9 @@
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
             <%= current_user.first_name %>
+          </div>
+          <div class="user-city">
+            <p>Lisbon, Portugal</p>
           </div>
         </div>
         <!-- END SIDEBAR USER TITLE -->
@@ -44,10 +47,10 @@
     </div>
     <div class="col-md-9">
       <div class="profile-content">
-        <h2>HERE WE PUT THE INFORMATION OF THE DASHBOARD</h2>
+        <h2 class=title>MY CONTRACTS</h2>
         <% current_user.contracts.each do |contract| %>
         <% next unless contract.end_date.nil? %>
-        <li>ContractID <%= contract.id%>: You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "Details", contract_path(contract)  %></li>
+        <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "See Details", contract_path(contract)  %></li>
         <% end %>
       </div>
     </div>
