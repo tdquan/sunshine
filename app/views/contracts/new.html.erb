@@ -2,10 +2,11 @@
 
 <ul>
 
-  <li>Seller: <%= @solar_panel.user.first_name + " " + @solar_panel.user.last_name %></li>
+  <li>Seller: <%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></li>
   <li>Buyer: <%= current_user.first_name + " " + current_user.last_name %></li>
   <li>Price/Sol: <%= @solar_panel.price %></li>
 
 </ul>
 
-<%= link_to 'Sign Contract', solar_panel_contracts_path, :method => :post%>
+<%= link_to 'Sign Contract', solar_panel_contracts_path, :method => :post, class: "btn btn-primary"%>
+<%= link_to "Back", user_my_panels_path, class: "btn btn-primary" %>
