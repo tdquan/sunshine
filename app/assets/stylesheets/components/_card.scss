@@ -5,25 +5,18 @@ body{
 .card {
   background-color: rgba(255, 255, 255, 1);
   padding: 30px 0;
-  text-align: center;
   border-radius: 3px;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
   list-style-type: none;
-  color: $gray;
+  color: $gray-dark;
 }
 
 .card-content-container {
-  padding: 0 50px;
+  padding: 0 40px;
 }
 
-.card-bottom-button-orange {
-  padding: 7px 15px;
-  text-decoration: none;
-  color: #fff;
-  background-color: $orange;
+.card-title {
+  font-weight: bolder;
+  margin-bottom: 2em;
 }
 
-.card-bottom-button-orange:hover {
-  color: #fff;
-  opacity: 0.9;
-}

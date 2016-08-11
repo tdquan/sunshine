@@ -7,11 +7,16 @@
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card">
       <div>
-        <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+       <% if user_signed_in? && current_user.facebook_picture_url %>
+            <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <% else %>
+          <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+        <% end %>
       </div>
       <hr>
       <div class="card-content-container text-left">
-        <p><b>Address :</b>&nbsp;<span>25 Rua Sao Bento</span></p>
+        <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+        <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
         <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
         <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
       </div>
