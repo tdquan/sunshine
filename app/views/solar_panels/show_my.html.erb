@@ -6,7 +6,7 @@
 <% @solar_panels.each do |solar_panel| %>
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card">
-      <div>
+      <div class="text-center">
        <% if user_signed_in? && current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
         <% else %>
