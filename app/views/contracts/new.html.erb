@@ -2,8 +2,8 @@
 
 <ul>
 
-  <li>Seller: <%= @solar_panel.user.email %></li>
-  <li>Buyer: <%= current_user.email %></li>
+  <li>Seller: <%= @solar_panel.user.first_name + " " + @solar_panel.user.last_name %></li>
+  <li>Buyer: <%= current_user.first_name + " " + current_user.last_name %></li>
   <li>Price/Sol: <%= @solar_panel.price %></li>
 
 </ul>
