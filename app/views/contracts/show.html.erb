@@ -3,8 +3,8 @@
 <h3>ContractID: <%= @contract.id %></h3>
 
 <ul>
-  <li>Seller: <%= @contract.solar_panel.user.first_name + " " + @contract.solar_panel.user.last_name %></li>
-  <li>Buyer: <%= @contract.user.first_name + " " + @contract.user.last_name %></li>
+  <li>Seller: <%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></li>
+  <li>Buyer: <%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></li>
   <li>Price: <%= @contract.solar_panel.price %></li>
   <li>Start-Date: <%= @contract.start_date %></li>
 
@@ -14,7 +14,9 @@
 
 </ul>
 
-<% unless @contract.end_date %>
-  <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch  %>
-
+<% if @contract.end_date %>
+  <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
+<% else %>
+  <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "btn btn-default"  %>
+  <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
 <% end %>

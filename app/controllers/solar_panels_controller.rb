@@ -29,6 +29,6 @@ class SolarPanelsController < ApplicationController
   private
 
   def panel_params
-    params.require(:solar_panel).permit(:size, :efficiency, :price)
+    params.require(:solar_panel).permit(:size, :efficiency, :price, :address)
   end
 end
