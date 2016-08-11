@@ -11,7 +11,7 @@ class SolarPanelsController < ApplicationController
   def create
     @solar_panel = current_user.solar_panels.new(panel_params)
     @solar_panel.save
-    redirect_to solar_panels_path
+    redirect_to user_solar_panels_path
   end
 
   def show
@@ -19,7 +19,7 @@ class SolarPanelsController < ApplicationController
   end
 
   def show_my
-    @solar_panel = current_user.solar_panels.find(params[:id])
+    @solar_panels = current_user.solar_panels
   end
 
   def destroy
