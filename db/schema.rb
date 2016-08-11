@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160811163606) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "status"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
