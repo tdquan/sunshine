@@ -1,38 +1,41 @@
-<% if @solar_panels.empty? %>
-  <div class="row">
-    <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <h4>No one is selling on your street</h3>
-    </div>
-  </div>
-<% end %>
-<% if current_user.address %>
-  <% @solar_panels.each do |solar_panel| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card">
-        <div class="text-center">
-          <% if solar_panel.user.facebook_picture_url %>
-              <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
-          <% else %>
-            <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
-          <% end %>
-        </div>
-        <hr>
-        <div class="card-content-container text-left">
-          <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
-          <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-          <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-          <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
-        </div>
-        <hr>
-        <%= link_to "Details", show_solar_panel_path(solar_panel), class: "btn card-bottom-button-full" %>
+<% if current_user.address.nil? %>
+  <p class="alert">Please add your address to your profile <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-default" %></p>
+<% else %>
+
+
+  <% if @solar_panels.empty? %>
+    <div class="row">
+      <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <h4>No one is selling on your street</h3>
       </div>
     </div>
   <% end %>
+  <% if current_user.address %>
+    <% @solar_panels.each do |solar_panel| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div class="text-center">
+            <% if solar_panel.user.facebook_picture_url %>
+                <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
+            <% else %>
+              <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+            <% end %>
+          </div>
+          <hr>
+          <div class="card-content-container text-left">
+            <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+            <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
+            <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+            <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
+          </div>
+          <hr>
+          <%= link_to "Details", show_solar_panel_path(solar_panel), class: "btn card-bottom-button-full" %>
+        </div>
+      </div>
+     <% end %>
+     <% end %>
 
-  <% else %>
-    <p>Please add your address to your profile</p>
-    <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-default" %>
-  <% end %>
+<% end %>
 
 <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
 
