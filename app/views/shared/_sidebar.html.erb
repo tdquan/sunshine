@@ -3,7 +3,11 @@
     <div class="profile-sidebar">
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">
-        <%= image_tag current_user.facebook_picture_url%>
+        <% if current_user.facebook_picture_url.nil?%>
+          <%= image_tag "avatar.png", class: "avatar-large" %>
+        <% else %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <% end %>
       </div>
       <!-- END SIDEBAR USERPIC -->
       <!-- SIDEBAR USER TITLE -->

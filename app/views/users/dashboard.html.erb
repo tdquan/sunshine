@@ -1,10 +1,9 @@
-
-<div class="">
+<div class="row profile">
   <div class="profile-content">
     <h2 class=title>MY CONTRACTS</h2>
     <% current_user.contracts.each do |contract| %>
     <% next unless contract.end_date.nil? %>
-    <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "See Details", contract_path(contract)  %></li>
+      <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %> <%= link_to "See Details", contract_path(contract) %></li>
     <% end %>
   </div>
 </div>
