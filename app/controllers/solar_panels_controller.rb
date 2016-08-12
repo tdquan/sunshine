@@ -6,9 +6,9 @@ class SolarPanelsController < ApplicationController
 
   def located_solar_panels
     if current_user
-      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 5)
+      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 1)
     else
-      @solar_panels = SolarPanel.near(params[:street], 5)
+      @solar_panels = SolarPanel.near(params[:street], 1)
     end
 
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|

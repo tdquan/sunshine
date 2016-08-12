@@ -5,5 +5,10 @@
 
   <br>
 
-  <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "btn btn-primary" %>
-  <%= link_to "Back", user_my_panels_path, class: "btn btn-primary" %>
+  <% if current_user.nil? %>
+    <%= link_to "Purchase", new_user_session_path, class: "btn btn-primary" %>
+    <%= link_to "Back", current_user_located_solar_panels_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "btn btn-primary" %>
+    <%= link_to "Back", user_my_panels_path, class: "btn btn-primary" %>
+  <% end %>
