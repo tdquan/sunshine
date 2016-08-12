@@ -1,3 +1,10 @@
+<% if @solar_panels.empty? %>
+  <div class="row">
+    <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <h4>No one is selling on your street</h3>
+    </div>
+  </div>
+<% end %>
 <% if current_user.address %>
 
   <% if @solar_panels.empty? %>
@@ -32,4 +39,5 @@
     <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-default" %>
   <% end %>
 
-  <%= link_to "Back", user_dashboard_path, class: "btn btn-default" %>
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+
