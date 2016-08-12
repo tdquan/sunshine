@@ -65,6 +65,7 @@ body {
   display: block;
   border-left: 2px solid $darkest-blue;
   font-size: 0.9em;
+  transition: 0.5s ease;
 }
 
 .profile-usermenu-item a:hover, .profile-usermenu-item a:active {
@@ -78,6 +79,25 @@ body {
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}
+
+// Signout button
+
+.sidebar-signout-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20em;
+  line-height: 40px;
+  min-width: 100px;
+  background-color: $dark-blue;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: $orange;
+  }
 }
 
 

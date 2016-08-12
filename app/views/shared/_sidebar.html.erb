@@ -16,12 +16,8 @@
         </div>
       </div>
       <!-- END SIDEBAR USER TITLE -->
-      <!-- SIDEBAR BUTTONS -->
-      <!-- <div class="profile-userbuttons">
-        <button type="button" class="btn btn-success btn-sm">Follow</button>
-        <button type="button" class="btn btn-danger btn-sm">Message</button>
-      </div> -->
-      <!-- END SIDEBAR BUTTONS -->
+
+
       <!-- SIDEBAR MENU -->
       <div>
         <ul class="profile-usermenu">
@@ -41,6 +37,12 @@
       </div>
         <!-- END MENU -->
     </div>
+  </div>
+
+  <div class="text-center sidebar-bottom-button-grp">
+    <%= link_to destroy_user_session_path, method: :delete, class: "sidebar-signout-btn" do %>
+      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+    <% end %>
   </div>
 
 </aside>

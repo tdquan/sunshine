@@ -18,5 +18,5 @@
   <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
 <% else %>
   <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "btn btn-default"  %>
-  <%= link_to 'Back', user_dashboard_path, class: "btn btn-default" %>
+  <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button back-btn" %>
 <% end %>
