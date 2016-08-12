@@ -1,27 +1,29 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-    <div class="card">
+<div class="video-container">
+  <div class="info-box">
+    <h2 class="text-center">SIGN UP</h2>
+      <div class="card-content-container">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-      <h2>Sign up</h2>
+          <div class="form-inputs">
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :first_name, required: true, autofocus: true, hint: ("#{@minimum_last_name_length} characters minimum" if @minimum_last_name_length) %>
+            <%= f.input :last_name, required: true, autofocus: true %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+          </div>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "info-box-btn" %>
+          </div>
 
-      <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :first_name, required: true, autofocus: true, hint: ("#{@minimum_last_name_length} characters minimum" if @minimum_last_name_length) %>
-        <%= f.input :last_name, required: true, autofocus: true %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+        <% end %>
       </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
-
-      <% end %>
-
       <%= render "devise/shared/links" %>
-    </div>
   </div>
+
+  <video poster="http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg" id="bgvid" playsinline autoplay muted loop>
+    <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+  <source src="http://www.solarcity.com/sites/all/themes/solarcity/video/video-bg.mp4">
+  </video>
 </div>

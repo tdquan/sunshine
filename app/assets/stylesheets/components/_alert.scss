@@ -2,35 +2,41 @@
  * Your CSS code for flash notices and alerts
 * ------------------------------------- */
 
-.alert-error {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: center;
- }
+// .alert-error {
+//     background-color: #f2dede;
+//     border-color: #eed3d7;
+//     color: #b94a48;
+//     text-align: center;
+//  }
 
-.alert-alert {
-    background-color: #f2dede;
-    border-color: #eed3d7;
-    color: #b94a48;
-    text-align: center;
- }
+// .alert-alert {
+//     background-color: #f2dede;
+//     border-color: #eed3d7;
+//     color: #b94a48;
+//     text-align: center;
+//  }
 
-.alert-success {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: center;
- }
+// .alert-success {
+//     background-color: #dff0d8;
+//     border-color: #d6e9c6;
+//     color: #468847;
+//     text-align: center;
+//  }
 
-.alert-notice {
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #468847;
-    text-align: center;
- }
+// .alert-notice {
+//     background-color: #dff0d8;
+//     border-color: #d6e9c6;
+//     color: #468847;
+//     text-align: center;
+//  }
 
 // to take out the dots of the alerts when listed
+
+.alert {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+}
 
 .list{
   list-style-type: none;
