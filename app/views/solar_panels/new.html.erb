@@ -1,11 +1,13 @@
-<%= form_for @solar_panel, url: {action: "create"} do |f| %>
-  <%= f.number_field :size, placeholder: "Size of panel" %>
-  <%= f.number_field :price, placeholder: "Price per sol" %>
-  <%= f.number_field :efficiency, placeholder: "Efficiency" %>
-  <%= f.text_field :address, placeholder: "address" %>
-  <%= f.submit value: "Save Panel" %>
-<% end %>
 
-<%= link_to "Back", user_dashboard_path, class: "btn btn-default" %>
+<div class="text-center card">
+  <%= form_for @solar_panel, url: {action: "create"}, class:"create-panel-form" do |f| %>
+    <%= f.number_field :size, placeholder: "Size of panel", class: "round-input-field" %>
+    <%= f.number_field :price, placeholder: "Price per sol", class: "round-input-field", step: 0.01 %>
+    <%= f.number_field :efficiency, placeholder: "Efficiency", class: "round-input-field", step: 0.01 %>
+    <%= f.text_field :address, placeholder: "address", class: "round-input-field" %>
+    <%= f.submit value: "Save Panel", class: "navbar-wagon-item navbar-wagon-button" %>
+  <% end %>
 
+</div>
 
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>

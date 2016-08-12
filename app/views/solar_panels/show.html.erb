@@ -1,9 +1,43 @@
-  <div><label>Id:&nbsp;</label><span><%= @solar_panel.id %></span></div>
-  <div><label>Size:&nbsp;</label><span><%= @solar_panel.size %></span></div>
-  <div><label>Efficiency:&nbsp;</label><span><%= @solar_panel.efficiency %></span></div>
-  <div><label>Owner:&nbsp;</label><span><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></span></div>
+<div class="row">
+  <section class="col-xs-12 col-sm-7">
+    <div class="card">
+      <h3 class="text-center">Contract details</h3>
+      <br>
+      <div class="card-content-container">
+        <div><label>Id:&nbsp;</label><span><%= @solar_panel.id %></span></div>
+        <div><label>Size:&nbsp;</label><span><%= @solar_panel.size %></span></div>
+        <div><label>Efficiency:&nbsp;</label><span><%= @solar_panel.efficiency %></span></div>
+      </div>
+    </div>
+  </section>
 
-  <br>
+  <section class="col-xs-12 col-sm-4">
+    <div class="card">
+      <h3 class="text-center">Owner details</h3>
+      <br>
+      <div class="text-center">
+        <% if @solar_panel.user.facebook_picture_url %>
+            <%= image_tag @solar_panel.user.facebook_picture_url, class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+        <% end %>
+      </div>
+      <br>
+      <div class="card-content-container">
+        <p class="text-center"><b><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></b></p>
+        <br>
+        <p class="orange-text"><b class="">Reviews :&nbsp;</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "btn btn-primary" %>
-  <%= link_to "Back", user_my_panels_path, class: "btn btn-primary" %>
+<br>
+
+<% if @solar_panel.user.id != current_user.id %>
+  <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "navbar-wagon-item navbar-wagon-button" %>
+<% end %>
+
+
+<%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button back-btn" %>
+

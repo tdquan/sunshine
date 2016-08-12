@@ -1,7 +1,34 @@
 <h1><%= params[:street] %></h1>
 
 <% if @solar_panels.empty? %>
-  <p>Noone is selling in your street</p>
+  <div class="row">
+    <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <h4>No one is selling on your street</h3>
+    </div>
+  </div>
+<% end %>
+
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(10);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(20);
+        }
+      });
+    });
+  <% end %>
 <% end %>
 
 <% @solar_panels.each do |solar_panel| %>
@@ -27,4 +54,8 @@
   </div>
 <% end %>
 
-<%= link_to "Back", user_dashboard_path, class: "btn btn-default" %>
+<% if current_user.nil? %>
+<%= link_to "Back", root_path, class: "navbar-wagon-button back-btn" %>
+<% else %>
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+<% end %>

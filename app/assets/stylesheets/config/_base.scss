@@ -4,7 +4,7 @@ a:hover {
 }
 
 .container.uncolapsible {
-  min-height: calc(100vh - 365px);
+  min-height: calc(100vh - 300px);
 }
 
 .float-right {
@@ -37,4 +37,18 @@ a:hover {
 
 .white-text {
   color: white;
+}
+
+.round-input-field {
+  padding: 0 20px;
+  line-height: 40px;
+  border: none;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: inset 0 0 3px;
+}
+
+.round-input-field:focus {
+  outline: none;
+  box-shadow: inset 0 0 3px $orange;
 }
