@@ -181,7 +181,7 @@ video {
    opacity: .5;
 }
 
-#info-box {
+.info-box {
   font-family: "Open-Sans", "Helvetica", "Arial Narrow", sans-serif;
   font-weight:100;
   background: rgba(0,0,0,0.3);
@@ -189,7 +189,7 @@ video {
   padding: 2rem;
   width: 33%;
   font-size: 1.2rem;
-  margin: 10% auto 0;
+  margin: 7% auto 0;
 }
 h1 {
   font-size: 3rem;
@@ -199,7 +199,7 @@ h1 {
   text-align: center;
   color: $orange;
 }
-#info-box button {
+.info-box .info-box-btn {
   display: block;
   width: 80%;
   padding: 0 20px;
@@ -213,11 +213,11 @@ h1 {
   cursor: pointer;
   transition: .3s background;
 }
-#info-box button:hover {
+.info-box .info-box-btn:hover {
    background: rgba(0,0,0,0.5);
 }
 
-#info-box a {
+.info-box a {
   display: inline-block;
   color: #fff;
   text-decoration: none;
@@ -225,7 +225,7 @@ h1 {
   padding: .5rem;
   transition: .6s background;
 }
-#info-box a:hover{
+.info-box a:hover{
   background:rgba(0,0,0,0.9);
 }
 @media screen and (max-width: 500px) {

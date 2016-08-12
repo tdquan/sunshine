@@ -6,11 +6,6 @@
   </div>
 <% end %>
 <% if current_user.address %>
-
-  <% if @solar_panels.empty? %>
-    <p>No one is selling in your street</p>
-  <% end %>
-
   <% @solar_panels.each do |solar_panel| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card">
