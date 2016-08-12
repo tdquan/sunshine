@@ -30,7 +30,10 @@
             <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
           </div>
           <hr>
-          <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+          <div class="text-center">
+            <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+          </div>
+
         </div>
       </div>
      <% end %>
