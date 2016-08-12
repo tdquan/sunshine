@@ -1,7 +1,11 @@
 <h1><%= params[:street] %></h1>
 
 <% if @solar_panels.empty? %>
-  <p>Noone is selling in your street</p>
+  <div class="row">
+    <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <h4>No one is selling on your street</h3>
+    </div>
+  </div>
 <% end %>
 
 <% @solar_panels.each do |solar_panel| %>
@@ -27,4 +31,4 @@
   </div>
 <% end %>
 
-<%= link_to "Back", user_dashboard_path, class: "btn btn-default" %>
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-item navbar-wagon-button" %>

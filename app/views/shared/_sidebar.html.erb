@@ -1,0 +1,46 @@
+<aside id="sidebar" class="col-xs-12 col-sm-3 col-md-2">
+  <div class="">
+    <div class="profile-sidebar">
+      <!-- SIDEBAR USERPIC -->
+      <div class="profile-userpic text-center">
+        <%= image_tag current_user.facebook_picture_url%>
+      </div>
+      <!-- END SIDEBAR USERPIC -->
+      <!-- SIDEBAR USER TITLE -->
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          <%= current_user.first_name %>
+        </div>
+        <div class="user-city">
+          <p>Lisbon, Portugal</p>
+        </div>
+      </div>
+      <!-- END SIDEBAR USER TITLE -->
+      <!-- SIDEBAR BUTTONS -->
+      <!-- <div class="profile-userbuttons">
+        <button type="button" class="btn btn-success btn-sm">Follow</button>
+        <button type="button" class="btn btn-danger btn-sm">Message</button>
+      </div> -->
+      <!-- END SIDEBAR BUTTONS -->
+      <!-- SIDEBAR MENU -->
+      <div>
+        <ul class="profile-usermenu">
+          <li class="profile-usermenu-item">
+            <%= link_to "Solar panels around me", user_solar_panels_path %>
+          </li>
+          <li class="profile-usermenu-item">
+            <%= link_to "My solar panels", user_my_panels_path%>
+          </li>
+          <li class="profile-usermenu-item">
+            <%= link_to "Create new panel", new_solar_panel_path%>
+          </li>
+          <li class="profile-usermenu-item">
+            <%= link_to "Terminated Contracts", current_user_contracts_terminated_path%>
+          </li>
+        </ul>
+      </div>
+        <!-- END MENU -->
+    </div>
+  </div>
+
+</aside>
