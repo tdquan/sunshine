@@ -53,14 +53,16 @@
 
 /* Navbar right button */
 .navbar-wagon-button {
-  margin-left: 10px;
+  text-align: center;
+  display: inline-block;
   padding: 0 20px;
+  border: none;
   border-radius: 20em;
   line-height: 40px;
+  min-width: 100px;
   background-color: $orange;
   color: white;
   font-size: 14px;
-  border: 2px solid $orange;
   transition: all 0.2s ease;
 }
 .navbar-wagon-button:hover {

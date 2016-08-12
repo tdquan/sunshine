@@ -9,19 +9,23 @@
   <%= csrf_meta_tags %>
 
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
 <body>
 
   <% if @homepage %>
     <%= yield %>
   <% else %>
-    <%= render 'shared/navbar' %>
-    <%= render 'layouts/messages' %>
-    <div class="container uncolapsible">
+    <% if current_user.nil? %>
+      <%= render 'layouts/messages' %>
       <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
+    <% else %>
+      <%= render 'shared/sidebar' %>
+      <div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 dashboard-wrapper">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+      </div>
+    <% end %>
 
   <% end %>
 
