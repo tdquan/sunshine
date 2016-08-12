@@ -1,15 +1,22 @@
 class SolarPanelsController < ApplicationController
 
   def index
-    @solar_panels = SolarPanel.where.not(user_id: current_user.id)
+    @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
   end
 
   def located_solar_panels
     if current_user
-      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 5)
+      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 1)
     else
-      @solar_panels = SolarPanel.near(params[:street], 5)
+      @solar_panels = SolarPanel.near(params[:street], 1)
     end
+
+    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
+      marker.lat solar_panel.latitude
+      marker.lng solar_panel.longitude
+      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+    end
+
   end
 
   def new

@@ -1,0 +1,10 @@
+<div class="map_box">
+  <% if solar_panel.user.facebook_picture_url %>
+    <div class="text-center"><%= image_tag solar_panel.user.facebook_picture_url,class: "avatar-large" %></div>
+  <% else %>
+    <div class="text-center"><%= image_tag "avatar.png", class: "avatar-large" %></div>
+  <% end %>
+  <h3><%= solar_panel.user.first_name.capitalize %>'s Solar Panel</h3>
+  <p><%= solar_panel.address %></p>
+  <%= link_to "Details",  show_solar_panel_path(solar_panel), target: :blank, class: "btn btn-warning" %>
+</div>

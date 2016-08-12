@@ -5,17 +5,22 @@
     <div class="col-md-3">
       <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic text-center">
-          <%= image_tag current_user.facebook_picture_url%>
+        <div class="text-center">
+           <% if current_user.facebook_picture_url.nil?%>
+            <%= image_tag "avatar.png", class: "avatar-large" %>
+          <% else %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <% end %>
         </div>
+
         <!-- END SIDEBAR USERPIC -->
         <!-- SIDEBAR USER TITLE -->
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
-            <%= current_user.first_name %>
+            <%= current_user.first_name.capitalize %>
           </div>
           <div class="user-city">
-            <p>Lisbon, Portugal</p>
+            <p><%= current_user.address %></p>
           </div>
         </div>
         <!-- END SIDEBAR USER TITLE -->
@@ -50,7 +55,7 @@
         <h2 class=title>MY CONTRACTS</h2>
         <% current_user.contracts.each do |contract| %>
         <% next unless contract.end_date.nil? %>
-        <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.email %> <%= link_to "See Details", contract_path(contract)  %></li>
+        <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %> <%= link_to "See Details", contract_path(contract)  %></li>
         <% end %>
       </div>
     </div>
