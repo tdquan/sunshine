@@ -1,26 +1,22 @@
-<h1>Contract Details</h1>
-
-<h3>ContractID: <%= @contract.id %></h3>
-
-<ul>
-  <li>Seller: <%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></li>
-  <li>Buyer: <%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></li>
-  <li>Price: <%= @contract.solar_panel.price %></li>
-  <li>Start-Date: <%= @contract.start_date %></li>
-
-  <% if @contract.end_date %>
-    <li>End-Date_ <%= @contract.end_date %></li>
-  <% end %>
-
-</ul>
-
-<% if @contract.end_date %>
-  <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
-<% else %>
-  <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "btn btn-default"  %>
-  <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button back-btn" %>
-<% end %>
-
-
-
+<div class="row profile">
+  <div class="profile-content">
+    <div class="text-center card">
+      <h1 class="title">Contract Details</h1>
+      <h3 class="title">Contract Number: <%= @contract.id %></h3>
+      <li class="contracts">Seller: <%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></li>
+      <li class="contracts">Buyer: <%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></li>
+      <li class="contracts">Price: <%= @contract.solar_panel.price %></li>
+      <li class="contracts">Start-Date: <%= @contract.start_date %></li>
+      <% if @contract.end_date %>
+      <li class="contracts">End-Date_ <%= @contract.end_date %></li>
+      <% end %>
+      <% if @contract.end_date %>
+      <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
+      <% else %>
+      <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "navbar-wagon-button"  %>
+      <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
