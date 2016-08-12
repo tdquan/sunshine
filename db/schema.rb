@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160812000456) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "status"
     t.string   "address"
   end
 
