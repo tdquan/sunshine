@@ -1,4 +1,4 @@
-
+<div class="located_solar_panels">
 
   <h1><%= params[:street] %></h1>
 
@@ -31,7 +31,6 @@
             handler.getMap().setZoom(20);
           }
         });
-
       });
     <% end %>
   <% end %>
@@ -64,3 +63,5 @@
   <% else %>
   <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
   <% end %>
+
+</div>
