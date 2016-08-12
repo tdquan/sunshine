@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <div class="row map-container">
     <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
       <div id="map" style="width: 100%; height: 500px;"></div>
     </div>
@@ -54,7 +54,10 @@
           <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
         </div>
         <hr>
-        <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+        <div class="text-center">
+          <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+        </div>
+
       </div>
     </div>
   <% end %>

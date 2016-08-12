@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <div class="row map-container">
     <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
       <div id="map" style="width: 100%; height: 500px;"></div>
     </div>
@@ -61,7 +61,9 @@
   <% if current_user.nil? %>
   <%= link_to "Back", root_path, class: "navbar-wagon-button back-btn" %>
   <% else %>
-  <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+  <div class="text-center">
+    <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+  </div>
   <% end %>
 
 </div>
