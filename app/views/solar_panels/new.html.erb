@@ -1,11 +1,17 @@
 
-<div class="text-center card">
-  <%= form_for @solar_panel, url: {action: "create"}, class:"create-panel-form" do |f| %>
-    <%= f.number_field :size, placeholder: "Size of panel", class: "round-input-field" %>
-    <%= f.number_field :price, placeholder: "Price per sol", class: "round-input-field", step: 0.01 %>
-    <%= f.number_field :efficiency, placeholder: "Efficiency", class: "round-input-field", step: 0.01 %>
-    <%= f.text_field :address, placeholder: "address", class: "round-input-field" %>
-    <%= f.submit value: "Save Panel", class: "navbar-wagon-item navbar-wagon-button" %>
+<div class="text-center info-box card">
+  <h3 class="text-center">Create your panel</h3>
+  <br>
+  <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
+  <div class="form-inputs text-left card-content-container">
+    <%= f.input :size, required: true, autofocus: true, placeholder: "Size of panel" %>
+    <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01 %>
+    <%= f.input :efficiency, required: true, autofocus: true, placeholder: "Efficiency", step: 0.01 %>
+    <%= f.input :address, required: true, autofocus: true, placeholder: "address" %>
+    <div class="form-actions text-center">
+      <%= f.submit value: "Save Panel", class: "navbar-wagon-item navbar-wagon-button" %>
+    </div>
+  </div>
   <% end %>
 
 </div>

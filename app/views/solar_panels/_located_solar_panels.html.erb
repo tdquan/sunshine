@@ -11,8 +11,8 @@
   <% end %>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <div class="map-card" id="map" style="width: 100%; height: 500px;"></div>
+    <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
+      <div id="map" style="width: 100%; height: 500px;"></div>
     </div>
   </div>
 
@@ -53,7 +53,7 @@
           <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
         </div>
         <hr>
-        <%= link_to "Details", show_solar_panel_path(solar_panel), class: "btn card-bottom-button-full" %>
+        <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
       </div>
     </div>
   <% end %>
