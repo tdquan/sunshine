@@ -1,7 +1,7 @@
 class SolarPanelsController < ApplicationController
 
   def index
-    @solar_panels = SolarPanel.where.not(user_id: current_user.id)
+    @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
   end
 
   def located_solar_panels
