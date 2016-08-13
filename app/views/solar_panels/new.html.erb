@@ -7,7 +7,7 @@
     <%= f.input :size, required: true, autofocus: true, placeholder: "Size of panel" %>
     <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01 %>
     <%= f.input :efficiency, required: true, autofocus: true, placeholder: "Efficiency", step: 0.01 %>
-    <%= f.input :address, required: true, autofocus: true, placeholder: "address" %>
+    <%= f.input :address, required: true, autofocus: true, placeholder: "address", :input_html => { :value => current_user.address }  %>
     <div class="form-actions text-center">
       <%= f.submit value: "Save Panel", class: "navbar-wagon-item navbar-wagon-button" %>
     </div>
