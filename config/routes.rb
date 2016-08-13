@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+
   get "/current_user/contracts/terminated" => 'contracts#index_terminated'
   get "/current_user/located_solar_panels" => 'solar_panels#located_solar_panels'
   # User
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   end
 
 
-
+  patch "/current_user/dashboard/" => "solar_panels#addUserAddress"
   get "/current_user/dashboard" => "users#dashboard", as: "user_dashboard"
   get "/current_user/my_panels" => "solar_panels#show_my", as: "user_my_panels"
   get "/current_user/my_panels/:id" => "solar_panels#show", as: "my_solar_panel"
