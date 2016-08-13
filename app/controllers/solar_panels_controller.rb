@@ -2,6 +2,7 @@ class SolarPanelsController < ApplicationController
 
   def index
     @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
+    @user = current_user
   end
 
   def located_solar_panels
@@ -41,7 +42,20 @@ class SolarPanelsController < ApplicationController
 
   end
 
+
+  def addUserAddress
+    @user = current_user
+    @user.address = user_params[:address]
+    @user.save
+    redirect_to user_solar_panels_path
+  end
+
   private
+
+  def user_params
+    params.require(:user).permit(:address)
+  end
+
 
   def panel_params
     params.require(:solar_panel).permit(:size, :efficiency, :price, :address)
