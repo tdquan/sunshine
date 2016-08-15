@@ -7,6 +7,8 @@
       <li class="contracts">Contract <%= contract.id%>:  You purchase energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %> <%= link_to "See Details", contract_path(contract) %></li>
     </div>
     <% end %>
+    <li class="sidebar-signout-btn text-center ">
+      <%= link_to "Terminated Contracts", current_user_contracts_terminated_path%>
+    </li>
   </div>
 </div>
-
