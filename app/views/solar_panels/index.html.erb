@@ -6,20 +6,20 @@
 
 
       <div class="address-pop-up hidden" ">
-      <div class="row">
-      <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <div class="row">
+          <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 
-       <%= simple_form_for @user, url: {action: "addUserAddress"} do |f| %>
-      <div class="form-inputs text-left card-content-container">
-        <%= f.input :address, autofocus: true, placeholder: "Address"%>
-        <div class="form-actions text-center">
-          <%= f.submit value: "Save Address", class: "navbar-wagon-item navbar-wagon-button" %>
+           <%= simple_form_for @user, url: {action: "addUserAddress"} do |f| %>
+          <div class="form-inputs text-left card-content-container">
+            <%= f.input :address, autofocus: true, placeholder: "Address"%>
+            <div class="form-actions text-center">
+              <%= f.submit value: "Save Address", class: "navbar-wagon-item navbar-wagon-button" %>
+            </div>
+          </div>
+          <% end %>
+
+          </div>
         </div>
-      </div>
-      <% end %>
-
-      </div>
-      </div>
       </div>
 
 
