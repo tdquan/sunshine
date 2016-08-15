@@ -28,6 +28,7 @@ class SolarPanelsController < ApplicationController
 
   def create
     @solar_panel = current_user.solar_panels.new(panel_params)
+    @solar_panel.address = current_user.address
     @solar_panel.save
     redirect_to user_my_panels_path
   end
