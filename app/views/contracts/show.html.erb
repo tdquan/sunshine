@@ -8,13 +8,13 @@
       <li class="contracts">Price: <%= @contract.solar_panel.price %></li>
       <li class="contracts">Start-Date: <%= @contract.start_date %></li>
       <% if @contract.end_date %>
-      <li class="contracts">End-Date_ <%= @contract.end_date %></li>
+        <li class="contracts">End-Date_ <%= @contract.end_date %></li>
       <% end %>
       <% if @contract.end_date %>
-      <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
+        <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
       <% else %>
-      <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "navbar-wagon-button"  %>
-      <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+        <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "navbar-wagon-button"  %>
+        <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button back-btn" %>
       <% end %>
     </div>
   </div>

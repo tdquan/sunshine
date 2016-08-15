@@ -39,7 +39,6 @@ class SolarPanelsController < ApplicationController
   end
 
   def destroy
-
   end
 
 
@@ -49,6 +48,7 @@ class SolarPanelsController < ApplicationController
     @user.save
     redirect_to user_solar_panels_path
   end
+
 
   private
 

@@ -2,9 +2,6 @@
 <% if current_user.address.nil? %>
   <p class="alert">Please add your address to your profile &nbsp;<button class="add-address-button navbar-wagon-item navbar-wagon-button" type="submit">Add Address</button></p>
 
-
-
-
       <div class="address-pop-up hidden" ">
         <div class="row">
           <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -55,11 +52,10 @@
           <div class="text-center">
             <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
           </div>
-
         </div>
       </div>
-     <% end %>
-     <% end %>
+    <% end %>
+  <% end %>
 
 <% end %>
 
