@@ -9,7 +9,7 @@
       <div class="card">
         <div class="text-center">
          <% if user_signed_in? && current_user.facebook_picture_url %>
-              <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+            <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
           <% else %>
             <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
           <% end %>
@@ -25,7 +25,6 @@
         <div class="text-center">
           <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
         </div>
-
       </div>
     </div>
   <% end %>
