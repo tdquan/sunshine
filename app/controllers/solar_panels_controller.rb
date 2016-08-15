@@ -42,7 +42,6 @@ class SolarPanelsController < ApplicationController
   end
 
   def destroy
-
   end
 
 
@@ -53,6 +52,7 @@ class SolarPanelsController < ApplicationController
     @user.save
     redirect_to session.delete(:return_to)
   end
+
 
   private
 
