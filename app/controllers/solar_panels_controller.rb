@@ -6,8 +6,10 @@ class SolarPanelsController < ApplicationController
   end
 
   def located_solar_panels
+    @user = current_user
+
     if current_user
-      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(params[:street], 1)
+      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
     else
       @solar_panels = SolarPanel.near(params[:street], 1)
     end
@@ -44,10 +46,11 @@ class SolarPanelsController < ApplicationController
 
 
   def addUserAddress
+    session[:return_to] ||= request.referer
     @user = current_user
     @user.address = user_params[:address]
     @user.save
-    redirect_to user_solar_panels_path
+    redirect_to session.delete(:return_to)
   end
 
   private
