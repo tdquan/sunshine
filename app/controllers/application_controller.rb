@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
     user_dashboard_path
   end
 
-  def after_update_path_for(user)
-    user_dashboard_path
-  end
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
