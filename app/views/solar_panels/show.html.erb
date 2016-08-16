@@ -54,13 +54,13 @@
 
 <% if current_user %>
   <% if @solar_panel.user.id != current_user.id %>
-<<<<<<< HEAD
     <%= link_to "Purchase", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
   <% end %>
   <%= link_to "Back", my_panel_path, class: "navbar-wagon-button-orange back-btn" %>
 <% else %>
   <%= link_to "Purchase", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange" %>
   <%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+<% end %>
 
 
 
