@@ -1,22 +1,48 @@
 <div class="row profile">
-  <div class="profile-content">
-    <div class="text-center card">
-      <h1 class="title">Contract Details</h1>
-      <h3 class="title">Contract Number: <%= @contract.id %></h3>
-      <li class="contracts">Seller: <%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></li>
-      <li class="contracts">Buyer: <%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></li>
-      <li class="contracts">Price: <%= @contract.solar_panel.price %></li>
-      <li class="contracts">Start-Date: <%= @contract.start_date %></li>
-      <% if @contract.end_date %>
-        <li class="contracts">End-Date_ <%= @contract.end_date %></li>
-      <% end %>
-      <% if @contract.end_date %>
-        <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
-      <% else %>
-        <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
-        <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
-      <% end %>
+  <div class="text-center">
+    <h2 class="text-center">CONTRACT DETAILS</h2>
+    <div class="contract-details-wrapper">
+      <div class="col-sm-4 col-sm-offset-4 card">
+
+        <h3 class="contract-details-title">CONTRACT <%= @contract.id %></h3>
+        <div class="row">
+          <div class="col-xs-6 text-left">Seller</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Buyer</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Price</div>
+          <b class="col-xs-6 text-center orange-text">$<%= @contract.solar_panel.price %> / Kwh</b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Start date</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.start_date %></b>
+        </div>
+
+        <% if @contract.end_date %>
+          <div class="row">
+            <div class="col-xs-6 text-left">End date</div>
+            <b class="col-xs-6 text-center orange-text"><%= @contract.end_date %></b>
+          </div>
+        <% end %>
+
+        <br><br>
+
+        <% if @contract.end_date %>
+          <%= link_to 'Back', current_user_contracts_terminated_path, class: "navbar-wagon-button-orange" %>
+        <% else %>
+          <%= link_to "Cancel Contract", contract_terminate_current_user_index_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
+          <%= link_to 'Back', user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+        <% end %>
+      </div>
     </div>
+
   </div>
 </div>
 

@@ -45,13 +45,20 @@
   display: inline-block;
   color: $orange  ;
   font-size: 15px;
-  margin-top: 10px;
+  margin: 10px 0;
   transition: all 0.2s ease;
 }
 .navbar-wagon-link:hover {
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+.navbar-wagon-link-blue {
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 0;
+  transition: all 0.2s ease;
 }
 
 /* Navbar search form */

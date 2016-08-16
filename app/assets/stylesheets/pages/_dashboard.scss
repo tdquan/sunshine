@@ -1,12 +1,5 @@
 .title{
-  color: #5a7391;
   font-size: 26px;
-  font-weight: 600;
-}
-
-.contracts{
-  color: #5a7391;
-  font-size: 18px;
   font-weight: 600;
 }
 
@@ -79,18 +72,28 @@
 }
 .chart path { cursor: pointer; }
 
-.chart {
-  margin: 20px;
-  height: 300px;
-  width: 30px;
-  position: relative;
-  display: inline-block;
+// --------  CONTRACT TABLE ---------- //
 
+.contract-table-wrapper {
+  margin-top: 40px;
+  .contract-table-headers {
+    margin-bottom: 30px;
+  }
+  .contract-table-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contract-table-item:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
-.bar {
-  width: 100%;
-  background-color: $orange;
-  bottom: 0;
-  position: absolute;
+// -------- CONTRACT DETAILS -------- //
+
+.contract-details-wrapper {
+  margin-top: 40px;
+  .contract-details-title {
+    margin-bottom: 30px;
+  }
 }
+
