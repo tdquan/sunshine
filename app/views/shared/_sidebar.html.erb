@@ -33,6 +33,11 @@
           <li class="profile-usermenu-item">
             <%= link_to "Home", user_dashboard_path %>
           </li>
+          <% unless current_user.solar_panel.nil? %>
+          <li class="profile-usermenu-item">
+            <%= link_to "My panel", user_my_panels_path %>
+          </li>
+          <% end %>
           <li class="profile-usermenu-item">
             <%= link_to "Purchase solar energy", current_user_located_solar_panels_path %>
           </li>

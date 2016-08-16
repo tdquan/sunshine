@@ -9,9 +9,8 @@
           <div class="col-xs-4 text-center">Panel Owner</div>
           <div class="col-xs-4 text-center">Options</div>
         </div>
-        <% current_user.contracts.each do |contract| %>
-
         <div class="row contract-table">
+        <% current_user.contracts.each do |contract| %>
           <% next unless contract.end_date.nil? %>
             <div class="card contract-table-item clearfix">
               <div class="col-xs-4 text-center">Contract <%= contract.id%></div>
