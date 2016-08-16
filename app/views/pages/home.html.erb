@@ -12,7 +12,7 @@
 
   <!-- Call to action join my simulation -->
   <div class="center-button text-center">
-    <%= link_to "Enter the simulation", user_dashboard_path, class: "splash-button" %>
+    <%= link_to "Enter the simulation", dashboard_path, class: "splash-button" %>
   </div>
 
   <video poster="http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg" id="bgvid" playsinline autoplay muted loop>
@@ -94,7 +94,7 @@
         <h3 class="text-center section-title white-text">Find panels near you</h3>
         <div class="text-center">
 
-          <form action="/current_user/located_solar_panels">
+          <form action="located_solar_panels">
             <input class="round-input-field" type="text" name="street" placeholder="Enter street name" data-reactid=".3.0.2.0"></div>
           </form>
 
