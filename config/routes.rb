@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get "/current_user/solar_panels/:id" => "solar_panels#show", as: "show_solar_panel"
 
   devise_for :users, :controllers => {
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: "users/registrations"
   }
 
 
