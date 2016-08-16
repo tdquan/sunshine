@@ -31,8 +31,6 @@
   width: 100%
 }
 
-<<<<<<< HEAD
-
 
 // ------- ENERGY SOURCES PIE-CHART ------
 
@@ -66,6 +64,7 @@
           transform: all .3s;
   pointer-events: none;
 }
+
 .pieTip:after {
       position: absolute;
       left: 50%;
@@ -79,7 +78,7 @@
       line-height: 0;
 }
 .chart path { cursor: pointer; }
-=======
+
 .chart {
   margin: 20px;
   height: 300px;
@@ -95,5 +94,3 @@
   bottom: 0;
   position: absolute;
 }
->>>>>>> 015bd3416abe3000592db09d0213d113ea521f89
-
