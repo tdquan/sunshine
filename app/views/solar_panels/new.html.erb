@@ -20,8 +20,8 @@
     <br>
     <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
     <div class="form-inputs text-left card-content-container">
-      <%= f.input :size, required: true, autofocus: true, :input_html => { :value => 45}, placeholder: "m2" %>
-      <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01, :input_html => { :value => 1.5} %>
+      <%= f.input :size, required: true, autofocus: true, :input_html => { :value => 45}, placeholder: "m2", label: "Size <div class='hover-box'><span>Please enter the total size of you solar panels in m2</span></div>".html_safe%>
+      <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01, :input_html => { :value => 1.5}, label: "Size <div class='hover-box'><span>Please enter the price you want to receive for one KWh</span></div>".html_safe %>
       <div class="form-actions text-center">
         <%= f.submit value: "Test economics", class: "navbar-wagon-item navbar-wagon-button" %>
       </div>
@@ -30,3 +30,4 @@
   </div>
 </section>
 <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+
