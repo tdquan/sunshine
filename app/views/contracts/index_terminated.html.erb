@@ -4,13 +4,29 @@
 
 <div class="row profile">
   <div class="profile-content">
-    <h2 class=title>Terminated Contracts: </h2>
-    <% current_user.contracts.each do |contract| %>
-      <% next if contract.end_date.nil? %>
-      <div class="text-center card">
-        <li class="contracts">Contract Number <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize%> , Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
-      </div>
-    <% end %>
+    <h2 class="text-center">TERMINATED CONTRACTS</h2>
+
+    <div class="contract-table-wrapper">
+      <% unless current_user.contracts.where(end_date: nil).nil? %>
+        <div class="row contract-table-headers">
+          <div class="col-xs-3 text-center">Contract</div>
+          <div class="col-xs-3 text-center">Panel Owner</div>
+          <div class="col-xs-3 text-center">Options</div><div class="col-xs-3 text-center">Start date | End date</div>
+        </div>
+        <div class="row contract-table">
+        <% current_user.contracts.each do |contract| %>
+          <% next if contract.end_date.nil? %>
+            <div class="card contract-table-item clearfix">
+              <div class="col-xs-3 text-center">Contract <%= contract.id%></div>
+              <div class="col-xs-3 text-center"><%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %></div>
+              <div class="col-xs-3 text-center"><%= link_to "See Details", contract_path(contract) %> | <%= link_to "Invoices", "#" %></div>
+              <div class="col-xs-3 text-center"><%= contract.start_date %> | <%= contract.end_date %></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
 
