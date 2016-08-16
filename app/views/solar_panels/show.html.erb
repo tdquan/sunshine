@@ -37,10 +37,10 @@
   <% if @solar_panel.user.id != current_user.id %>
     <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "navbar-wagon-item navbar-wagon-button" %>
   <% end %>
-  <%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button back-btn" %>
+  <%= link_to "Back", my_panels_path, class: "navbar-wagon-button back-btn" %>
 <% else %>
   <%= link_to "Purchase", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button" %>
-  <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+  <%= link_to "Back", dashboard_path, class: "navbar-wagon-button back-btn" %>
 <% end %>
 
 

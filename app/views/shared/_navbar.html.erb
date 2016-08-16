@@ -1,7 +1,7 @@
 
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to user_dashboard_path, class: "navbar-wagon-brand" do %>
+  <%= link_to dashboard_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "sunshine_logo.svg" %>
   <% end %>
 
@@ -42,7 +42,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to user_dashboard_path do %>
+              <%= link_to dashboard_path do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>

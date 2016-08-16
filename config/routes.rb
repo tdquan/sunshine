@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   get "contracts/terminated" => 'contracts#index_terminated'
-  get "located_solar_panels" => 'solar_panels#located_solar_panels'
+  get "located_solar_panels" => 'solar_panels#index'
   # User
   resources :current_user, only: [] do
     collection do
@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # patch "dashboard/" => "solar_panels#addUserAddress"
+  get "dashboard/show" => "dashboard#show", as: "dashboard"
 
-  patch "/current_user/dashboard/" => "solar_panels#addUserAddress"
-  get "/current_user/dashboard" => "users#dashboard", as: "user_dashboard"
-  get "/current_user/my_panels" => "solar_panels#show_my", as: "user_my_panels"
+  get "my_panels" => "solar_panels#show_my"
   get "/current_user/my_panels/:id" => "solar_panels#show", as: "my_solar_panel"
 
   get "/current_user/solar_panels" => "solar_panels#index", as: "user_solar_panels"

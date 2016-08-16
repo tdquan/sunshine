@@ -30,7 +30,7 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
     @contract.end_date = DateTime.now
     @contract.save
-    redirect_to user_dashboard_path
+    redirect_to dashboard_path
   end
 
 
