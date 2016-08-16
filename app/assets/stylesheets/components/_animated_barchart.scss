@@ -1,0 +1,75 @@
+// @import "compass/css3";
+
+// @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+// @import "compass/reset";
+$fontSans : 'Montserrat', sans-serif;
+
+
+$red : #e74c3c ;
+$redAL : rgba(231, 76, 60, 0.95);
+$dark :  #3d3d3d;
+
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+*{ box-sizing:border-box;}
+
+
+.wrap {
+  height: 300px;
+  position: relative;
+
+}
+
+
+
+
+
+ .bar1 {
+  height: 0;
+  margin: 30px;
+  display: inline-block;
+  background: red;
+  position: relative;
+  bottom: 0;
+  width: 70px;
+   transition:height 2s, background .2s;
+   -webkit-transform: translate3d(0,0,0);
+   clear: both;
+   &:nth-of-type(2n) {
+    background:$red;
+   }
+   .label {
+    background-color: red;
+    font-size: .75em;
+    padding: 1em;
+    background: $dark;
+    width: 70px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+    font-family: $fontSans;
+    bottom: 0;
+    position: absolute;
+
+   }
+ }
+
+
+
+
+ .count {
+  position: absolute;
+  right: 2.2em;
+  top: -3.25em;
+  padding: .15em;
+  font-size: .75em;
+  font-weight: bold;
+  font-family: $fontSans;
+ }
