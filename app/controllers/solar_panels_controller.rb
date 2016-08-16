@@ -23,7 +23,7 @@ class SolarPanelsController < ApplicationController
     @solar_panel = current_user.solar_panels.new(panel_params)
     @solar_panel.address = current_user.address
     @solar_panel.save
-    redirect_to my_panels_path
+    redirect_to my_panel_path
   end
 
   def show
