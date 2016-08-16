@@ -1,7 +1,7 @@
 class SolarPanelsController < ApplicationController
 
   def index
-    @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
+    @solar_panels = SolarPanel.near(current_user.address, 1)
     @user = current_user
   end
 
@@ -9,7 +9,7 @@ class SolarPanelsController < ApplicationController
     @user = current_user
 
     if current_user
-      @solar_panels = SolarPanel.where.not(user_id: current_user.id).near(current_user.address, 1)
+      @solar_panels = SolarPanel.near(current_user.address, 1)
     else
       @solar_panels = SolarPanel.near(params[:street], 1)
     end
@@ -29,8 +29,11 @@ class SolarPanelsController < ApplicationController
   def create
     @solar_panel = current_user.solar_panels.new(panel_params)
     @solar_panel.address = current_user.address
-    @solar_panel.save
-    redirect_to user_my_panels_path
+    if @solar_panel.save
+      redirect_to user_my_panels_path
+    else
+      render :new
+    end
   end
 
   def show
