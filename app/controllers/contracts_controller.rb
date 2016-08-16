@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
 
-  before_action :set_solar_panel, only: [:new, :create]
+  before_action :set_solar_panel, only: [:new]
 
   def index
 
@@ -18,7 +18,7 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = @solar_panel.contracts.new
+    @contract = Contract.new(solar_panel_id: params[:sp_id])
     @contract.user_id = current_user.id
     @contract.start_date = DateTime.now
     @contract.save

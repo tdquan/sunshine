@@ -27,6 +27,7 @@ class SolarPanelsController < ApplicationController
 
   def show
     @solar_panel = SolarPanel.find(params[:id])
+    @contract = @solar_panel.contracts.build
   end
 
   def show_my

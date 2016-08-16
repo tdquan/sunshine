@@ -1,30 +1,23 @@
 Rails.application.routes.draw do
 
-  root to: 'pages#home'
-
-  get "contracts/terminated" => 'contracts#index_terminated'
-
-  # User
-  # resources :current_user, only: [] do
-  #   collection do
-      resources :solar_panels, only: [:new, :create] do
-        resources :contracts, only: [:new, :create]
-      end
-      resources :contracts, only: [:index, :show, :edit, :update]
-      patch "contracts/:id" => 'contracts#terminate', as: "contract_terminate"
-  #   end
-  # end
-  patch "solar_panels/addUserAddress" => "solar_panels#addUserAddress"
-  get "dashboard/show" => "dashboard#show", as: "dashboard"
-
-  get "located_solar_panels" => 'solar_panels#index'
-  get "my_panel" => "solar_panels#show_my"
-  resources :solar_panels, only: [:show]
-
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
   }
+
+  get "contracts/terminated" => 'contracts#index_terminated'
+  resources :contracts, only: [:show, :create, :index, :update]
+
+
+  get "dashboard/show" => "dashboard#show", as: "dashboard"
+
+  resources :solar_panels, only: [:show, :new, :create]
+  get "located_solar_panels" => 'solar_panels#index'
+  get "my_panel" => "solar_panels#show_my"
+
+  patch "solar_panels/addUserAddress" => "solar_panels#addUserAddress"
+
+  root to: 'pages#home'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

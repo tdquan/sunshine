@@ -5,7 +5,7 @@
     <li class="contracts">Seller: <%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></li>
     <li class="contracts">Buyer: <%= current_user.first_name + " " + current_user.last_name %></li>
     <li class="contracts">Price/Sol: <%= @solar_panel.price %></li>
-    <%= link_to 'Sign Contract', solar_panel_contracts_path, :method => :post, class: "navbar-wagon-button"%>
+    <%= link_to 'Sign Contract', contracts_path, :method => :post, class: "navbar-wagon-button"%>
     </div>
   </div>
 </div>
