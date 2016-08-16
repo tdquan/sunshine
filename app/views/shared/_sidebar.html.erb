@@ -1,12 +1,16 @@
 <aside id="sidebar" class="col-xs-12 col-sm-3 col-md-2">
   <div class="">
     <div class="profile-sidebar">
+      <!-- SIDEBAR LOGO -->
+      <%= link_to "Splash", root_path %>
+      <!-- END SIDEBAR LOGO -->
+
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">
         <% if current_user.facebook_picture_url.nil?%>
-          <%= image_tag "avatar.png", class: "avatar-large" %>
+        <%= image_tag "avatar.png", class: "avatar-large" %>
         <% else %>
-          <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
         <% end %>
       </div>
       <!-- END SIDEBAR USERPIC -->
@@ -25,34 +29,30 @@
       </div>
       <!-- END SIDEBAR USER TITLE -->
 
-
       <!-- SIDEBAR MENU -->
       <div>
         <ul class="profile-usermenu">
           <li class="profile-usermenu-item">
-            <%= link_to "Solar panels around me", user_solar_panels_path %>
+            <%= link_to "Home", user_dashboard_path %>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to "My solar panel", user_my_panels_path%>
+            <%= link_to "Purchase solar energy", current_user_located_solar_panels_path %>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to "Create new panel", new_solar_panel_path%>
+            <%= link_to "Become a Producer", new_solar_panel_path%>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to "Active Contracts", user_dashboard_path%>
-          </li>
-          <li class="profile-usermenu-item">
-            <%= link_to "Terminated Contracts", current_user_contracts_terminated_path%>
+            <%= link_to "Active Contracts", contracts_path%>
           </li>
         </ul>
       </div>
-        <!-- END MENU -->
+      <!-- END MENU -->
     </div>
   </div>
 
   <div class="text-center sidebar-bottom-button-grp">
     <%= link_to destroy_user_session_path, method: :delete, class: "sidebar-signout-btn" do %>
-      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
     <% end %>
   </div>
 

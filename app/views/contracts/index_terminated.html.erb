@@ -4,13 +4,13 @@
 
 <div class="row profile">
   <div class="profile-content">
-<h2 class=title>Terminated Contracts: </h2>
-  <% current_user.contracts.each do |contract| %>
-    <% next if contract.end_date.nil? %>
-    <div class="text-center card">
-    <li class="contracts">Contract Number <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize%> , Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
-    </div>
-  <% end %>
+    <h2 class=title>Terminated Contracts: </h2>
+    <% current_user.contracts.each do |contract| %>
+      <% next if contract.end_date.nil? %>
+      <div class="text-center card">
+        <li class="contracts">Contract Number <%= contract.id %>: You purchased energy from <%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize%> , Terminated: <%= contract.end_date %> <%= link_to "Detail", contract_path(contract)  %> </li>
+      </div>
+    <% end %>
   </div>
 </div>
 

@@ -1,69 +1,76 @@
-
-
-  <h1><%= params[:street] %></h1>
-
-  <% if @solar_panels.empty? %>
-    <div class="row">
-      <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <h4>No one is selling on your street</h3>
-      </div>
-    </div>
+  <% if current_user.nil? %>
+    <% address = params[:street] %>
+  <% else %>
+    <% address = current_user.address %>
   <% end %>
 
-  <div class="row map-container">
-    <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
-      <div id="map" style="width: 100%; height: 500px;"></div>
-    </div>
-  </div>
+  <% if address.nil? %>
+    <%= render "shared/address_check" %>
 
-
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).on('ready', function() {
+  <% else %>
+    <h1><%= address %></h1>
+    <% if @solar_panels.empty? %>
+        <div class="row">
+          <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <h4>We can't find solar panel in production</h3>
+          </div>
+        </div>
+    <% else %>
+      <div class="row map-container">
+        <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
+          <div id="map" style="width: 100%; height: 500px;">
+          </div>
+        </div>
+      </div>
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
         var handler = Gmaps.build('Google');
         handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>   );
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.map.centerOn([38.736946, -9.142685]);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(20);
-          }
+        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.map.centerOn([38.736946, -9.142685]);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(20);
+        }
         });
+        });
+        <% end %>
+      <% end %>
 
-      });
-    <% end %>
-  <% end %>
-
-  <% @solar_panels.each do |solar_panel| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card">
-        <div class="text-center">
-          <% if solar_panel.user.facebook_picture_url %>
+      <% @solar_panels.each do |solar_panel| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="text-center">
+              <% if solar_panel.user.facebook_picture_url %>
               <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
-          <% else %>
-            <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
-          <% end %>
+              <% else %>
+              <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+              <% end %>
+            </div>
+            <hr>
+            <div class="card-content-container text-left">
+              <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+              <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
+              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+              <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
+            </div>
+            <hr>
+            <div class="text-center">
+              <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+            </div>
+          </div>
         </div>
-        <hr>
-        <div class="card-content-container text-left">
-          <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
-          <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-          <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-          <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
-        </div>
-        <hr>
-        <div class="text-center">
-          <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
-        </div>
-
-      </div>
-    </div>
+      <% end %>
   <% end %>
 
-  <% if current_user.nil? %>
-  <%= link_to "Back", root_path, class: "navbar-wagon-button back-btn" %>
-  <% else %>
-  <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
-  <% end %>
+<% end %>
+
+
+<% if current_user.nil? %>
+<%= link_to "Back", root_path, class: "navbar-wagon-button back-btn" %>
+<% else %>
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+<% end %>
