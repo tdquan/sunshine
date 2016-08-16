@@ -1,6 +1,6 @@
 
 <% if current_user.address.nil? %>
-  <p class="alert">Please add your address to your profile &nbsp;<button class="add-address-button navbar-wagon-item navbar-wagon-button" type="submit">Add Address</button></p>
+  <p class="alert">Please add your address to your profile &nbsp;<button class="add-address-button navbar-wagon-item navbar-wagon-button-orange" type="submit">Add Address</button></p>
 
       <div class="address-pop-up hidden" ">
         <div class="row">
@@ -10,7 +10,7 @@
           <div class="form-inputs text-left card-content-container">
             <%= f.input :address, autofocus: true, placeholder: "Address"%>
             <div class="form-actions text-center">
-              <%= f.submit value: "Save Address", class: "navbar-wagon-item navbar-wagon-button" %>
+              <%= f.submit value: "Save Address", class: "navbar-wagon-item navbar-wagon-button-orange" %>
             </div>
           </div>
           <% end %>
@@ -50,7 +50,7 @@
           </div>
           <hr>
           <div class="text-center">
-            <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+            <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
           </div>
         </div>
       </div>
@@ -59,5 +59,5 @@
 
 <% end %>
 
-<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 

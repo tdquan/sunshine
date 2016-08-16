@@ -1,14 +1,8 @@
-body{
-  background-color: #F7F7F7;
-}
-
 .card {
-  background-color: rgba(255, 255, 255, 1);
-  padding: 30px 0;
-  border-radius: 3px;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.2);
-  list-style-type: none;
-  color: $gray-dark;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  font-size: 1.2rem;
   margin-bottom: 2em;
 }
 
@@ -22,5 +16,6 @@ body{
 }
 
 .home-page-card {
-  min-height: 600px;
+  min-height: 500px;
+  font-size: 0.9em;
 }
