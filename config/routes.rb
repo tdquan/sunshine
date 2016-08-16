@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  get "/current_user/contracts/terminated" => 'contracts#index_terminated'
+  get "contracts/terminated" => 'contracts#index_terminated'
   get "/current_user/located_solar_panels" => 'solar_panels#located_solar_panels'
   # User
   resources :current_user, only: [] do
