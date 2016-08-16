@@ -1,15 +1,11 @@
 <div class="row profile">
   <div class="profile-content">
-    <div class="text-center card">
-      <h1 class="title">Contract Details</h1>
-      <h3 class="title">Contract Number: <%= @contract.id %></h3>
-      <li class="contracts">Seller: <%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></li>
-      <li class="contracts">Buyer: <%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></li>
-      <li class="contracts">Price: <%= @contract.solar_panel.price %></li>
-      <li class="contracts">Start-Date: <%= @contract.start_date %></li>
-      <% if @contract.end_date %>
-        <li class="contracts">End-Date_ <%= @contract.end_date %></li>
-      <% end %>
+    <div class="card">
+      <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> is sharing energy with you</h1>
+      <p>You have an ongoing agrrement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
+      <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
+      <p>Way to go!</p>
+
       <% if @contract.end_date %>
         <%= link_to 'Back', current_user_contracts_terminated_path, class: "btn btn-default" %>
       <% else %>
