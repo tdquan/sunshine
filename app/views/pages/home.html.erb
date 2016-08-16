@@ -10,7 +10,18 @@
     <h4 style="text-align: center">Trade solar energy, locally</h4>
   </div>
 
+  <!-- Call to action join my simulation -->
+  <div class="center-button text-center">
+    <%= link_to "Enter my simulation", user_dashboard_path, class: "splash-button" %>
+  </div>
+
+  <video poster="http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg" id="bgvid" playsinline autoplay muted loop>
+    <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+    <source src="http://www.solarcity.com/sites/all/themes/solarcity/video/video-bg.mp4">
+    </video>
+
   <%= render 'shared/fullscreen_video' %>
+
 
   </div>
 
@@ -72,32 +83,32 @@
               <p>
                 In one click you get contacted by the right counter part. We get paid a flat rate by the solution providers. So our only interest is for you to get the best value!
               </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="homepage-section" id="search-solar-potential">
-    <div class="container-fluid">
-      <h3 class="text-center section-title white-text">Find panels near you</h3>
-      <div class="text-center">
-
-        <form action="/current_user/located_solar_panels">
-          <input class="round-input-field" type="text" name="street" placeholder="Enter street name" data-reactid=".3.0.2.0"></div>
-        </form>
-
-      </div>
     </section>
 
-    <section class="homepage-section" id="info">
+    <section class="homepage-section" id="search-solar-potential">
       <div class="container-fluid">
-        <h3 class="text-center section-title orange-text">Why Project SunShine?</h3>
-        <div id="why-rational">
-          <p>Solar will become the primary source of energy  -  We want to let as many individuals as possible realise this resource belongs for them to exploit  -  We are working with several profesionals and experts so that this simulation can also help setting the requirements for technological breakthroughs and innovative business models, based on real data.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+        <h3 class="text-center section-title white-text">Find panels near you</h3>
+        <div class="text-center">
 
-  <%= render "shared/homepage_footer" %>
+          <form action="/current_user/located_solar_panels">
+            <input class="round-input-field" type="text" name="street" placeholder="Enter street name" data-reactid=".3.0.2.0"></div>
+          </form>
+
+        </div>
+      </section>
+
+      <section class="homepage-section" id="info">
+        <div class="container-fluid">
+          <h3 class="text-center section-title orange-text">Why Project SunShine?</h3>
+          <div id="why-rational">
+            <p>Solar will become the primary source of energy  -  We want to let as many individuals as possible realise this resource belongs for them to exploit  -  We are working with several profesionals and experts so that this simulation can also help setting the requirements for technological breakthroughs and innovative business models, based on real data.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%= render "shared/homepage_footer" %>
