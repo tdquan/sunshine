@@ -24,7 +24,8 @@
           <p><%= current_user.address %></p>
         </div>
         <div class="">
-          <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+          <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "navbar-wagon-link" %>&nbsp;|
+          <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "navbar-wagon-link"%>
         </div>
       </div>
       <!-- END SIDEBAR USER TITLE -->
@@ -51,9 +52,7 @@
   </div>
 
   <div class="text-center sidebar-bottom-button-grp">
-    <%= link_to destroy_user_session_path, method: :delete, class: "sidebar-signout-btn" do %>
-    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-    <% end %>
+    <%= link_to "Become a Producer", new_solar_panel_path, class: "sidebar-signout-btn"%>
   </div>
 
 </aside>

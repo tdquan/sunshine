@@ -1,10 +1,25 @@
 <div class="row">
   <section class="col-xs-12 col-sm-7">
     <div class="card">
-      <h3 class="text-center"><%= @solar_panel.user.first_name + " offer"%></h3>
+      <h3 class="text-center"><%= @solar_panel.user.first_name + "'s panel"%></h3>
       <br>
       <div class="card-content-container">
-        <div><span><%= @solar_panel.user.first_name + " has approximatly 120kWh in excess per day. Sunshine estimates that could cover 1/5 of your daily consumption. We suggest you proceed and purchase this available clean energy." %></span></div>
+        <div class="row">
+          <div class="col-xs-6">Daily excess :</div>
+          <div class="col-xs-6"><b>120 Kwh</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">Your estimated daily usage :</div>
+          <div class="col-xs-6"><b>80 Kwh</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">Estimated coverage :</div>
+          <div class="col-xs-6"><b>20 Kwh</b></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">Listed price :</div>
+          <div class="col-xs-6"><b>$0.20 / Kwh</b></div>
+        </div>
       </div>
     </div>
   </section>
@@ -35,12 +50,12 @@
 
 <% if current_user %>
   <% if @solar_panel.user.id != current_user.id %>
-    <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "navbar-wagon-item navbar-wagon-button" %>
+    <%= link_to "Purchase", new_solar_panel_contract_path(@solar_panel), class: "navbar-wagon-item navbar-wagon-button-orange" %>
   <% end %>
-  <%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button back-btn" %>
+  <%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button-orange back-btn" %>
 <% else %>
-  <%= link_to "Purchase", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button" %>
-  <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>
+  <%= link_to "Purchase", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange" %>
+  <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 <% end %>
 
 
