@@ -1,18 +1,10 @@
 class SolarPanelsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @solar_panels = SolarPanel.near(current_user.address, 1)
     @user = current_user
-  end
-
-  def located_solar_panels
-    @user = current_user
-
-    if current_user
-      @solar_panels = SolarPanel.near(current_user.address, 1)
-    else
-      @solar_panels = SolarPanel.near(params[:street], 1)
-    end
+    @solar_panels = SolarPanel.near(@user ? @user.address : params[:street], 1)
 
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
@@ -29,15 +21,18 @@ class SolarPanelsController < ApplicationController
   def create
     @solar_panel = current_user.solar_panels.new(panel_params)
     @solar_panel.address = current_user.address
+
     if @solar_panel.save
-      redirect_to user_my_panels_path
+      redirect_to my_panels_path
     else
       render :new
     end
+
   end
 
   def show
     @solar_panel = SolarPanel.find(params[:id])
+    @contract = @solar_panel.contracts.build
   end
 
   def show_my
