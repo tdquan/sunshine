@@ -1,19 +1,32 @@
 
-<div class="text-center info-box card">
-  <h3 class="text-center">Create your panel</h3>
-  <br>
-  <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
-  <div class="form-inputs text-left card-content-container">
-    <%= f.input :size, required: true, autofocus: true, placeholder: "Size of panel" %>
-    <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01 %>
-    <%= f.input :efficiency, required: true, autofocus: true, placeholder: "Efficiency", step: 0.01 %>
-    <%= f.input :address, required: true, autofocus: true, placeholder: "address", :input_html => { :value => current_user.address }  %>
-    <div class="form-actions text-center">
-      <%= f.submit value: "Save Panel", class: "navbar-wagon-item navbar-wagon-button" %>
+<div class="row">
+  <section class="col-xs-12 col-sm-7">
+    <div class="card">
+      <h3 class="text-center">Becoming a solar producer</h3>
+      <div class="card-content-container">
+        <div><span><p>You are ready to become a producer. <strong>Congratulations!</strong></p>
+        <p>No kidding, this is a huge step, with very significant investments. So before you decide to commit "in real life", Sunshine will help you simulate what it means.</p> <p>Better envision first the expected result before opening the wallet right?</p>
+          <br>
+        </span>
+      </div>
     </div>
   </div>
-  <% end %>
+</section>
 
-</div>
 
+<section class="col-xs-12 col-sm-4">
+<div class="card">
+    <h3 class="text-center">Our suggested option</h3>
+    <br>
+    <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
+    <div class="form-inputs text-left card-content-container">
+      <%= f.input :size, required: true, autofocus: true, :input_html => { :value => 45}, placeholder: "m2" %>
+      <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01, :input_html => { :value => 1.5} %>
+      <div class="form-actions text-center">
+        <%= f.submit value: "Test economics", class: "navbar-wagon-item navbar-wagon-button" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
 <%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button back-btn" %>

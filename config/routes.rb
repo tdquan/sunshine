@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :solar_panels, only: [:new, :create] do
         resources :contracts, only: [:new, :create]
       end
-      resources :contracts, only: [:show]
+      resources :contracts, only: [:index, :show]
       patch "contracts/:id" => 'contracts#terminate', as: "contract_terminate"
     end
   end

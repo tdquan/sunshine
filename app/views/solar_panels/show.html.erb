@@ -1,12 +1,10 @@
 <div class="row">
   <section class="col-xs-12 col-sm-7">
     <div class="card">
-      <h3 class="text-center">Panel details</h3>
+      <h3 class="text-center"><%= @solar_panel.user.first_name + " offer"%></h3>
       <br>
       <div class="card-content-container">
-        <div><label>Id:&nbsp;</label><span><%= @solar_panel.id %></span></div>
-        <div><label>Size:&nbsp;</label><span><%= @solar_panel.size %></span></div>
-        <div><label>Efficiency:&nbsp;</label><span><%= @solar_panel.efficiency %></span></div>
+        <div><span><%= @solar_panel.user.first_name + " has approximatly 120kWh in excess per day. Sunshine estimates that could cover 1/5 of your daily consumption. We suggest you proceed and purchase this available clean energy." %></span></div>
       </div>
     </div>
   </section>

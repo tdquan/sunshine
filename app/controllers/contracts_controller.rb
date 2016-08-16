@@ -2,6 +2,10 @@ class ContractsController < ApplicationController
 
   before_action :set_solar_panel, only: [:new, :create]
 
+  def index
+
+  end
+
   def index_terminated
   end
 
@@ -18,7 +22,7 @@ class ContractsController < ApplicationController
     @contract.user_id = current_user.id
     @contract.start_date = DateTime.now
     @contract.save
-    redirect_to user_dashboard_path
+    redirect_to contracts_path
   end
 
 
