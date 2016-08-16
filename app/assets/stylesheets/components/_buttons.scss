@@ -1,0 +1,46 @@
+.navbar-wagon-button-orange {
+  text-align: center;
+  display: inline-block;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20em;
+  line-height: 40px;
+  min-width: 100px;
+  background-color: $orange;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.navbar-wagon-button-orange:hover {
+  color: white;
+  background: darken($orange, 5%);
+  border-color: darken($orange, 5%);
+}
+
+.navbar-wagon-button-default {
+  text-align: center;
+  display: inline-block;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20em;
+  line-height: 40px;
+  min-width: 100px;
+  background-color: $gray;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.navbar-wagon-button-default:hover {
+  color: white;
+  background: darken($gray, 5%);
+  border-color: darken($gray, 5%);
+}
+
+a.navbar-wagon-button-orange {
+  color: white;
+}
+
+
+a.navbar-wagon-button-orange:visited {
+  color: white;
+}
