@@ -35,13 +35,21 @@
   margin-top: 30px;
 }
 
+h1.splash-title {
+  font-size: 4.5em;
+}
+
+h2.splash-sub-title {
+  font-weight: normal;
+}
+
 .splash-button {
   text-align: center;
+  text-transform: uppercase;
   display: inline-block;
-  padding: 0 20px;
+  padding: 20px 30px;
   border: none;
   border-radius: 20em;
-  line-height: 40px;
   min-width: 100px;
   background-color: $orange;
   color: white;

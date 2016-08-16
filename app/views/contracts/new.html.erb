@@ -1,13 +1,37 @@
+
 <div class="row profile">
-  <div class="profile-content">
-    <div class="text-center card">
-    <h2 class=title>Contract Details</h2>
-    <li class="contracts">Seller: <%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></li>
-    <li class="contracts">Buyer: <%= current_user.first_name + " " + current_user.last_name %></li>
-    <li class="contracts">Price/Sol: <%= @solar_panel.price %></li>
-    <%= link_to 'Sign Contract', solar_panel_contracts_path, :method => :post, class: "navbar-wagon-button-orange"%>
+  <div class="text-center">
+    <h2 class="text-center">CONTRACT DETAILS</h2>
+    <div class="contract-details-wrapper">
+
+      <div class="col-sm-4 col-sm-offset-4 card">
+        <h3 class="contract-details-title">Contract with <div class="orange-text"><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></div></h3>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Seller</div>
+          <b class="col-xs-6 text-center orange-text"><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Buyer</div>
+          <b class="col-xs-6 text-center orange-text"><%= current_user.first_name + " " + current_user.last_name %></li></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Price</div>
+          <b class="col-xs-6 text-center orange-text">$<%= @solar_panel.price %> / Kwh</b>
+        </div>
+
+        <br><br>
+
+        <%= link_to 'Sign Contract', solar_panel_contracts_path, method: :post, class: "navbar-wagon-button-orange"%>
+      </div>
+
     </div>
+
   </div>
 </div>
 
+
 <%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button-orange back-btn" %>
+

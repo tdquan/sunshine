@@ -1,63 +1,77 @@
+  <% if current_user.nil? %>
+    <% address = params[:street] %>
+  <% else %>
+    <% address = current_user.address %>
+  <% end %>
 
-<% if current_user.address.nil? %>
-  <p class="alert">Please add your address to your profile &nbsp;<button class="add-address-button navbar-wagon-item navbar-wagon-button-orange" type="submit">Add Address</button></p>
+  <% if address.nil? %>
+    <%= render "shared/address_check" %>
 
-      <div class="address-pop-up">
+  <% else %>
+    <h1><%= address %></h1>
+    <% if @solar_panels.empty? %>
         <div class="row">
           <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <h4>We can't find solar panel in production</h3>
+          </div>
+        </div>
+    <% else %>
+      <div class="row map-container">
+        <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
+          <div id="map" style="width: 100%; height: 400px;">
+          </div>
+        </div>
+      </div>
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.map.centerOn([38.736946, -9.142685]);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(20);
+        }
+        });
+        });
+        <% end %>
+      <% end %>
 
-           <%= simple_form_for @user, url: {action: "addUserAddress"} do |f| %>
-          <div class="form-inputs text-left card-content-container">
-            <%= f.input :address, autofocus: true, placeholder: "Address"%>
-            <div class="form-actions text-center">
-              <%= f.submit value: "Save Address", class: "navbar-wagon-item navbar-wagon-button-orange" %>
+      <% @solar_panels.each do |solar_panel| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="text-center">
+              <% if solar_panel.user.facebook_picture_url %>
+              <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
+              <% else %>
+              <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+              <% end %>
+            </div>
+            <br>
+            <div class="card-content-container text-left">
+              <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+              <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
+              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+              <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
+            </div>
+            <br><br>
+            <div class="text-center">
+              <%= link_to "Details", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
+
             </div>
           </div>
-          <% end %>
-
-          </div>
         </div>
-      </div>
-
-
-<% else %>
-
-
-  <% if @solar_panels.empty? %>
-    <div class="row">
-      <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <h4>No one is selling on your street</h3>
-      </div>
-    </div>
-  <% end %>
-  <% if current_user.address %>
-    <% @solar_panels.each do |solar_panel| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <div class="text-center">
-            <% if solar_panel.user.facebook_picture_url %>
-                <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
-            <% else %>
-              <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
-            <% end %>
-          </div>
-          <hr>
-          <div class="card-content-container text-left">
-            <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
-            <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-            <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-            <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
-          </div>
-          <hr>
-          <div class="text-center">
-            <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
   <% end %>
 
 <% end %>
 
-<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 
+<% if current_user.nil? %>
+<%= link_to "Back", root_path, class: "navbar-wagon-button-orange back-btn" %>
+<% else %>
+<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+<% end %>

@@ -1,9 +1,6 @@
 <aside id="sidebar" class="col-xs-12 col-sm-3 col-md-2">
   <div class="">
     <div class="profile-sidebar">
-      <!-- SIDEBAR LOGO -->
-      <%= link_to "Splash", root_path %>
-      <!-- END SIDEBAR LOGO -->
 
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">
@@ -24,8 +21,9 @@
           <p><%= current_user.address %></p>
         </div>
         <div class="">
-          <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "navbar-wagon-link" %>&nbsp;|
-          <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "navbar-wagon-link"%>
+
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "navbar-wagon-link" %>&nbsp;|
+          <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "navbar-wagon-link" %>
         </div>
       </div>
       <!-- END SIDEBAR USER TITLE -->
@@ -34,13 +32,15 @@
       <div>
         <ul class="profile-usermenu">
           <li class="profile-usermenu-item">
-            <%= link_to "Home", user_dashboard_path %>
+            <%= link_to "Home", dashboard_path %>
           </li>
+          <% unless current_user.solar_panel.nil? %>
           <li class="profile-usermenu-item">
-            <%= link_to "Purchase solar energy", current_user_located_solar_panels_path %>
+            <%= link_to "My panel", my_panel_path %>
           </li>
+          <% end %>
           <li class="profile-usermenu-item">
-            <%= link_to "Become a Producer", new_solar_panel_path%>
+            <%= link_to "Purchase solar energy", located_solar_panels_path %>
           </li>
           <li class="profile-usermenu-item">
             <%= link_to "Active Contracts", contracts_path%>
@@ -52,7 +52,8 @@
   </div>
 
   <div class="text-center sidebar-bottom-button-grp">
-    <%= link_to "Become a Producer", new_solar_panel_path, class: "sidebar-signout-btn"%>
+    <%= link_to "Back to Dashboard", root_path, class: "navbar-wagon-link-blue" %>
+    <%= link_to "Become a Producer", new_solar_panel_path, class: "navbar-wagon-button-orange"%>
   </div>
 
 </aside>
