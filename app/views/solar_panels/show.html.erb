@@ -1,24 +1,24 @@
 <div class="row">
   <section class="col-xs-12 col-sm-7">
     <div class="card">
-      <h3 class="text-center"><%= @solar_panel.user.first_name + "'s panel"%></h3>
+      <h3 class="text-center"><%= @solar_panel.user.first_name.capitalize + "'s panel"%></h3>
       <br>
       <div class="card-content-container">
         <div class="row">
           <div class="col-xs-6">Daily excess :</div>
-          <div class="col-xs-6"><b>120 Kwh</b></div>
+          <div class="col-xs-6 orange-text"><b>120 Kwh</b></div>
         </div>
         <div class="row">
           <div class="col-xs-6">Your estimated daily usage :</div>
-          <div class="col-xs-6"><b>80 Kwh</b></div>
+          <div class="col-xs-6 orange-text"><b>80 Kwh</b></div>
         </div>
         <div class="row">
           <div class="col-xs-6">Estimated coverage :</div>
-          <div class="col-xs-6"><b>20 Kwh</b></div>
+          <div class="col-xs-6 orange-text"><b>20 Kwh</b></div>
         </div>
         <div class="row">
           <div class="col-xs-6">Listed price :</div>
-          <div class="col-xs-6"><b>$0.20 / Kwh</b></div>
+          <div class="col-xs-6 orange-text"><b>$0.20 / Kwh</b></div>
         </div>
       </div>
     </div>
@@ -39,7 +39,11 @@
       <div class="card-content-container">
         <p class="text-center"><b><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></b></p>
         <br>
-        <p class="orange-text"><b class="">Reviews :&nbsp;</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+        <div class="row">
+          <div class="col-xs-6">Reviews :&nbsp;</div>
+          <b class="col-xs-6 orange-text text-center">
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+          </b>
       </div>
     </div>
   </section>
