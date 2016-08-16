@@ -59,7 +59,8 @@
             </div>
             <hr>
             <div class="text-center">
-              <%= link_to "Details", solar_panel_path(solar_panel), class: "navbar-wagon-button" %>
+              <%= link_to "Details", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
+
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@
 
 
 <% if current_user.nil? %>
-<%= link_to "Back", root_path, class: "navbar-wagon-button back-btn" %>
+<%= link_to "Back", root_path, class: "navbar-wagon-button-orange back-btn" %>
 <% else %>
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button back-btn" %>
+<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 <% end %>

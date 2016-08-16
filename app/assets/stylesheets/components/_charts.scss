@@ -1,0 +1,15 @@
+.barchart {
+  margin: 20px;
+  height: 300px;
+  width: 30px;
+  position: relative;
+  display: inline-block;
+
+}
+
+.bar {
+  width: 100%;
+  background-color: $orange;
+  bottom: 0;
+  position: absolute;
+}

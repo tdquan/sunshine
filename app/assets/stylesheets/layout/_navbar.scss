@@ -42,42 +42,16 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: $gray  ;
+  display: inline-block;
+  color: $orange  ;
   font-size: 15px;
+  margin-top: 10px;
   transition: all 0.2s ease;
 }
 .navbar-wagon-link:hover {
-  color: $orange;
+  color: white;
   text-decoration: none;
-}
-
-/* Navbar right button */
-.navbar-wagon-button {
-  text-align: center;
-  display: inline-block;
-  padding: 0 20px;
-  border: none;
-  border-radius: 20em;
-  line-height: 40px;
-  min-width: 100px;
-  background-color: $orange;
-  color: white;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-.navbar-wagon-button:hover {
-  color: white;
-  background: darken($orange, 5%);
-  border-color: darken($orange, 5%);
-}
-
-a.navbar-wagon-button {
-  color: white;
-}
-
-
-a.navbar-wagon-button:visited {
-  color: white;
+  cursor: pointer;
 }
 
 /* Navbar search form */
@@ -129,7 +103,7 @@ a.navbar-wagon-button:visited {
   line-height: 22px !important;
   padding: 10px 20px;
 }
-.navbar-wagon.navbar-wagon-button > a:hover {
+.navbar-wagon.navbar-wagon-button-orange > a:hover {
   color: red !important;
 
 }
@@ -159,10 +133,6 @@ a.navbar-wagon-button:visited {
   top: 0;
 }
 
-body {
-  margin: 0;
-  background: #000;
-}
 video {
   position: absolute;
   top: 50%;

@@ -18,15 +18,25 @@
 <div class="card">
     <h3 class="text-center">Our suggested option</h3>
     <br>
+
     <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
     <div class="form-inputs text-left card-content-container">
-      <%= f.input :size, required: true, autofocus: true, :input_html => { :value => 45}, placeholder: "m2" %>
-      <%= f.input :price, required: true, autofocus: true, placeholder: "Price per sol", step: 0.01, :input_html => { :value => 1.5} %>
+      <%= f.input :size, required: true, autofocus: true,
+          :input_html => { :value => 45},
+          placeholder: "m2",
+          label: "Size <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Please enter the size of you solar panel</span></div>".html_safe%>
+
+      <%= f.input :price, required: true, autofocus: true,
+          :input_html => { :value => 1.5},
+          placeholder: "Price per sol",
+          label: "Price <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Please enter the price you want to receive for one KWh</span></div>".html_safe%>
+
       <div class="form-actions text-center">
-        <%= f.submit value: "Test economics", class: "navbar-wagon-item navbar-wagon-button" %>
+        <%= f.submit value: "Test economics", class: "navbar-wagon-item navbar-wagon-button-orange" %>
       </div>
     </div>
     <% end %>
   </div>
 </section>
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button back-btn" %>
+
+<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>

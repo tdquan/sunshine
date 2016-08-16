@@ -1,18 +1,12 @@
-
-body {
-  background: #F1F3FA;
-}
-
 /* Profile container */
 
 #sidebar {
   position: fixed;
   padding: 0;
   height: 100%;
-  background-color: $darkest-blue;
+  background-color: $translucent-darkest-blue;
   color: #fff;
   padding-top: 40px;
-  box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
 }
 
 .profile {
@@ -60,16 +54,16 @@ body {
 
 .profile-usermenu-item a {
   padding: 10px 20px;
-  background-color: $darkest-blue;
+  background-color: transparent;
   color: #fff;
   display: block;
-  border-left: 2px solid $darkest-blue;
+  border-left: 2px solid transparent;
   font-size: 0.9em;
   transition: 0.5s ease;
 }
 
 .profile-usermenu-item a:hover, .profile-usermenu-item a:active {
-  background-color: $dark-blue;
+  background-color: darken($translucent-darkest-blue, 1%);
   text-decoration: none;
   border-left: 2px solid $orange;
 }
@@ -77,7 +71,6 @@ body {
 /* Profile Content */
 .profile-content {
   padding: 20px;
-  background: #fff;
   min-height: 460px;
 }
 
