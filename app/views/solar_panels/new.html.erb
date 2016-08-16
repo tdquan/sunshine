@@ -28,8 +28,8 @@
 
       <%= f.input :price, required: true, autofocus: true,
           :input_html => { :value => 1.5},
-          placeholder: "Price per sol", step: 0.01,
-          label: "Size <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Please enter the price you want to receive for one KWh</span></div>".html_safe%>
+          placeholder: "Price per sol",
+          label: "Price <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Please enter the price you want to receive for one KWh</span></div>".html_safe%>
 
       <div class="form-actions text-center">
         <%= f.submit value: "Test economics", class: "navbar-wagon-item navbar-wagon-button-orange" %>
