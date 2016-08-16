@@ -6,7 +6,6 @@ class SolarPanelsController < ApplicationController
     @user = current_user
     @solar_panels = SolarPanel.near(@user ? @user.address : params[:street], 1)
 
-
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
       marker.lng solar_panel.longitude

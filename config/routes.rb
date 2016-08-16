@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   get "contracts/terminated" => 'contracts#index_terminated'
 
   # User
-  resources :current_user, only: [] do
-    collection do
+  # resources :current_user, only: [] do
+  #   collection do
       resources :solar_panels, only: [:new, :create] do
         resources :contracts, only: [:new, :create]
       end
-      resources :contracts, only: [:index, :show]
+      resources :contracts, only: [:index, :show, :edit, :update]
       patch "contracts/:id" => 'contracts#terminate', as: "contract_terminate"
-    end
-  end
-
+  #   end
+  # end
+  patch "solar_panels/addUserAddress" => "solar_panels#addUserAddress"
   get "dashboard/show" => "dashboard#show", as: "dashboard"
 
   get "located_solar_panels" => 'solar_panels#index'

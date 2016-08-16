@@ -26,7 +26,7 @@ class ContractsController < ApplicationController
   end
 
 
-  def terminate
+  def update
     @contract = Contract.find(params[:id])
     @contract.end_date = DateTime.now
     @contract.save
