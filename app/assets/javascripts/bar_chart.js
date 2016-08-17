@@ -1,16 +1,16 @@
 setTimeout(function start (){
 
-  $('.bar1').each(function(i){
-    var $bar1 = $(this);
-    $(this).append('<span class="count"></span>')
+  $('.red-bar-chart').each(function(i){
+    var $redbarchart = $(this);
+    $(this).append('<span class="bar-chart-count"></span>')
     setTimeout(function(){
-      $bar1.css('height', $bar1.attr('data-percent'));
+      $redbarchart.css('height', $redbarchart.attr('data-percent'));
     }, i*100);
   });
 
-$('.count').each(function () {
+$('.bar-chart-count').each(function () {
     $(this).prop('Counter',0).animate({
-        Counter: $(this).parent('.bar1').attr('data-percent')
+        Counter: $(this).parent('.red-bar-chart').attr('data-percent')
     }, {
         duration: 2000,
         easing: 'swing',
