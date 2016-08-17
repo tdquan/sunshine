@@ -2,20 +2,20 @@
   <% if @solar_panels.empty? %>
     <p class="contracts">You have no solar panel registered yet!</p>
     <%= link_to "Create new panel", new_solar_panel_path, class: "navbar-wagon-button-orange" %>
-  <% end %>
-
+  <% else %>
+  <h2 class="text-center">My Solar Production</h2>
   <% @solar_panels.each do |solar_panel| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card">
         <div class="text-center">
-         <% if user_signed_in? && current_user.facebook_picture_url %>
-            <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
-          <% else %>
-            <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
-          <% end %>
-        </div>
-        <br>
-        <div class="card-content-container text-left">
+           <% if user_signed_in? && current_user.facebook_picture_url %>
+           <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+           <% else %>
+           <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+           <% end %>
+         </div>
+         <br>
+         <div class="card-content-container text-left">
           <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
           <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
           <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
@@ -23,12 +23,12 @@
         </div>
         <br>
         <div class="text-center">
-          <%= link_to "Details", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
-
+          <%= link_to "My public offer", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
         </div>
       </div>
     </div>
   <% end %>
+<% end %>
 </div>
 
 <%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
