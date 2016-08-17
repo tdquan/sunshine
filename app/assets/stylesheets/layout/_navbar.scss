@@ -205,13 +205,6 @@ h1 {
 .info-box a:hover{
   background:rgba(0,0,0,0.9);
 }
-@media screen and (max-width: 500px) {
-  div{width:70%;}
-}
-@media screen and (max-device-width: 800px) {
-  html { background: url("http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg") #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
-}
 
 // Homepage navbar
 
