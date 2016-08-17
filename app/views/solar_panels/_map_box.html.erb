@@ -1,11 +1,11 @@
-<div class="map_box">
+<div class="map_box" style="color:black">
   <% if solar_panel.user.facebook_picture_url %>
     <div class="text-center"><%= image_tag solar_panel.user.facebook_picture_url,class: "avatar-large" %></div>
   <% else %>
     <div class="text-center"><%= image_tag "avatar.png", class: "avatar-large" %></div>
   <% end %>
-  <h3><%= solar_panel.user.first_name.capitalize %>'s Solar Panel</h3>
-  <p><%= solar_panel.address %></p>
+  <h3 class="text-center"><%= solar_panel.user.first_name.capitalize %>'s Solar Panel</h3>
+  <p class="text-center"><%= solar_panel.address %></p>
   <div class="text-center">
     <%= link_to "Details",  solar_panel_path(solar_panel), target: :blank, class: "navbar-wagon-button-orange" %>
   </div>

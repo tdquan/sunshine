@@ -23,7 +23,7 @@ class SolarPanelsController < ApplicationController
     @solar_panel.address = current_user.address
 
     if @solar_panel.save
-      redirect_to my_panels_path
+      redirect_to my_panel_path
     else
       render :new
     end
