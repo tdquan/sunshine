@@ -36,14 +36,14 @@
           </li>
           <% unless current_user.solar_panel.nil? %>
           <li class="profile-usermenu-item">
-            <%= link_to "My panel", my_panel_path %>
+            <%= link_to "My production", my_panel_path %>
           </li>
           <% end %>
           <li class="profile-usermenu-item">
-            <%= link_to "Purchase solar energy", located_solar_panels_path %>
+            <%= link_to "Consume local solar energy", located_solar_panels_path %>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to "Active Contracts", contracts_path%>
+            <%= link_to "Sharing Agreements", contracts_path%>
           </li>
         </ul>
       </div>
@@ -53,7 +53,7 @@
 
   <div class="text-center sidebar-bottom-button-grp">
     <%= link_to "Back to Home Page", root_path, class: "navbar-wagon-link-blue" %>
-    <%= link_to "Become a Producer", new_solar_panel_path, class: "navbar-wagon-button-orange"%>
+    <%= link_to "Produce Solar Energy", new_solar_panel_path, class: "navbar-wagon-button-orange"%>
   </div>
 
 </aside>
