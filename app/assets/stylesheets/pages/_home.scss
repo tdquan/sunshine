@@ -83,7 +83,7 @@ video {
   color: white;
   padding: 2rem;
   font-size: 1.2rem;
-  margin-top: 10%;
+  margin-top: 7%;
 }
 h1 {
   font-size: 3rem;
@@ -116,14 +116,3 @@ h1 {
   font-size: 1.2em;
 }
 
-.splash-page-box a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  background:rgba(0,0,0,0.5);
-  padding: .5rem;
-  transition: .6s background;
-}
-.splash-page-box a:hover{
-  background:rgba(0,0,0,0.9);
-}
