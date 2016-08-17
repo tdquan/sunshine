@@ -35,9 +35,9 @@
         <br><br>
 
         <% if @contract.end_date %>
-          <%= link_to 'Back', current_user_contracts_terminated_path, class: "navbar-wagon-button-orange" %>
+          <%= link_to 'Back', contracts_path, class: "navbar-wagon-button-orange" %>
         <% else %>
-          <%= link_to "Cancel Contract", contracts_terminated_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
+          <%= link_to "Cancel Contract", contract_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
           <%= link_to 'Back', dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
         <% end %>
       </div>
