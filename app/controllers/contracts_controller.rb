@@ -1,16 +1,15 @@
 class ContractsController < ApplicationController
 
   before_action :set_solar_panel, only: [:new]
+  load_and_authorize_resource except: [:new, :index, :create]
 
   def index
-
   end
 
   def index_terminated
   end
 
   def show
-    @contract = Contract.find(params[:id])
   end
 
 
@@ -18,16 +17,17 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(solar_panel_id: params[:sp_id])
-    @contract.user_id = current_user.id
-    @contract.start_date = DateTime.now
+    @contract = current_user.contracts.new(
+      solar_panel_id: params[:sp_id],
+      start_date: DateTime.now
+    )
+    authorize! :create, @contract
     @contract.save
     redirect_to contracts_path
   end
 
 
   def update
-    @contract = Contract.find(params[:id])
     @contract.end_date = DateTime.now
     @contract.save
     redirect_to dashboard_path

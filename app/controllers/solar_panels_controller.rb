@@ -15,11 +15,11 @@ class SolarPanelsController < ApplicationController
   end
 
   def new
-    @solar_panel = current_user.solar_panels.new
+    @solar_panel = current_user.solar_panel.new
   end
 
   def create
-    @solar_panel = current_user.solar_panels.new(panel_params)
+    @solar_panel = current_user.solar_panel.new(panel_params)
     @solar_panel.address = current_user.address
 
     if @solar_panel.save

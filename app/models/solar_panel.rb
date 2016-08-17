@@ -1,7 +1,7 @@
 class SolarPanel < ActiveRecord::Base
   # Prosumer
   belongs_to :user
-  has_many :contracts
+  has_many :contracts, dependent: :destroy
 
   validates :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
