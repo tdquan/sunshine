@@ -40,6 +40,39 @@ User.create(
   password_confirmation: "123456"
   )
 
+User.create(
+  email: "fernando@gmail.com",
+  first_name: "Fernando",
+  last_name: "Mesquita",
+  family_size: 3,
+  apartment_size: 100,
+  address: "18 Rua Guarda-Mor",
+  password: "123456",
+  password_confirmation: "123456"
+  )
+
+User.create(
+  email: "janet@gmail.com",
+  first_name: "Maria",
+  last_name: "Gomes",
+  family_size: 3,
+  apartment_size: 100,
+  address: "16 Rua Guarda-Mor",
+  password: "123456",
+  password_confirmation: "123456"
+  )
+
+User.create(
+  email: "sandra@gmail.com",
+  first_name: "Sandra",
+  last_name: "Ferreira",
+  family_size: 3,
+  apartment_size: 100,
+  address: "Rua Sao Bento 23",
+  password: "123456",
+  password_confirmation: "123456"
+  )
+
 SolarPanel.create(
   size: 10,
   efficiency: 3,
@@ -64,6 +97,29 @@ SolarPanel.create(
   user_id: 3,
   )
 
+ SolarPanel.create(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "18 Rua Guarda-Mor",
+  user_id: 4,
+  )
+
+  SolarPanel.create(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "16 Rua Guarda-Mor",
+  user_id: 5,
+  )
+
+   SolarPanel.create(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "Rua Sao Bento 23",
+  user_id: 6,
+  )
 
 
 
