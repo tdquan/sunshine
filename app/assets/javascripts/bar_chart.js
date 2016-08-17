@@ -2,22 +2,14 @@ setTimeout(function start (){
 
   $('.red-bar-chart').each(function(i){
     var $redbarchart = $(this);
-    $(this).append('<span class="bar-chart-count"></span>')
-    setTimeout(function(){
-      $redbarchart.css('height', $redbarchart.attr('data-percent'));
-    }, i*100);
+    // rise up the consumption
+    $redbarchart.animate({
+      height: $redbarchart.attr('data-percent')
+    }, 2000, "swing"
+    );
+    // display the label
+    $redbarchart.find(".bar-chart-label").delay(1000).show(3000, "easeOutBounce");
   });
 
-$('.bar-chart-count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).parent('.red-bar-chart').attr('data-percent')
-    }, {
-        duration: 2000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now) +'%');
-        }
-    });
-});
 
 }, 500)

@@ -10,13 +10,8 @@ $redAL : rgba(231, 76, 60, 0.95);
 $dark :  #3d3d3d;
 
 
-@mixin transition($transition-property, $transition-time, $method) {
-    -webkit-transition: $transition-property $transition-time $method;
-    -moz-transition: $transition-property $transition-time $method;
-    -ms-transition: $transition-property $transition-time $method;
-    -o-transition: $transition-property $transition-time $method;
-    transition: $transition-property $transition-time $method;
-}
+
+
 *{ box-sizing:border-box;}
 
 
@@ -28,17 +23,19 @@ $dark :  #3d3d3d;
 
  .red-bar-chart {
   height: 0;
-  margin: 30px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  margin-left: 30px;
   display: inline-block;
   background: red;
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 70px;
-   transition:height 2s, background .2s;
-   -webkit-transform: translate3d(0,0,0);
-   clear: both;
-   &:nth-of-type(2n) {
+  transition: height 2s;
+  clear: both;
+  &:nth-of-type(2n) {
     background:$red;
+    right: 0;
    }
    .bar-chart-label {
     background-color: red;
@@ -46,14 +43,12 @@ $dark :  #3d3d3d;
     padding: 1em;
     background: $dark;
     width: 70px;
-    display: inline-block;
-    position: relative;
+    display: none;
     z-index: 2;
     font-weight: bold;
     font-family: $fontSans;
     bottom: 0;
     position: absolute;
-
    }
  }
 
