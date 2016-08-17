@@ -8,17 +8,20 @@
     <%= render "shared/address_check" %>
 
   <% else %>
-    <h1><%= address %></h1>
+    <h2 class="text-center">Producers in your community</h2>
+    <br>
     <% if @solar_panels.empty? %>
         <div class="row">
           <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-            <h4>We can't find solar panel in production</h3>
+            <h4>No solar panel in production yet</h3>
+            <%= link_to "Request Producers", root_path, class: "navbar-wagon-button-orange back-btn" %>
           </div>
         </div>
     <% else %>
+
       <div class="row map-container">
         <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
-          <div id="map" style="width: 100%; height: 400px;">
+          <div id="map" style="width: 100%; height: 300px;">
           </div>
         </div>
       </div>
@@ -52,10 +55,10 @@
             </div>
             <br>
             <div class="card-content-container text-left">
-              <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+              <p><b>Producer :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
               <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-              <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
+              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/hour</p>
+              <p><b>Price :</b>&nbsp;<span>$0.12 (Grid) - $<%= solar_panel.price || 0 %>/kWh</span></p>
             </div>
             <br><br>
             <div class="text-center">
