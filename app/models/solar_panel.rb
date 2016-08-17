@@ -10,6 +10,11 @@ class SolarPanel < ActiveRecord::Base
   validates :address, presence: true
   validates_uniqueness_of :user_id
 
+  before_validation :get_address, on: :create
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def get_address
+    self.address = user.address
+  end
 end

@@ -20,6 +20,10 @@ class Ability
       can :manage, Contract, user: user
       cannot :destroy, Contract
     end
+
+
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
