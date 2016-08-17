@@ -46,7 +46,7 @@ User.create(
   last_name: "Mesquita",
   family_size: 3,
   apartment_size: 100,
-  address: "18 Rua Guarda-Mor",
+  address: "10a Rua Guarda-Mor",
   password: "123456",
   password_confirmation: "123456"
   )
@@ -57,7 +57,7 @@ User.create(
   last_name: "Gomes",
   family_size: 3,
   apartment_size: 100,
-  address: "16 Rua Guarda-Mor",
+  address: "25 Rua Guarda-Mor",
   password: "123456",
   password_confirmation: "123456"
   )
@@ -68,7 +68,7 @@ User.create(
   last_name: "Ferreira",
   family_size: 3,
   apartment_size: 100,
-  address: "Rua Sao Bento 23",
+  address: "Rua Sao Bento 19",
   password: "123456",
   password_confirmation: "123456"
   )
@@ -101,7 +101,7 @@ SolarPanel.create(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "18 Rua Guarda-Mor",
+  address: "10a Rua Guarda-Mor",
   user_id: 4,
   )
 
@@ -109,7 +109,7 @@ SolarPanel.create(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "16 Rua Guarda-Mor",
+  address: "25 Rua Guarda-Mor",
   user_id: 5,
   )
 
@@ -117,7 +117,7 @@ SolarPanel.create(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua Sao Bento 23",
+  address: "Rua Sao Bento 19",
   user_id: 6,
   )
 
