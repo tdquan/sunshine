@@ -1,6 +1,8 @@
 class SolarPanelsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index]
+  load_and_authorize_resource except: [:index, :new, :create, :show_my, :addUserAddress]
+
 
   def index
     @user = current_user
@@ -20,7 +22,7 @@ class SolarPanelsController < ApplicationController
 
   def create
     @solar_panel = current_user.build_solar_panel(panel_params)
-
+    authorize! :create, @solar_panel
     if @solar_panel.save
       redirect_to my_panel_path
     else
@@ -30,7 +32,6 @@ class SolarPanelsController < ApplicationController
   end
 
   def show
-    @solar_panel = SolarPanel.find(params[:id])
     @contract = @solar_panel.contracts.build
   end
 

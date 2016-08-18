@@ -7,7 +7,7 @@ class Ability
     can :create, Contract do |c|
       user == c.user
     end
-    can :create, SolarPanel, user: user
+    can :create, SolarPanel
     can :show, SolarPanel
 
     #as a consumer
