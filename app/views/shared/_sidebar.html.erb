@@ -1,6 +1,12 @@
 <aside id="sidebar" class="col-xs-12 col-sm-3 col-md-2">
   <div class="">
     <div class="profile-sidebar">
+    <!-- TRANSLATION LINKS -->
+    <% if I18n.locale == I18n.default_locale %>
+    <%= link_to image_tag("portugal.jpg", class: "avatar-large"), :locale=>'pt'%>
+    <% else %>
+    <%= link_to image_tag("unitedkingdom.jpg", class: "avatar-large"), :locale=>'en'%>
+    <% end %>
 
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">

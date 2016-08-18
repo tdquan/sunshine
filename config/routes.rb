@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  scope '(:locale)', locale: /en|pt/ do 
+    resources :contracts, :solar_panels
+  end
+
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
