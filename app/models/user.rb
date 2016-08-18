@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
 
   def is_producer?
-    !!solar_panel
+    solar_panel.try(:persisted?)
   end
 
   def is_consumer?
