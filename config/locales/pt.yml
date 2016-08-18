@@ -1,14 +1,6 @@
 pt:
-  pages:
-    home:
-      title: "SunShine"
-      title1: "É a tua energia limpa!"
-      enter_simulation: "Iniciar a simulação"
-      subtitle_0: "A proof of concept for a "
-      subtitle_1: "hyper-local "
-      subtitle_2: "solar"
-      subtitle_3: " energy sharing solution"
 
+# -------------------       CONTRACTS VIEWS   -------------------------------
   contracts: 
     index: 
       title: "Os meus acordos"
@@ -30,11 +22,51 @@ pt:
       link1: "Ver Detalhes"
       link2: "Retroceder"
 
+    new:
+      title: "Detalhes do acordo"
+      agreement: "Acordo com"
+      producer: "Producer"
+      consumer: "Consumer"
+      price: "Price"
+      link1: "Seal agreement"
+      link2: "Back"
+    
+    show:
+      title: "Agreement Details"
+      firstentry: "is sharing energy with you"
+# -------------------       PAGES VIEWS   -------------------------------
+  pages:
+    home:
+      title: "SunShine"
+      title1: "É a tua energia limpa!"
+      enter_simulation: "Iniciar a simulação"
+      subtitle_0: "A proof of concept for a "
+      subtitle_1: "hyper-local "
+      subtitle_2: "solar"
+      subtitle_3: " energy sharing solution"
+      our_approach: "A nossa abordagem"
+      the_problems: "Os problemas"
+      problems_p1: "Não sabemos de onde vem a nossa electricidade."
+      problems_p2: "Porque custa tanto? Quem lucra com isso? Que quantidade é realmente renovável?"
+      problems_p3: "Sempre quis usar energia solar."
+      the_solutions: "A solução"
+      solutions_p1: "Partilha de energia solar, na sua rua, localmente."
+      solutions_p2: "Se é detentor de um painel solar, pode partilhar o excedente de energia com os seus vizinhos e fazer extra €."
+      solutions_p3: "Mesmo não sendo detentor de um painel solar, pode ter acesso ao excedente de energia produzido pelo seu vizinho."
+      the_platform: "A plataforma"
+      platform_p1: "Sunshine é uma prova de conceito, é a simulação de uma platforma de partilha de energia solar."
+      platform_p2: "Queremos demonstrar que é possível."
+      platform_p3: "É possível um futuro onde todas as pessoas são auto-sustentáveis por energia limpa "
+
+
+# -------------------       SOLAR PANELS VIEWS   -------------------------------    
+
   solar_panels:
     _map_box:
       solar_panel_owner_pt: "Painel Solar de "
       solar_panel_owner_en: ""
       link_to_details: Ver Detalhes"
+
     show_my:
       title: "Ainda não tem painéis solares registados!"
       link_new_panel: "Criar um novo painel"
@@ -61,3 +93,18 @@ pt:
       back: "Retroceder"
       purchase: "Comprar"
       back: "Retroceder"
+
+#----------------------------- SHARED ----------------------------
+
+ # shared:
+ #    _sidebar:
+ #      home: "Home"
+ #      edit_profile: "Editar Perfil"
+ #      sign_out: "Sign Out"
+ #      my_production: "A minha produção"
+ #      consume_energy: "Consome energia solar localmente"
+ #      sharing_agreements: "Partilhar acordos"
+ #      back_homepage: "Voltar á Home Page"
+ #      produce_energy: "Produzir energia solar"
+
+

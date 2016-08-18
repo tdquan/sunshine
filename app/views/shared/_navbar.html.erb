@@ -7,6 +7,11 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <% if I18n.locale == I18n.default_locale %>
+    <%= link_to image_tag("portugal.jpg", class: "avatar-large"), :locale=>'pt'%>
+    <% else %>
+    <%= link_to image_tag("unitedkingdom.jpg", class: "avatar-large"), :locale=>'en'%>
+    <% end %>
 
     <!-- Search form -->
     <!-- <form action="" class="navbar-wagon-search">

@@ -38,11 +38,11 @@
       <div>
         <ul class="profile-usermenu">
           <li class="profile-usermenu-item">
-            <%= link_to "Home", dashboard_path %>
+            <%= link_to(t('.home'), dashboard_path) %>
           </li>
           <% unless current_user.solar_panel.nil? %>
           <li class="profile-usermenu-item">
-            <%= link_to "My production", my_panel_path %>
+            <%= link_to(t('.my_production'), my_panel_path) %>
           </li>
           <% end %>
           <li class="profile-usermenu-item">

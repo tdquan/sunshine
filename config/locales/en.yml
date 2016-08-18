@@ -20,18 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  pages:
-    home:
-      title: "SunShine"
-      title1: "It´s your green energy!"
-      enter_simulation: "Enter the simulation"
-      subtitle_0: "A proof of concept for a "
-      subtitle_1: "hyper-local "
-      subtitle_2: "solar"
-      subtitle_3: " energy sharing solution"
-      our_approach: "Our approach"
-      the_problems: "The problems"
-
+# -------------------       CONTRACTS VIEWS   -------------------------------
   contracts: 
     index: 
       title: "My current agreements"
@@ -65,7 +54,32 @@ en:
     show:
       title: "Agreement Details"
       firstentry: "is sharing energy with you"
+
+# -------------------       PAGES VIEWS   -------------------------------
+  pages:
+    home:
+      title: "SunShine"
+      title1: "It´s your green energy!"
+      enter_simulation: "Enter the simulation"
+      subtitle_0: "A proof of concept for a "
+      subtitle_1: "hyper-local "
+      subtitle_2: "solar"
+      subtitle_3: " energy sharing solution"
+      our_approach: "Our approach"
+      the_problems: "The problems"
+      problems_p1: "You don't understand where your electricity comes from."
+      problems_p2: "Why does it cost that much? Who makes money? How much of it is really renewable?"
+      problems_p3: "You have always wanted to use solar power."
+      the_solutions: "The solution"
+      solutions_p1: "Sharing of solar energy, locally, across your street."
+      solutions_p2: "If you have a solar panel, you can share the excess with your neighbours and make some extra €."
+      solutions_p3: "If you don't have a solar panel, you still can utilise the excess power of your next-door neighbour who owns one."
+      the_platform: "The platform"
+      platform_p1: "Sunshine is a proof of concept, a simulation of a platform for solar energy sharing."
+      platform_p2: "We want to demonstrate it can happen."
+      platform_p3: "A future where everyone is self-sustained by green energy is possible!"
     
+# -------------------       SOLAR PANELS VIEWS   -------------------------------    
   solar_panels:
     _map_box:
       solar_panel_owner_pt: ""
@@ -80,7 +94,7 @@ en:
       address: "Address :"
       production: "Production :"
       price: "Price :"
-      currency: "$"
+      currency: "€"
       link_to_details: "Details"
       link_back: "Back"
 
@@ -99,3 +113,18 @@ en:
       back: "Back"
       purchase: "Purchase"
       back: "Back"
+
+#------------------ SHARED --------------------
+
+  shared:
+    _sidebar:
+      home: "Home"
+      edit_profile: "Edit Profile"
+      sign_out: "Sign Out"
+      my_production: "My productrrion"
+      consume_energy: "Consume local solar energy"
+      sharing_agreements: "Sharing Agreements"
+      back_homepage: "Back to Home Page"
+      produce_energy: "Produce Solar Energy"
+
+
