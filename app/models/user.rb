@@ -5,6 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+# As a Prosumer
+  has_one :solar_panel
+  has_many :contracts
+
+  # As a Consumer
+  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+
+
   validates_presence_of :first_name
   validates_presence_of :last_name
 
@@ -22,15 +30,12 @@ class User < ActiveRecord::Base
 
 
 
-  # As a Prosumer
-  has_many :solar_panels
-  has_many :contracts
+  def is_producer?
+    !!solar_panel
+  end
 
-  # As a Consumer
-  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
-
-  def solar_panel
-    self.solar_panels.first
+  def is_consumer?
+    contracts.any?
   end
 
 end
