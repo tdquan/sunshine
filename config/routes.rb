@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   patch "solar_panels/addUserAddress" => "solar_panels#addUserAddress"
 
   root to: 'pages#home'
+  get "welcome" => 'pages#welcome_step1'
+  post "welcome_step1" => 'pages#create'
+  get "welcome_step2" => 'pages#welcome_step2'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
