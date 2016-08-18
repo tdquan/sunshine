@@ -1,0 +1,83 @@
+.funnel-container {
+  background-image: image-url('welcome_background.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.max-height {
+  height: 100%;
+}
+
+.funnel-card {
+    margin-top: 25vh;
+    display: block;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    h1 {
+      font-size:  100px;
+      color: white;
+      font-weight: bold
+    }
+    label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: lighter;
+    font-size: 21px;
+    padding-bottom: 15px;
+    color: gray;
+  }
+  input {
+    background-color: transparent;
+    border: 0px solid;
+    height: 50px;
+    width: 100%;
+    text: center;
+    color: black;
+    text-align: center;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    outline: none;
+    box-shadow: none;
+    &:focus {
+      outline:none;
+      box-shadow: none;
+}
+  }
+
+  #focuses {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background: 0;
+    border: 0;
+    border-bottom: 3px solid #fff;
+  }
+}
+
+.funnel-map {
+  padding-top: 30px
+}
+
+
+.funnel-info {
+    h1 {
+      font-size: 20px;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: lighter;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+
+}
