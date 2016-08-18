@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  rescue_from CanCan::AccessDenied, with: :render_unauthorized
+
+  def render_unauthorized
+    redirect_to request.referer, alert: "You're not authorized to view this page"
+  end
 
   def after_sign_in_path_for(user)
     dashboard_path

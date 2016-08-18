@@ -15,12 +15,11 @@ class SolarPanelsController < ApplicationController
   end
 
   def new
-    @solar_panel = current_user.solar_panels.new
+    @solar_panel = current_user.build_solar_panel
   end
 
   def create
-    @solar_panel = current_user.solar_panels.new(panel_params)
-    @solar_panel.address = current_user.address
+    @solar_panel = current_user.build_solar_panel(panel_params)
 
     if @solar_panel.save
       redirect_to my_panel_path
@@ -36,7 +35,7 @@ class SolarPanelsController < ApplicationController
   end
 
   def show_my
-    @solar_panels = current_user.solar_panels
+    @solar_panel = current_user.solar_panel
   end
 
   def destroy

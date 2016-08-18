@@ -1,7 +1,7 @@
 class SolarPanel < ActiveRecord::Base
   # Prosumer
   belongs_to :user
-  has_many :contracts
+  has_many :contracts, dependent: :destroy
 
   validates :price, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
@@ -10,6 +10,11 @@ class SolarPanel < ActiveRecord::Base
   validates :address, presence: true
   validates_uniqueness_of :user_id
 
+  before_validation :get_address, on: :create
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def get_address
+    self.address = user.address
+  end
 end

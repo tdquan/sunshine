@@ -20,6 +20,7 @@ gem 'autoprefixer-rails'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'cancancan', '~> 1.10'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
