@@ -1,2 +1,10 @@
 pt:
-  hello: "Olá mundo"
+  contracts: 
+    index: 
+      title: "Os meus acordos"
+      agreement: "Acordo"
+      producer: "Produtor"
+      moreinfo: "Mais informações"
+      firstentry: "Acordo"
+      link1: "Ver os detalhes"
+      link2: "Ver acordos encerrados"

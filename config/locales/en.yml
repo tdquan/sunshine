@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  contracts: 
+    index: 
+      title: "My current agreements"
+      agreement: "Agreement"
+      producer: "Producer"
+      moreinfo: "More info"
+      firstentry: "Agreement"
+      link1: "See Details"
+      link2: "View suspended agreements"
+
