@@ -1,5 +1,5 @@
 <div class="clearfix">
-  <% if !@solar_panel %>
+  <% unless can? :show, current_user.solar_panel %>
     <p class="contracts">You have no solar panel registered yet!</p>
     <%= link_to "Create new panel", new_solar_panel_path, class: "navbar-wagon-button-orange" %>
   <% end %>
