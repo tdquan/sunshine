@@ -4,16 +4,22 @@ class PagesController < ApplicationController
   end
 
   def welcome_step1
-    @temp_user=User.new
+    @user=User.new
   end
 
   def create
-    @temp_user=User.create(params[:address])
+    session[:current_user_address] = params[:user][:address]
     redirect_to welcome_step2_path
   end
 
   def welcome_step2
-    @temp_user=User.new
+    @solar_panels = SolarPanel.near(session[:current_user_address], 1)
+    @best_panel = @solar_panels.first
+    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
+      marker.lat solar_panel.latitude
+      marker.lng solar_panel.longitude
+      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+    end
   end
 
 
