@@ -1,0 +1,8 @@
+
+
+<h1>WELCOME</h1>
+
+<%= simple_form_for @temp_user, url: {action: "create"} do |f| %>
+<%= f.input :address, required: true %>
+<%= f.submit value: "Go" %>
+<% end %>
