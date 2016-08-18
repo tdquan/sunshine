@@ -8,6 +8,7 @@ class Ability
       user == c.user
     end
     can :create, SolarPanel, user: user
+    can :show, SolarPanel
 
     #as a consumer
     if user.is_producer?
