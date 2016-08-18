@@ -1,2 +1,48 @@
+<div class="funnel-container">
 
-<h1>WELCOME2</h1>
+    <div class="funnel-map">
+      <div class="row map-container">
+      <div class="col-md-4 col-md-offset-1">
+
+
+        <div class="card funnel-info"><h1>Hello, i'm <%= @best_panel.user.first_name %>!</h1>
+
+        <div class="content">
+          <p>I'm offering you my surplus energy</p>
+          <div class="card-content-container text-left">
+              <p><b>Producer :</b>&nbsp;<span><%= @best_panel.user.first_name.capitalize + " " + @best_panel.user.last_name.capitalize %></span></p>
+              <p><b>Address :</b>&nbsp;<span><%= @best_panel.address %></span></p>
+              <p><b>Production :</b>&nbsp;<span><%= @best_panel.size || 0 %></span>&nbsp;kWh/hour</p>
+              <p><b>Price :</b>&nbsp;<span>$0.12 (Grid) - $<%= @best_panel.price || 0 %>/kWh</span></p>
+            </div>
+          <%= link_to 'Get local Energy', solar_panel_path(@best_panel) %>
+        </div>
+
+
+
+        </div>
+      </div>
+        <div class="no-padding col-xs-12 col-sm-8 col-sm-offset-1 col-md-5  box-shadow">
+          <div id="map" style="width: 100%; height: 500px;">
+          </div>
+        </div>
+      </div>
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.map.centerOn([38.736946, -9.142685]);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(20);
+        }
+        });
+        });
+        <% end %>
+      <% end %>
+</div>
+</div>
