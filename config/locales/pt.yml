@@ -1,4 +1,14 @@
 pt:
+  pages:
+    home:
+      title: "SunShine"
+      title1: "É a tua energia limpa!"
+      enter_simulation: "Iniciar a simulação"
+      subtitle_0: "A proof of concept for a "
+      subtitle_1: "hyper-local "
+      subtitle_2: "solar"
+      subtitle_3: " energy sharing solution"
+
   contracts: 
     index: 
       title: "Os meus acordos"

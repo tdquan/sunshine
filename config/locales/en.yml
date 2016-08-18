@@ -23,6 +23,15 @@ en:
   pages:
     home:
       title: "SunShine"
+      title1: "It´s your green energy!"
+      enter_simulation: "Enter the simulation"
+      subtitle_0: "A proof of concept for a "
+      subtitle_1: "hyper-local "
+      subtitle_2: "solar"
+      subtitle_3: " energy sharing solution"
+      our_approach: "Our approach"
+      the_problems: "The problems"
+
   contracts: 
     index: 
       title: "My current agreements"

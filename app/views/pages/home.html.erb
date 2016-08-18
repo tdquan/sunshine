@@ -8,9 +8,9 @@
   <div class="splash-page-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
     <h1 class="splash-title"><%=t('.title')%></h1>
     <h2 class="splash-sub-title text-center"><%=t('.title1')%></h2>
-    <p class="text-center splash-text">A proof of concept for a<br>hyper-local <span class="orange-text">solar</span> energy sharing solution</p>
+    <p class="text-center splash-text"><%=t('.subtitle_0')%><br><%=t('.subtitle_1') %><span class="orange-text"><%=t('.subtitle_2') %></span><%=t('.subtitle_3') %></p>
     <div class="center-button text-center">
-      <%= link_to "Enter the simulation", welcome_path, class: "splash-page-box-btn" %>
+      <%= link_to(t('.enter_simulation'), welcome_path, class: "splash-page-box-btn") %>
     </div>
   </div>
   <%= render 'shared/fullscreen_video' %>
@@ -21,7 +21,7 @@
   <section class="homepage-section" id="how-it-works">
 
     <div class="container-fluid">
-      <h3 class="text-center section-title orange-text">Our approach</h3>
+      <h3 class="text-center section-title orange-text"><%=t('.our_approach')%></h3>
 
       <!-- PROBLEM -->
 
@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 goal-column">
-          <h4 class="text-center card-title">The problems</h4>
+          <h4 class="text-center card-title"><%=t('.the_problems') %></h4>
           <div class="card-content-container">
             <p>
               You don't understand where your electricity comes from.
