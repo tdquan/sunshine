@@ -96,15 +96,15 @@ pt:
 
 #----------------------------- SHARED ----------------------------
 
- # shared:
- #    _sidebar:
- #      home: "Home"
- #      edit_profile: "Editar Perfil"
- #      sign_out: "Sign Out"
- #      my_production: "A minha produção"
- #      consume_energy: "Consome energia solar localmente"
- #      sharing_agreements: "Partilhar acordos"
- #      back_homepage: "Voltar á Home Page"
- #      produce_energy: "Produzir energia solar"
+  # shared:
+  #   _sidebar:
+  #     home: "Home"
+  #     edit: "Editar Perfil"
+  #     sign_out: "Sign Out"
+  #     my_production: "A minha produção"
+  #     consume_energy: "Consome energia solar localmente"
+  #     sharing_agreements: "Partilhar acordos"
+  #     link_back: "Voltar para a Home Page"
+  #     produce_energy: "Produzir energia solar"
 
 
