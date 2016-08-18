@@ -1,28 +1,28 @@
 <div class="row">
   <section class="col-xs-12 col-sm-7">
     <div class="card">
-      <h3 class="text-center">Excess local solar energy available</h3>
+      <h3 class="text-center"><%=t('.title')%></h3>
 
       <div class="card-content-container">
       <br>
-      <p><%= @solar_panel.user.first_name.capitalize%> is willing to share excess of energy with you, when available.
+      <p><%= @solar_panel.user.first_name.capitalize%> <%= t('.firstentry') %>
       </p>
       <br>
         <div class="row">
-          <div class="col-xs-6">Daily excess :</div>
+          <div class="col-xs-6"><%= t('.secondentry') %></div>
           <div class="col-xs-6 orange-text"><b>120 Kwh</b></div>
         </div>
         <div class="row">
-          <div class="col-xs-6">Your estimated daily usage :</div>
+          <div class="col-xs-6"><%= t('.estimated_daily') %></div>
           <div class="col-xs-6 orange-text"><b>80 Kwh</b></div>
         </div>
         <div class="row">
-          <div class="col-xs-6">Estimated coverage :</div>
+          <div class="col-xs-6"><%= t('.estimated_coverage') %></div>
           <div class="col-xs-6 orange-text"><b>20 Kwh</b></div>
         </div>
         <div class="row">
-          <div class="col-xs-6">Listed price :</div>
-          <div class="col-xs-6 orange-text"><b>$0.12 (Grid) - $0.02 / Kwh</b></div>
+          <div class="col-xs-6"><%= t('.listed_price') %></div>
+          <div class="col-xs-6 orange-text"><b><%=t('.currency') %> 0.12 <%= t('.grid') %> - <%=t('.currency') %> 0.02 / Kwh</b></div>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
 
   <section class="col-xs-12 col-sm-4">
     <div class="card">
-      <h3 class="text-center"><%= @solar_panel.user.first_name%>'s Info</h3>
+      <h3 class="text-center"><%=t('.infopt')%><%= @solar_panel.user.first_name%><%= t('.infoen')%></h3>
       <br>
       <div class="text-center">
         <% if @solar_panel.user.facebook_picture_url %>
@@ -44,7 +44,7 @@
         <p class="text-center"><b><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></b></p>
         <br>
         <div class="row">
-          <div class="col-xs-6">Reviews :&nbsp;</div>
+          <div class="col-xs-6"><%=t('.reviews')%>&nbsp;</div>
           <b class="col-xs-6 orange-text text-center">
             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
           </b>
@@ -60,10 +60,10 @@
   <% if @solar_panel.user.id != current_user.id %>
     <%= link_to "Seal agreement with #{@solar_panel.user.first_name}", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
   <% end %>
-  <%= link_to "Back", my_panel_path, class: "navbar-wagon-button-orange back-btn" %>
+  <%= link_to(t('.back'), my_panel_path, class: "navbar-wagon-button-orange back-btn") %>
 <% else %>
-  <%= link_to "Purchase", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange" %>
-  <%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+  <%= link_to(t('.purchase'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange") %>
+  <%= link_to(t('.back'), dashboard_path, class: "navbar-wagon-button-orange back-btn") %>
 <% end %>
 
 

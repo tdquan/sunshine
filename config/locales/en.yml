@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  pages:
+    home:
+      title: "SunShine"
   contracts: 
     index: 
       title: "My current agreements"
@@ -30,3 +33,60 @@ en:
       link1: "See Details"
       link2: "View suspended agreements"
 
+    index_terminated:
+      title: "No agreements were suspended:"
+      title1: "Suspended agreements"
+      agreement: "Agreement"
+      producer: "Producer"
+      moreinfo: "More Info"
+      date: "Start date | End date"
+      agreement1: "Agreement"
+      link1: "See Details"
+      link2: "Back"
+
+    new:
+      title: "Agreements Details"
+      agreement: "Agreement with"
+      producer: "Producer"
+      consumer: "Consumer"
+      price: "Price"
+      link1: "Seal agreement"
+      link2: "Back"
+    
+    show:
+      title: "Agreement Details"
+      firstentry: "is sharing energy with you"
+    
+  solar_panels:
+    _map_box:
+      solar_panel_owner_pt: ""
+      solar_panel_owner_en: "'s Solar Panel"
+      link_to_details: "Details"
+
+
+    show_my:
+      title: "You have no solar panel registered yet!"
+      link_new_panel: "Create new panel"
+      owner: "Owner :"
+      address: "Address :"
+      production: "Production :"
+      price: "Price :"
+      currency: "$"
+      link_to_details: "Details"
+      link_back: "Back"
+
+    show:
+      title: "Excess local solar energy available"
+      firstentry: "is willing to share excess of energy with you, when available."
+      secondentry: "Daily excess :"
+      estimated_daily: "Your estimated daily usage :"
+      estimated_coverage: "Estimated coverage :"
+      listed_price: "Listed price :"
+      currency: "$"
+      infoen: "'s Info"
+      infopt: ""
+      reviews: "Reviews"
+      grid: "(Grid)"
+      back: "Back"
+      purchase: "Purchase"
+      back: "Back"

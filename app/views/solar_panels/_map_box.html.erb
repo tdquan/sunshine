@@ -4,9 +4,9 @@
   <% else %>
     <div class="text-center"><%= image_tag "avatar.png", class: "avatar-large" %></div>
   <% end %>
-  <h3 class="text-center"><%= solar_panel.user.first_name.capitalize %>'s Solar Panel</h3>
+  <h3 class="text-center"><%=t('.solar_panel_owner_pt')%><%= solar_panel.user.first_name.capitalize %><%=t('.solar_panel_owner_en')%></h3>
   <p class="text-center"><%= solar_panel.address %></p>
   <div class="text-center">
-    <%= link_to "Details",  solar_panel_path(solar_panel), target: :blank, class: "navbar-wagon-button-orange" %>
+    <%= link_to(t('.link_to_details'),  solar_panel_path(solar_panel), target: :blank, class: "navbar-wagon-button-orange")%>
   </div>
 </div>
