@@ -12,7 +12,7 @@
 }
 
 .homepage-main-content {
-  margin-top: 63vh;
+  margin-top: 100vh;
 }
 
 .homepage-card-icon {
@@ -20,15 +20,19 @@
   font-size: 6em;
 }
 
-#search-solar-potential {
-  background-image: asset-url('solar_city.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+#how-it-works {
+  background-color: #f1f1f1;
+  color: $gray-dark;
 }
-#why-rational {
-  padding: 0 100px;
+
+.goal-section {
+  margin-bottom: 6em;
 }
+
+.goal-column.graphic {
+  margin-top: 10%;
+}
+
 
 .center-button {
   width: 100%;
@@ -43,17 +47,72 @@ h2.splash-sub-title {
   font-weight: normal;
 }
 
-.splash-button {
-  text-align: center;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 20px 30px;
-  border: none;
-  border-radius: 20em;
-  min-width: 100px;
-  background-color: $orange;
+.splash-page-box p {
+  font-size: 1.2em;
+}
+
+// Homepage video
+
+.video-container {
+  height: 100%;
+  top: 0;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('http://www.solarcity.com/sites/all/themes/solarcity/img/video-bg-poster.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
+
+.splash-page-box {
+  font-family: "Open-Sans", "Helvetica", "Arial Narrow", sans-serif;
+  font-weight:100;
+  background: rgba(0,0,0,0.3);
   color: white;
-  font-size: 20px;
-  transition: all 0.2s ease;
+  padding: 2rem;
+  font-size: 1.2rem;
+  margin-top: 7%;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+  text-align: center;
+  color: $orange;
+}
+.splash-page-box .splash-page-box-btn {
+  display: block;
+  width: 60%;
+  padding: 0 20px;
+  border: none;
+  margin: 1rem auto;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  line-height: 40px;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 20em;
+  cursor: pointer;
+  transition: .3s background;
+}
+.splash-page-box .splash-page-box-btn:hover {
+   background: $orange;
+}
+
+.splash-text {
+  font-size: 1.2em;
 }
 

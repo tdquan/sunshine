@@ -3,6 +3,15 @@
   font-weight: 600;
 }
 
+.dashboard-body {
+  min-height: 100vh;
+  background: #141E30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #141E30, #243B55);
+  background: -o-linear-gradient(right, #141E30, #243B55);
+  background: linear-gradient(to left, #141E30, #243B55);
+  color: white;
+}
+
 .dashboard-wrapper {
   padding: 40px 15px;
 }

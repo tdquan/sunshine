@@ -1,12 +1,12 @@
 <div class="row profile">
   <div class="text-center">
-    <h2 class="text-center">CONTRACT DETAILS</h2>
+    <h2 class="text-center">Agreement Details</h2>
     <div class="contract-details-wrapper">
 
 
       <div class="card">
       <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> is sharing energy with you</h1>
-      <p>You have an ongoing agrrement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
+      <p>You have an ongoing agreement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
       <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
       <p>Way to go!</p>
 
@@ -16,20 +16,20 @@
 
       <div class="col-sm-4 col-sm-offset-4 card">
 
-        <h3 class="contract-details-title">CONTRACT <%= @contract.id %></h3>
+        <h3 class="contract-details-title">Agreement #<%= @contract.id %></h3>
         <div class="row">
-          <div class="col-xs-6 text-left">Seller</div>
+          <div class="col-xs-6 text-left">Producer</div>
           <b class="col-xs-6 text-center orange-text"><%= @contract.solar_panel.user.first_name.capitalize + " " + @contract.solar_panel.user.last_name.capitalize %></b>
         </div>
 
         <div class="row">
-          <div class="col-xs-6 text-left">Buyer</div>
+          <div class="col-xs-6 text-left">Consumer</div>
           <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></b>
         </div>
 
         <div class="row">
           <div class="col-xs-6 text-left">Price</div>
-          <b class="col-xs-6 text-center orange-text">$<%= @contract.solar_panel.price %> / Kwh</b>
+          <b class="col-xs-6 text-center orange-text">$0.12 (grid) - $<%= @contract.solar_panel.price %> / Kwh</b>
         </div>
 
         <div class="row">
