@@ -1,19 +1,11 @@
-*{
-  margin:0;
-  padding:0;
-}
-ul{
-  list-style-type:none;
-  width:566px;
-  margin:50px auto;
-}
-li{
-  float:left;
-  background:url(filmstrip.png) 0 0 no-repeat;
-  width:53px;
-  height:103px;
-}
-li.seperator{
-  background:url(comma.png) 2px 75px no-repeat;
-  width:12px;
+.money-symbol {
+  height: 300px;
+  padding-top: 40px;
+  i {
+    color: green;
+  }
+  .fa-usd {
+    font-size: 200px;
+  }
+
 }

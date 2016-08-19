@@ -5,10 +5,14 @@ setTimeout(function start (){
     // rise up the consumption
     $redbarchart.animate({
       height: $redbarchart.attr('data-percent')
-    }, 2000, "swing"
-    );
+    },{
+      duration: 2000,
+      specialEasing: {
+        height: "easeOutBounce"
+      }
+    });
     // display the label
-    $redbarchart.find(".bar-chart-label").delay(1000).show(3000, "easeOutBounce");
+   $redbarchart.find(".bar-chart-label").delay(1000).show(3000, "easeOutBounce");
   });
 
 
