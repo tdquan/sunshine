@@ -1,7 +1,7 @@
 <div class="clearfix">
   <% unless can? :show, current_user.solar_panel %>
-    <p class="contracts">You have no solar panel registered yet!</p>
-    <%= link_to "Create new panel", new_solar_panel_path, class: "navbar-wagon-button-orange" %>
+    <p class="contracts"><%= t('.title') %></p>
+    <%= link_to(t('.link_new_panel'), new_solar_panel_path, class: "navbar-wagon-button-orange") %>
   <% end %>
 
 <% if can? :show, current_user.solar_panel %>
@@ -16,14 +16,14 @@
         </div>
         <br>
         <div class="card-content-container text-left">
-          <p><b>Owner :</b>&nbsp;<span><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></span></p>
-          <p><b>Address :</b>&nbsp;<span><%= @solar_panel.address %></span></p>
-          <p><b>Production :</b>&nbsp;<span><%= @solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-          <p><b>Price :</b>&nbsp;<span>$<%= @solar_panel.price || 0 %>/sol</span></p>
+          <p><b><%= t('.owner') %></b>&nbsp;<span><%= @solar_panel.user.first_name.capitalize + " " + @solar_panel.user.last_name.capitalize %></span></p>
+          <p><b><%= t('.address') %></b>&nbsp;<span><%= @solar_panel.address %></span></p>
+          <p><b><%= t('.production') %></b>&nbsp;<span><%= @solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+          <p><b><%= t('.price') %></b>&nbsp;<span><%=t('.currency')%><%= @solar_panel.price || 0 %>/sol</span></p>
         </div>
         <br>
         <div class="text-center">
-          <%= link_to "Details", solar_panel_path(@solar_panel), class: "navbar-wagon-button-orange" %>
+          <%= link_to(t('.link_to_details'), solar_panel_path(@solar_panel), class: "navbar-wagon-button-orange") %>
         </div>
       </div>
     </div>
@@ -31,4 +31,4 @@
 
 </div>
 
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.link_back'), dashboard_path, class: "navbar-wagon-button-orange back-btn") %>

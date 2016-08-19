@@ -6,11 +6,11 @@
 
 <div class="video-container">
   <div class="splash-page-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-    <h1 class="splash-title">SunShine</h1>
-    <h2 class="splash-sub-title text-center">It´s your green energy!</h2>
-    <p class="text-center splash-text">A proof of concept for a<br>hyper-local <span class="orange-text">solar</span> energy sharing solution</p>
+    <h1 class="splash-title"><%=t('.title')%></h1>
+    <h2 class="splash-sub-title text-center"><%=t('.title1')%></h2>
+    <p class="text-center splash-text"><%=t('.subtitle_0')%><br><%=t('.subtitle_1') %><span class="orange-text"><%=t('.subtitle_2') %></span><%=t('.subtitle_3') %></p>
     <div class="center-button text-center">
-      <%= link_to "Enter the simulation", welcome_path, class: "splash-page-box-btn" %>
+      <%= link_to(t('.enter_simulation'), welcome_path, class: "splash-page-box-btn") %>
     </div>
   </div>
   <%= render 'shared/fullscreen_video' %>
@@ -21,7 +21,7 @@
   <section class="homepage-section" id="how-it-works">
 
     <div class="container-fluid">
-      <h3 class="text-center section-title orange-text">Our approach</h3>
+      <h3 class="text-center section-title orange-text"><%=t('.our_approach')%></h3>
 
       <!-- PROBLEM -->
 
@@ -31,16 +31,16 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 goal-column">
-          <h4 class="text-center card-title">The problems</h4>
+          <h4 class="text-center card-title"><%=t('.the_problems') %></h4>
           <div class="card-content-container">
             <p>
-              You don't understand where your electricity comes from.
+              <%= t('.problems_p1') %>
             </p>
             <p>
-              Why does it cost that much? Who makes money? How much of it is really renewable?
+              <%= t('.problems_p2') %>
             </p>
             <p>
-              You have always wanted to use solar power.
+              <%= t('.problems_p3') %>
             </p>
           </div>
         </div>
@@ -54,16 +54,16 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-sm-pull-6 goal-column">
-          <h4 class="text-center card-title">The solution</h4>
+          <h4 class="text-center card-title"><%= t('.the_solutions') %></h4>
           <div class="card-content-container">
             <p>
-              Sharing of solar energy, locally, across your street.
+              <%= t('.solutions_p1') %>
             </p>
             <p>
-              If you have a solar panel, you can share the excess with your neighbours and make some extra €.
+              <%= t('.solutions_p2') %>
             </p>
             <p>
-              If you don't have a solar panel, you still can utilise the excess power of your next-door neighbour who owns one.
+              <%= t('.solutions_p3') %>
             </p>
 
           </div>
@@ -78,16 +78,16 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 goal-column">
-          <h4 class="text-center card-title">The platform</h4>
+          <h4 class="text-center card-title"><%= t('.the_platform') %></h4>
           <div class="card-content-container">
           <p>
-              Sunshine is a proof of concept, a simulation of a platform for solar energy sharing.
+              <%= t('.platform_p1') %>
             </p>
             <p>
-              We want to demonstrate it can happen.
+              <%= t('.platform_p2') %>
             </p>
             <p class="orange-text">
-              A future where everyone is self-sustained by green energy is possible!
+              <%= t('.platform_p3') %>
             </p>
 
           </div>

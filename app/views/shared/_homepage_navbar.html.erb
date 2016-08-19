@@ -9,10 +9,15 @@
 
   <!-- Right Navigation -->
   <div class="float-right hidden-xs hidden-sm">
+  <!-- Language Flag -->
+      <% if I18n.locale == I18n.default_locale %>
+      <%= link_to image_tag("portugal.jpg", class: "flag"), :locale=>'pt'%>
+      <% else %>
+      <%= link_to image_tag("unitedkingdom.jpg", class: "flag"), :locale=>'en'%>
+      <% end %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-
       <!-- Profile picture and dropdown -->
       <div class="navbar-avatar-group">
         <div class="dropdown">
