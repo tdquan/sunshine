@@ -12,7 +12,7 @@
     <% if @solar_panels.empty? %>
         <div class="row">
           <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-            <h4>We can't find solar panel in production</h3>
+            <h4><%=t('.first_title')%></h3>
           </div>
         </div>
     <% else %>
@@ -52,14 +52,14 @@
             </div>
             <br>
             <div class="card-content-container text-left">
-              <p><b>Owner :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
-              <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
-              <p><b>Price :</b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
+              <p><b><%=t('.owner')%></b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+              <p><b><%=t('.address')%></b>&nbsp;<span><%= solar_panel.address %></span></p>
+              <p><b><%=t('.production')%></b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+              <p><b><%=t('.price')%></b>&nbsp;<span>$<%= solar_panel.price || 0 %>/sol</span></p>
             </div>
             <br><br>
             <div class="text-center">
-              <%= link_to "Details", show_solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
+              <%= link_to(t('.details'), show_solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" )%>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
 
 
 <% if current_user.nil? %>
-<%= link_to "Back", root_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.link_back'), root_path, class: "navbar-wagon-button-orange back-btn") %>
 <% else %>
-<%= link_to "Back", user_dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.link_back'), user_dashboard_path, class: "navbar-wagon-button-orange back-btn")%>
 <% end %>
