@@ -124,7 +124,7 @@ en:
       link_back: "Back"
 
     show:
-      title: "Excess local solar energy available"
+      title: "You are about to enter in aggreement with"
       firstentry: "is willing to share excess of energy with you, when available."
       secondentry: "Daily excess :"
       estimated_daily: "Your estimated daily usage :"

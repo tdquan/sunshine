@@ -4,6 +4,7 @@
   padding: 2rem;
   font-size: 1em;
   margin-bottom: 2em;
+  min-height: 500px;
 }
 
 .card-content-container {
@@ -18,4 +19,8 @@
 .home-page-card {
   min-height: 400px;
   font-size: 0.9em;
+}
+
+.card p {
+  font-size: 1em;
 }
