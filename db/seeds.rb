@@ -1,13 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+ # This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or create!d alongside the db with db:setup).
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create!(name: 'Emanuel', city: cities.first)
+SolarPanel.destroy_all
+User.destroy_all
 
-
-User.create(
+users = [
+  User.create!(
   email: "janet@gmail.com",
   first_name: "Janet",
   last_name: "Marshall",
@@ -16,9 +18,9 @@ User.create(
   address: "676 President St Brooklyn, NY 11215",
   password: "123456",
   password_confirmation: "123456"
-  )
+  ),
 
-User.create(
+User.create!(
   email: "bob@gmail.com",
   first_name: "Bob",
   last_name: "Jackson",
@@ -27,9 +29,9 @@ User.create(
   address: "675 President St Brooklyn, NY 11215",
   password: "123456",
   password_confirmation: "123456"
-  )
+  ),
 
-User.create(
+User.create!(
   email: "maxime@gmail.com",
   first_name: "Maxime",
   last_name: "Longden",
@@ -38,9 +40,9 @@ User.create(
   address: "20 Rua Guarda-Mor",
   password: "123456",
   password_confirmation: "123456"
-  )
+  ),
 
-User.create(
+User.create!(
   email: "fernando@gmail.com",
   first_name: "Fernando",
   last_name: "Mesquita",
@@ -49,10 +51,10 @@ User.create(
   address: "10a Rua Guarda-Mor",
   password: "123456",
   password_confirmation: "123456"
-  )
+  ),
 
-User.create(
-  email: "janet@gmail.com",
+User.create!(
+  email: "maria.g@gmail.com",
   first_name: "Maria",
   last_name: "Gomes",
   family_size: 3,
@@ -60,9 +62,9 @@ User.create(
   address: "25 Rua Guarda-Mor",
   password: "123456",
   password_confirmation: "123456"
-  )
+  ),
 
-User.create(
+User.create!(
   email: "sandra@gmail.com",
   first_name: "Sandra",
   last_name: "Ferreira",
@@ -72,53 +74,53 @@ User.create(
   password: "123456",
   password_confirmation: "123456"
   )
-
-SolarPanel.create(
+]
+SolarPanel.create!(
   size: 10,
   efficiency: 3,
   price: 2,
   address: "676 President St Brooklyn, NY 11215",
-  user_id: 1,
+  user: users[0],
   )
 
-SolarPanel.create(
+SolarPanel.create!(
   size: 8,
   efficiency: 2,
   price: 1,
   address: "675 President St Brooklyn, NY 11215",
-  user_id: 2,
+  user: users[1],
   )
 
-  SolarPanel.create(
+  SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
   address: "20 Rua Guarda-Mor",
-  user_id: 3,
+  user: users[2],
   )
 
- SolarPanel.create(
+ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
   address: "10a Rua Guarda-Mor",
-  user_id: 4,
+  user: users[3],
   )
 
-  SolarPanel.create(
+  SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
   address: "25 Rua Guarda-Mor",
-  user_id: 5,
+  user: users[4],
   )
 
-   SolarPanel.create(
+  SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
   address: "Rua Sao Bento 19",
-  user_id: 6,
+  user: users[5],
   )
 
 

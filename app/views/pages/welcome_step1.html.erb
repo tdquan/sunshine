@@ -1,0 +1,21 @@
+
+
+<div class="funnel-container">
+  <div class="container max-height">
+    <div class="row">
+      <div class="col-xs-10 col-offset-xs-1 col-md-6 col-offset-md-3">
+
+        <div class="funnel-card funnel-card-1">
+          <h1>WELCOME</h1>
+          <div id="focuses">
+            <%= simple_form_for @user, url: {action: "create"} do |f| %>
+            <%= f.input :address, label: 'Enter your address to explore!' %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
