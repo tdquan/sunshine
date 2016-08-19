@@ -21,6 +21,7 @@ gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'cancancan', '~> 1.10'
+gem 'jquery-ui-rails'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
