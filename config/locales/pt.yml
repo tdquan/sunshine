@@ -34,16 +34,17 @@ pt:
     show:
       title: "Agreement Details"
       firstentry: "is sharing energy with you"
+
 # -------------------       PAGES VIEWS   -------------------------------
   pages:
     home:
       title: "SunShine"
       title1: "É a tua energia limpa!"
       enter_simulation: "Iniciar a simulação"
-      subtitle_0: "A proof of concept for a "
-      subtitle_1: "hyper-local "
-      subtitle_2: "solar"
-      subtitle_3: " energy sharing solution"
+      subtitle_0: "Prova de conceito para"
+      subtitle_1: "uma solução de partilha de energia"
+      subtitle_2: " solar"
+      subtitle_3: ""
       our_approach: "A nossa abordagem"
       the_problems: "Os problemas"
       problems_p1: "Não sabemos de onde vem a nossa electricidade."
@@ -67,17 +68,43 @@ pt:
       solar_panel_owner_en: ""
       link_to_details: Ver Detalhes"
 
-    show_my:
-      title: "Ainda não tem painéis solares registados!"
-      link_new_panel: "Criar um novo painel"
-      owner: "Dono :"
+    index:
+      title: "Produtores na tua comunidade"
+      no_solar_prod: "Não existe nenhum painel solar ainda"
+      request_producers: "Procurar produtores"
+      producer: "Produtor :"
       address: "Morada :"
       production: "Produção :"
+      hour: "hora"
       price: "Preço :"
-      currency: "€"
-      link_to_details: "Detalhes"
-      link_back: "Retroceder"
+      price_grid: "€0.12 (Acesso á rede) - €"
+      details_link: "Detalhes"
+      back_link: "Retroceder"
 
+    new:
+      first_title: "Tornar-se um Produtor de Energia Solar"
+      first_paragraph_1: "Você está pronto para se tornar um Produtor."
+      first_paragraph_2: "Parabéns!"
+      second_paragraph: "Este é um grande passo, com custos de investimento elevados. Portanto, antes de decidir investir no 'mundo real', Sunshine vai ajudá-lo a simular o que isso significa."
+      third_paragraph: "É melhor ter uma ideia do resulado esperado antes de abrir os cordões á bolsa, certo?"
+      suggested_option: "A opção que sugerimos"
+      size: ""
+      discount_grid: ""
+      seek_agreement: "Procurar acordos localmente"
+      second_title: "Algumas dicas e conselhos"
+      fourth_paragraph: " Sunshine gostaria de o apoiar em todos os passos necessários para se tornar um produtor de energia solar."
+      fifth_paragraph: "Assim sendo, aqui listamos todas as fontes recomendadas para se candidatar para um subsídio. Boa ideia da nossa parte não? :)"
+      sixth_paragraph: "Esperamos que retribua junto da sua comunidade parte destes benefícios através do fornecimento de energia solar a preços mais baixos!" 
+    
+    obsolete_located_solar_panels:
+      first_title: "We can't find solar panel in production"
+      owner: "Owner :"
+      address: "Address :"
+      production: "Production :"
+      price: "Price :"
+      details: "Details"
+      link_back: "Back"
+    
     show:
       title: "Excedente de energia solar disponível"
       firstentry: "está disponível para partilhar o excedente de energia consigo, quando disponível."
@@ -94,17 +121,33 @@ pt:
       purchase: "Comprar"
       back: "Retroceder"
 
+
+    show_my:
+      title: "Ainda não tem painéis solares registados!"
+      link_new_panel: "Criar um novo painel"
+      owner: "Dono :"
+      address: "Morada :"
+      production: "Produção :"
+      price: "Preço :"
+      currency: "€"
+      link_to_details: "Detalhes"
+      link_back: ""
+
+
+
 #----------------------------- SHARED ----------------------------
 
-  # shared:
-  #   _sidebar:
-  #     home: "Home"
-  #     edit: "Editar Perfil"
-  #     sign_out: "Sign Out"
-  #     my_production: "A minha produção"
-  #     consume_energy: "Consome energia solar localmente"
-  #     sharing_agreements: "Partilhar acordos"
-  #     link_back: "Voltar para a Home Page"
-  #     produce_energy: "Produzir energia solar"
+  shared:
+    sidebar:
+      home: "Home"
+      edit: "Editar Perfil"
+      sign_out: "Sign Out"
+      my_production: "A minha produção"
+      consume_energy: "Consome energia solar localmente"
+      sharing_agreements: "Acordos de partilha"
+      link_back: "Voltar para a Home Page"
+      produce_energy: "Produzir energia solar"
 
+    footer:
+      follow: "Segue-nos"
 

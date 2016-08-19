@@ -86,16 +86,41 @@ en:
       solar_panel_owner_en: "'s Solar Panel"
       link_to_details: "Details"
 
-
-    show_my:
-      title: "You have no solar panel registered yet!"
-      link_new_panel: "Create new panel"
+    index:
+      title: "Producers in your community"
+      no_solar_prod: "No solar panel in production yet"
+      request_producers: "Request Producers"
+      producer: "Producer :"
+      address: "Address :"
+      production: "Production :"
+      hour: "hour"
+      price: "Price :"
+      price_grid: "€0.12 (Grid) - €"
+      details_link: "Details"
+      back_link: "Back"
+    
+    new:
+      first_title: "Becoming a Solar Producer"
+      first_paragraph_1: "You are ready to become a producer. "
+      first_paragraph_2: "Congratulations!"
+      second_paragraph: "No kidding, this is a huge step, with very significant investments. So before you decide to commit 'in real life', Sunshine will help you simulate what it means."
+      third_paragraph: "Better envision first the expected result before opening the wallet, right?"
+      suggested_option: "Our suggested option"
+      size: ""
+      discount_grid: ""
+      seek_agreement: "Seek local agreements"
+      second_title: "Some tips and support"
+      fourth_paragraph: "Sunshine also would like to support you with all the steps you would have to go through."
+      fifth_paragraph: "Therefore we listed here the recommended sources to apply for grants. Nice of us no? :)"
+      sixth_paragraph: "We hope you will reditribute part of those benefits to your community throuh discounted solar energy!"
+    
+    obsolete_located_solar_panels:
+      first_title: "We can't find solar panel in production"
       owner: "Owner :"
       address: "Address :"
       production: "Production :"
       price: "Price :"
-      currency: "€"
-      link_to_details: "Details"
+      details: "Details"
       link_back: "Back"
 
     show:
@@ -114,17 +139,32 @@ en:
       purchase: "Purchase"
       back: "Back"
 
+    show_my:
+      title: "You have no solar panel registered yet!"
+      link_new_panel: "Create new panel"
+      owner: "Owner :"
+      address: "Address :"
+      production: "Production :"
+      price: "Price :"
+      currency: "€"
+      link_to_details: "Details"
+      link_back: ""
+
+
 #------------------ SHARED --------------------
 
-  # shared:
-  #   _sidebar:
-  #     home: "Home"
-  #     edit_profile: "Edit Profile"
-  #     sign_out: "Sign Out"
-  #     my_production: "My productrrion"
-  #     consume_energy: "Consume local solar energy"
-  #     sharing_agreements: "Sharing Agreements"
-  #     link_back: "Back to Home Page"
-  #     produce_energy: "Produce Solar Energy"
+  shared:
+    sidebar:
+      home: "Home"
+      edit: "Edit Profile"
+      sign_out: "Sign Out"
+      my_production: "My production"
+      consume_energy: "Consume local solar energy"
+      sharing_agreements: "Sharing Agreements"
+      link_back: "Back to Home Page"
+      produce_energy: "Produce Solar Energy"
+
+    footer:
+      follow: "Follow us"
 
 

@@ -14,9 +14,9 @@
     <% if user_signed_in? %>
       <!-- Language Flag -->
       <% if I18n.locale == I18n.default_locale %>
-      <%= link_to image_tag("portugal.jpg", class: "avatar-large"), :locale=>'pt'%>
+      <%= link_to image_tag("portugal.jpg", class: "flag"), :locale=>'pt'%>
       <% else %>
-      <%= link_to image_tag("unitedkingdom.jpg", class: "avatar-large"), :locale=>'en'%>
+      <%= link_to image_tag("unitedkingdom.jpg", class: "flag"), :locale=>'en'%>
       <% end %>
       <!-- Profile picture and dropdown -->
       <div class="navbar-avatar-group">
