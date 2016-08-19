@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('FUCK YOU')
   var user_address = $('#user_address').get(0);
 
   if (user_address) {
@@ -25,7 +24,6 @@ function getAddressComponents(place) {
   // If you want lat/lng, you can look at:
   // - place.geometry.location.lat()
   // - place.geometry.location.lng()
-
   var street_number = null;
   var route = null;
   var zip_code = null;
