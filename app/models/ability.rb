@@ -9,6 +9,7 @@ class Ability
     end
     can :create, SolarPanel
     can :show, SolarPanel
+    can :show, Contract
 
     # as a consumer
     if user.is_producer?
@@ -20,7 +21,6 @@ class Ability
       can :manage, Contract, user: user
       cannot :destroy, Contract
     end
-
 
 
 
