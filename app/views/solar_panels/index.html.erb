@@ -55,7 +55,8 @@
             </div>
             <br>
             <div class="card-content-container text-left">
-              <p><b><%=t('.producer')%></b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+
+              <p><b><%=t('.producer')%></b>&nbsp;<span><%= solar_panel.user.first_name.capitalize %></span></p>
               <p><b><%=t('.address')%></b>&nbsp;<span><%= solar_panel.address %></span></p>
               <p><b><%=t('.production')%></b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/<%=t('.hour')%></p>
               <p><b><%=t('.price')%></b>&nbsp;<span><%=t('.price_grid')%><%= solar_panel.price || 0 %>/kWh</span></p>
