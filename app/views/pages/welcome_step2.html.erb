@@ -19,9 +19,9 @@
           <div class="content text-center">
 
             <div class="card-content-container ">
-            <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
-            <p>I have installed solar panels on my roof, and happily consume my own energy.</p>
-            <p>I have surplus Solar Energy. Would you like to share it?</p>
+              <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
+              <p>I have installed solar panels on my roof, and happily consume my own energy.</p>
+              <p>I have surplus Solar Energy. Would you like to share it?</p>
             </div>
             <%= link_to 'Sounds good!', solar_panel_path(@best_panel), class: "navbar-wagon-button-orange" %>
             <br>
@@ -36,6 +36,7 @@
         <div id="map" style="width: 100%; height: 500px;">
         </div>
       </div>
+      raise
     </div>
     <% content_for(:after_js) do %>
     <%= javascript_tag do %>
