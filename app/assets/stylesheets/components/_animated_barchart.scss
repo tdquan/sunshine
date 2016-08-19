@@ -30,7 +30,7 @@ $dark :  #3d3d3d;
   background: red;
   position: absolute;
   bottom: 0;
-  width: 70px;
+  width: 95px;
   transition: height 2s;
   clear: both;
   &:nth-of-type(2n) {
@@ -40,15 +40,16 @@ $dark :  #3d3d3d;
    .bar-chart-label {
     background-color: red;
     font-size: .75em;
-    padding: 1em;
+    padding: 1em 0;
     background: $dark;
-    width: 70px;
+    width: 95px;
     display: none;
     z-index: 2;
     font-weight: bold;
     font-family: $fontSans;
     bottom: 0;
     position: absolute;
+    text-align: center;
    }
  }
 

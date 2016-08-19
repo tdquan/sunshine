@@ -1,30 +1,30 @@
 
 <div class="row profile">
   <div class="text-center">
-    <h2 class="text-center">Agreements Details</h2>
+    <h2 class="text-center"><%= t('.title') %></h2>
     <div class="contract-details-wrapper">
 
       <div class="col-sm-4 col-sm-offset-4 card">
-        <h3 class="contract-details-title">Agreement with <div class="orange-text"><%= @solar_panel.user.first_name.capitalize%></div></h3>
+        <h3 class="contract-details-title"><%= t('.agreement') %><div class="orange-text"><%= @solar_panel.user.first_name.capitalize%></div></h3>
 
         <div class="row">
-          <div class="col-xs-6 text-left">Producer</div>
-          <b class="col-xs-6 text-center orange-text"><%= @solar_panel.user.first_name.capitalize + %></b>
+          <div class="col-xs-6 text-left"><%= t('.producer') %></div>
+          <b class="col-xs-6 text-center orange-text"><%= @solar_panel.user.first_name.capitalize %></b>
         </div>
 
         <div class="row">
-          <div class="col-xs-6 text-left">Consumer</div>
-          <b class="col-xs-6 text-center orange-text"><%= current_user.first_name + " " + current_user.last_name %></li></b>
+          <div class="col-xs-6 text-left"><%= t('.consumer') %></div>
+          <b class="col-xs-6 text-center orange-text"><%= current_user.first_name %></li></b>
         </div>
 
         <div class="row">
-          <div class="col-xs-6 text-left">Price</div>
+          <div class="col-xs-6 text-left"><%= t('.price') %></div>
           <b class="col-xs-6 text-center orange-text">$0.12 (grid) - $<%= @solar_panel.price %> / Kwh</b>
         </div>
 
         <br><br>
 
-        <%= link_to 'Seal Agreement', solar_panel_contracts_path, method: :post, class: "navbar-wagon-button-orange"%>
+        <%= link_to(t('.link1'), solar_panel_contracts_path, method: :post, class: "navbar-wagon-button-orange")%>
       </div>
 
     </div>
@@ -33,5 +33,5 @@
 </div>
 
 
-<%= link_to "Back", user_my_panels_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.link2'), user_my_panels_path, class: "navbar-wagon-button-orange back-btn") %>
 

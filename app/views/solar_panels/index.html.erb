@@ -8,13 +8,13 @@
     <%= render "shared/address_check" %>
 
   <% else %>
-    <h2 class="text-center">Producers in your community</h2>
+    <h2 class="text-center"><%=t('.title')%></h2>
     <br>
     <% if @solar_panels.empty? %>
         <div class="row">
           <div class="card text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-            <h4>No solar panel in production yet</h3>
-            <%= link_to "Request Producers", root_path, class: "navbar-wagon-button-orange back-btn" %>
+            <h4><%=t('.no_solar_prod')%></h4>
+            <%= link_to(t('request_producers'), root_path, class: "navbar-wagon-button-orange back-btn")%>
           </div>
         </div>
     <% else %>
@@ -55,14 +55,15 @@
             </div>
             <br>
             <div class="card-content-container text-left">
-              <p><b>Producer :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize %></span></p>
-              <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
-              <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/hour</p>
-              <p><b>Price :</b>&nbsp;<span>$0.12 (Grid) - $<%= solar_panel.price || 0 %>/kWh</span></p>
+
+              <p><b><%=t('.producer')%></b>&nbsp;<span><%= solar_panel.user.first_name.capitalize %></span></p>
+              <p><b><%=t('.address')%></b>&nbsp;<span><%= solar_panel.address %></span></p>
+              <p><b><%=t('.production')%></b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/<%=t('.hour')%></p>
+              <p><b><%=t('.price')%></b>&nbsp;<span><%=t('.price_grid')%><%= solar_panel.price || 0 %>/kWh</span></p>
             </div>
             <br><br>
             <div class="text-center">
-              <%= link_to "Details", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" %>
+              <%= link_to(t('.details_link'), solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" )%>
 
             </div>
           </div>
@@ -74,7 +75,7 @@
 
 
 <% if current_user.nil? %>
-<%= link_to "Back", root_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.back_link'), root_path, class: "navbar-wagon-button-orange back-btn")%>
 <% else %>
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.back_link'), dashboard_path, class: "navbar-wagon-button-orange back-btn")%>
 <% end %>
