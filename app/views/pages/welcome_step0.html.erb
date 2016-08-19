@@ -5,8 +5,8 @@
       <div class="col-xs-10 col-offset-xs-1 col-md-6 col-offset-md-3">
         <div class="funnel-card funnel-card-1">
           <div class="focuses">
-            <%= simple_form_for @user, url: {action: "create_step1"} do |f| %>
-            <%= f.input :address, label: 'What is your address?' %>
+            <%= simple_form_for @user, url: {action: "create_step0"} do |f| %>
+            <%= f.input :first_name, label: 'What is your name?' %>
             <% end %>
           </div>
         </div>
@@ -14,4 +14,3 @@
     </div>
   </div>
 </div>
-

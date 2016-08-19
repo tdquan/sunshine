@@ -1,4 +1,4 @@
-class Contract < ActiveRecord::Base
+  class Contract < ActiveRecord::Base
   belongs_to :user
   belongs_to :solar_panel
 
