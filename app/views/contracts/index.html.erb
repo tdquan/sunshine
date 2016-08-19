@@ -14,7 +14,7 @@
           <% next unless contract.end_date.nil? %>
             <div class="card contract-table-item clearfix">
               <div class="col-xs-4 text-center">Agreement #<%= contract.id%></div>
-              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %></div>
+              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
               <div class="col-xs-4 text-center"><%= link_to "See Details", contract_path(contract) %> | <%= link_to "Summary", "#" %></div>
             </div>
           <% end %>

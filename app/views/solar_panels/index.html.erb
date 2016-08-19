@@ -55,7 +55,7 @@
             </div>
             <br>
             <div class="card-content-container text-left">
-              <p><b>Producer :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize + " " + solar_panel.user.last_name.capitalize %></span></p>
+              <p><b>Producer :</b>&nbsp;<span><%= solar_panel.user.first_name.capitalize %></span></p>
               <p><b>Address :</b>&nbsp;<span><%= solar_panel.address %></span></p>
               <p><b>Production :</b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/hour</p>
               <p><b>Price :</b>&nbsp;<span>$0.12 (Grid) - $<%= solar_panel.price || 0 %>/kWh</span></p>
