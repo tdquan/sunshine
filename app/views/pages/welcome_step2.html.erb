@@ -1,57 +1,37 @@
+<div class="funnel-container">
+  <div class="container max-height">
     <div class="row map-container">
       <div class="col-md-4 col-md-offset-1">
-
-
-        <div class="card funnel-info"><h1><%= @count_panels %> neighbours are retailing their excess energy</h1>
+        <div class="card funnel-info"><h3>Already 25 neighbours are participating to the experimentation localy.</h3>
         </div>
-
-        <div class="card funnel-info"><h1>The best offer!</h1>
-          <div class="profile-userpic text-center">
-            <% if @best_panel.user.facebook_picture_url.nil?%>
-            <%= image_tag "avatar.png", class: "avatar-large" %>
-            <% else %>
-            <%= image_tag @best_panel.user.facebook_picture_url, class: "avatar-large"%>
-            <% end %>
-          </div>
-          <div class="content">
-          </div>
-
-          <div class="content text-center">
-
-            <div class="card-content-container ">
-              <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
-              <p>I have installed solar panels on my roof, and happily consume my own energy.</p>
-              <p>I have surplus Solar Energy. Would you like to share it?</p>
-            </div>
-            <%= link_to 'Sounds good!', solar_panel_path(@best_panel), class: "navbar-wagon-button-orange" %>
-            <br>
-            <br>
-            <%= link_to 'See more offers', located_solar_panels_path, class: "navbar-wagon-button-orange" %>
-          </div>
-
-
+        <div class="card funnel-info"><h3> Join along!</h3>
+        <div>I am a owner</div>
+        <div>I rent here</div>
         </div>
       </div>
       <div class="no-padding col-xs-12 col-sm-8 col-sm-offset-1 col-md-5  box-shadow">
         <div id="map" style="width: 100%; height: 500px;">
         </div>
       </div>
-      raise
     </div>
     <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-    $(document).on('ready', function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-    markers = handler.addMarkers(<%= raw @hash.to_json %>   );
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    if (markers.length == 0) {
-    handler.map.centerOn([38.736946, -9.142685]);
-  } else if (markers.length == 1) {
-  handler.getMap().setZoom(20);
-}
-});
-});
-<% end %>
-<% end %>
+      <%= javascript_tag do %>
+        $(document).on('ready', function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+            markers2 = handler.addMarkers(<%= raw @hash2.to_json %>   );
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.map.centerOn([38.736946, -9.142685]);
+            }
+            else if (markers.length == 1) {
+              handler.getMap().setZoom(20);
+            }
+          });
+        });
+      <% end %>
+    <% end %>
+  </div>
+</div>

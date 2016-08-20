@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def welcome_step1
     @user=User.new
+    @first_name= session[:current_user_first_name]
   end
 
   def create_step1
@@ -29,11 +30,20 @@ class PagesController < ApplicationController
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
     @count_panels = @solar_panels.length
     @best_panel = @solar_panels.first
+    @users = User.near(session[:current_user_address], 1)
+
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
       marker.lng solar_panel.longitude
-      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+      # marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
     end
+
+    # @hash2 = Gmaps4rails.build_markers(@users) do |user, marker|
+    #   marker.lat user.latitude
+    #   marker.lng user.longitude
+    #   marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { user: user })
+
+    # end
   end
 
 

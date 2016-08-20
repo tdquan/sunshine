@@ -13,15 +13,15 @@ class Ability
 
     # as a consumer
 
-    # if user.is_producer?
-    #   can :manage, SolarPanel, user: user
-    #   cannot :destroy, SolarPanel
-    # end
+    if user.is_producer?
+      can :manage, SolarPanel, user: user
+      cannot :destroy, SolarPanel
+    end
 
-    # if user.is_consumer?
-    #   can :manage, Contract, user: user
-    #   cannot :destroy, Contract
-    # end
+    if user.is_consumer?
+      can :manage, Contract, user: user
+      cannot :destroy, Contract
+    end
 
 
 
