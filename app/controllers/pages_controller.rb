@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only:
-  [:home, :welcome_step0, :welcome_step1, :welcome_step2, :create_step0, :create_step1]
+  skip_before_action :authenticate_user!
   def home
+  end
+
+  def welcome_catch
   end
 
   def welcome_step0
@@ -20,23 +22,40 @@ class PagesController < ApplicationController
 
   def create_step1
     session[:current_user_address] = params[:user][:address]
-    # email = "a#{User.last.email}"
-    # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
-    # sign_in(user)
     redirect_to welcome_step2_path
   end
 
   def welcome_step2
+
+    email = "a#{User.last.email}"
+    user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
+    sign_in(user)
+
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
     @count_panels = @solar_panels.length
-    @best_panel = @solar_panels.first
-    @users = User.near(session[:current_user_address], 1)
 
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
       marker.lng solar_panel.longitude
-      # marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
     end
+
+    def welcome_step3_rent
+      @user=User.new
+      session[:profile] = "rent"
+      @solar_panels = SolarPanel.near(session[:current_user_address], 1)
+      @best_panel = @solar_panels.last
+    end
+
+    def create_step3
+    session[:current_user_premium] = params[:user][:premium]
+    redirect_to welcome_step4_rent_path
+  end
+
+    def welcome_step3_own
+      session[:profile] = "own"
+    end
+
 
     # @hash2 = Gmaps4rails.build_markers(@users) do |user, marker|
     #   marker.lat user.latitude

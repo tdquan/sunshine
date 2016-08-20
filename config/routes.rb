@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope '(:locale)', locale: /en|pt/ do 
+  scope '(:locale)', locale: /en|pt/ do
     resources :contracts, :solar_panels
   end
 
@@ -23,12 +23,17 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get "welcome" => 'pages#welcome_step0'
+
   post "welcome_step0" => 'pages#create_step0'
 
   get "welcome_step1" => 'pages#welcome_step1'
   post "welcome_step1" => 'pages#create_step1'
 
   get "welcome_step2" => 'pages#welcome_step2'
+
+  get "welcome_step3_rent" => 'pages#welcome_step3_rent'
+
+  get "welcome_step3_own" => 'pages#welcome_step3_own'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

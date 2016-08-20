@@ -1,0 +1,24 @@
+<div class="funnel-container">
+  <div class="container max-height">
+    <div class="row map-container">
+      <div class="col-md-4">
+        <h3> Local solar energy is improving significantly your community´s quality of life:</h3>
+        <li>It creates business localy</li>
+        <li>It minimises energy losses due to short distribution distances</li>
+        <li>You can check its origin</li>
+
+        <h3>Current Grid Price is 15cents/kWh. How much would think local solar energy is worth?</h3>
+
+        <div class="funnel-card funnel-card-1">
+          <div class="focuses">
+            <%= simple_form_for @user, url: {action: "create_step3"} do |f| %>
+            <%= f.input :premium%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

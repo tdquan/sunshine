@@ -12,10 +12,6 @@ has_many :contracts
   # As a Consumer
   has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
 
-  before_validation :get_address, on: :create
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
-
   # validates_presence_of :first_name
   # validates_presence_of :last_name
 
