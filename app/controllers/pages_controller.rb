@@ -19,9 +19,9 @@ class PagesController < ApplicationController
 
   def create_step1
     session[:current_user_address] = params[:user][:address]
-    email = "a#{User.last.email}"
-    user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
-    sign_in(user)
+    # email = "a#{User.last.email}"
+    # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
+    # sign_in(user)
     redirect_to welcome_step2_path
   end
 
