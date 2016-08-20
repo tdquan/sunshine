@@ -48,13 +48,19 @@ class PagesController < ApplicationController
     end
 
     def create_step3
-    session[:current_user_premium] = params[:user][:premium]
-    redirect_to welcome_step4_rent_path
-  end
+      session[:current_user_premium] = params[:user][:premium]
+      redirect_to welcome_step4_rent_path
+    end
+
+    def welcome_step4_rent
+      session[:profile] = "own"
+    end
 
     def welcome_step3_own
       session[:profile] = "own"
     end
+
+
 
 
     # @hash2 = Gmaps4rails.build_markers(@users) do |user, marker|

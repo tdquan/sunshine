@@ -1,43 +1,17 @@
 <div class="funnel-container">
   <div class="container max-height">
-    <div class="row map-container">
-      <div class="col-md-4">
-        <div class="card funnel-info">
-          <h3>Get started with the simulation!</h3>
-          <h3>We selected for you the best current offer in your neighbourhood</h3>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card funnel-info">
-          <div class="profile-userpic text-center">
-            <% if @best_panel.user.facebook_picture_url.nil?%>
-            <%= image_tag "avatar.png", class: "avatar-large" %>
-            <% else %>
-            <%= image_tag @best_panel.user.facebook_picture_url, class: "avatar-large"%>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="funnel-card text-center">
+
+          <div class="focuses">
+            <%= simple_form_for @user, url: {action: "create_step3"} do |f| %>
+              <%= f.input :premium, label: "What price would you be willing to pay for local solar energy?", :input_html => { :value => 30}%>
             <% end %>
           </div>
-          <div class="content">
-          </div>
-
-          <div class="content text-center">
-
-            <div class="card-content-container ">
-              <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
-              <p>I have installed solar panels on my roof, and happily consume my own clean energy.</p>
-              <p>I have surplus from time to time... Would you like to share it with me?</p>
-              <h3>Grid price: 0,15cent/kWh</h3>
-              <h3><%= @best_panel.user.first_name %> offer: 0,14cent/kWh </h3>
-            </div>
-          </div>
-          <div class="content text-center">
-            <%= link_to 'Sounds good!', solar_panel_path(@best_panel), class: "navbar-wagon-button-orange" %>
-            <br>
-            <br>
-            <%= link_to 'See more offers', located_solar_panels_path, class: "navbar-wagon-button-orange" %>
-          </div>
+          <h3>Your monthly electricity bill estimate: 30€</h3>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

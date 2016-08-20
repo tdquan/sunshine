@@ -2,23 +2,40 @@
   <div class="container max-height">
     <div class="row map-container">
       <div class="col-md-4">
-        <h3> Local solar energy is improving significantly your community´s quality of life:</h3>
-        <li>It creates business localy</li>
-        <li>It minimises energy losses due to short distribution distances</li>
-        <li>You can check its origin</li>
-
-        <h3>Current Grid Price is 15cents/kWh. How much would think local solar energy is worth?</h3>
-
-        <div class="funnel-card funnel-card-1">
-          <div class="focuses">
-            <%= simple_form_for @user, url: {action: "create_step3"} do |f| %>
-            <%= f.input :premium%>
+        <div class="card funnel-info">
+          <h3>We selected for you the best current offer in your neighbourhood</h3>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card funnel-info">
+          <div class="profile-userpic text-center">
+            <% if @best_panel.user.facebook_picture_url.nil?%>
+            <%= image_tag "avatar.png", class: "avatar-large" %>
+            <% else %>
+            <%= image_tag @best_panel.user.facebook_picture_url, class: "avatar-large"%>
             <% end %>
+          </div>
+          <div class="content">
+          </div>
+
+          <div class="content text-center">
+            <div class="card-content-container ">
+              <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
+              <p>I have installed solar panels on my roof, and happily consume my own clean energy.</p>
+              <p>I have surplus from time to time... Would you like to share it with me?</p>
+              <h3>Grid price: 0,15cent/kWh</h3>
+              <h3><%= @best_panel.user.first_name %> offer: 0,14cent/kWh </h3>
+            </div>
+          </div>
+          <div class="content text-center">
+            <%= link_to "Sounds good", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
+            <br>
+            <br>
+            <%= link_to 'See more offers', located_solar_panels_path, class: "navbar-wagon-button-orange" %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 </div>

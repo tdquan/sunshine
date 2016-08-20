@@ -32,9 +32,11 @@ Rails.application.routes.draw do
   get "welcome_step2" => 'pages#welcome_step2'
 
   get "welcome_step3_rent" => 'pages#welcome_step3_rent'
+  post "welcome_step3" => 'pages#create_step3'
 
   get "welcome_step3_own" => 'pages#welcome_step3_own'
 
+  get "welcome_step4_rent" => 'pages#welcome_step4_rent'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

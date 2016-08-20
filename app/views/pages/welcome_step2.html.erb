@@ -2,17 +2,24 @@
   <div class="container max-height">
     <div class="row map-container">
       <div class="col-md-6">
-        <div class="card funnel-info">
+        <div class="card funnel-info text-center">
           <h3>Already 25 neighbours are participating to the experimentation localy.</h3>
         </div>
 
-        <div class="card funnel-info text-center">
-          <h3> Join along!</h3>
-          <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-6">
+          <div class="card funnel-info text-center">
             <%= link_to 'I rent here', welcome_step3_rent_path, class: "navbar-wagon-button-orange" %>
+            <br>
+            <br>
+            <p>I can choose to purchase local solar energy through my electricity bill</p>
           </div>
-          <div class="col-xs-12 col-md-6">
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="card funnel-info text-center">
             <%= link_to 'I am owner', welcome_step3_own_path, class: "navbar-wagon-button-orange" %>
+            <br>
+            <br>
+            <p>I can set up solar panels and share my excess with my neighbours</p>
           </div>
         </div>
       </div>
