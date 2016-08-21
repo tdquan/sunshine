@@ -8,6 +8,7 @@ class SolarPanel < ActiveRecord::Base
   validates :size, numericality: { greater_than: 0 }
   validates :size, presence: true
   validates :address, presence: true
+  validates :user_id, presence: true
   validates_uniqueness_of :user_id
 
   before_validation :get_address, on: :create
