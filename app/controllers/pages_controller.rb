@@ -1,24 +1,25 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   def home
-  end
-
-  def welcome_catch
-  end
-
-  def welcome_step0
     @user=User.new
   end
 
-  def create_step0
-    session[:current_user_first_name] = params[:user][:first_name]
-    redirect_to welcome_step1_path
-  end
+  # def welcome_catch
+  # end
 
-  def welcome_step1
-    @user=User.new
-    @first_name= session[:current_user_first_name]
-  end
+  # def welcome_step0
+  #   @user=User.new
+  # end
+
+  # def create_step0
+  #   session[:current_user_first_name] = params[:user][:first_name]
+  #   redirect_to welcome_step1_path
+  # end
+
+  # def welcome_step1
+  #   @user=User.new
+  #   @first_name= session[:current_user_first_name]
+  # end
 
   def create_step1
     session[:current_user_address] = params[:user][:address]
@@ -26,10 +27,9 @@ class PagesController < ApplicationController
   end
 
   def welcome_step2
-
-    email = "a#{User.last.email}"
-    user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
-    sign_in(user)
+    # email = "a#{User.last.email}"
+    # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
+    # sign_in(user)
 
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
     @count_panels = @solar_panels.length
@@ -41,19 +41,18 @@ class PagesController < ApplicationController
     end
 
     def welcome_step3_rent
-      @user=User.new
+      @user=current_user
       session[:profile] = "rent"
-      @solar_panels = SolarPanel.near(session[:current_user_address], 1)
-      @best_panel = @solar_panels.last
     end
 
     def create_step3
-      session[:current_user_premium] = params[:user][:premium]
+      current_user[:email] = params[:user][:email]
       redirect_to welcome_step4_rent_path
     end
 
     def welcome_step4_rent
-      session[:profile] = "own"
+      @solar_panels = SolarPanel.near(session[:current_user_address], 1)
+      @best_panel = @solar_panels.last
     end
 
     def welcome_step3_own

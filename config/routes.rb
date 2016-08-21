@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get "welcome_step2" => 'pages#welcome_step2'
 
   get "welcome_step3_rent" => 'pages#welcome_step3_rent'
-  post "welcome_step3" => 'pages#create_step3'
+  patch "welcome_step3" => 'pages#create_step3'
 
   get "welcome_step3_own" => 'pages#welcome_step3_own'
 

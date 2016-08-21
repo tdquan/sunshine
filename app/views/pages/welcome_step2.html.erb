@@ -1,48 +1,49 @@
 <div class="funnel-container">
   <div class="container max-height">
-    <div class="row map-container">
-      <div class="col-md-6">
-        <div class="card funnel-info text-center">
-          <h3>Already 25 neighbours are participating to the experimentation localy.</h3>
-        </div>
+    <div class="row">
+      <div class="card funnel-info text-center col-xs-12">
+        <h3>Your neighbourhood has already 25 participants!</h3>
+      </div>
+      <div class="row map-container">
+        <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-6">
+            <div class="card funnel-info text-center">
+              <p>I am renting here or I cannot easily set up solar pannels</p>
 
-        <div class="col-xs-12 col-md-6">
-          <div class="card funnel-info text-center">
-            <%= link_to 'I rent here', welcome_step3_rent_path, class: "navbar-wagon-button-orange" %>
-            <br>
-            <br>
-            <p>I can choose to purchase local solar energy through my electricity bill</p>
+              <p>Yet, I want to consume local solar energy</p>
+              <br>
+              <%= link_to 'Sign up as a consumer', new_user_registration_path, class: "navbar-wagon-button-orange" %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="card funnel-info text-center">
+              <p>I want solar panels and consume my own energy</p>
+              <p>I want to share my excess of energy localy</p>
+              <br>
+              <%= link_to 'Sign up as a producer', new_user_registration_path, class: "navbar-wagon-button-orange" %>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="card funnel-info text-center">
-            <%= link_to 'I am owner', welcome_step3_own_path, class: "navbar-wagon-button-orange" %>
-            <br>
-            <br>
-            <p>I can set up solar panels and share my excess with my neighbours</p>
+        <div class="no-padding col-xs-12 col-sm-8 col-sm-offset-1 col-md-5  box-shadow">
+          <div id="map" style="width: 100%; height: 500px;">
           </div>
         </div>
-      </div>
-      <div class="no-padding col-xs-12 col-sm-8 col-sm-offset-1 col-md-5  box-shadow">
-        <div id="map" style="width: 100%; height: 500px;">
-        </div>
-      </div>
-      <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-      $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>   );
-      markers2 = handler.addMarkers(<%= raw @hash2.to_json %>   );
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-      handler.map.centerOn([38.736946, -9.142685]);
+        <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        markers2 = handler.addMarkers(<%= raw @hash2.to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.map.centerOn([38.736946, -9.142685]);
+      }
+      else if (markers.length == 1) {
+      handler.getMap().setZoom(20);
     }
-    else if (markers.length == 1) {
-    handler.getMap().setZoom(20);
-  }
-});
+  });
 });
 <% end %>
 <% end %>

@@ -3,7 +3,7 @@
     <div class="row map-container">
       <div class="col-md-4">
         <div class="card funnel-info">
-          <h3>We selected for you the best current offer in your neighbourhood</h3>
+          <h3>We selected for you the cheapest offer</h3>
         </div>
       </div>
       <div class="col-md-8">
@@ -20,15 +20,13 @@
 
           <div class="content text-center">
             <div class="card-content-container ">
-              <p>Hello, i'm <%= @best_panel.user.first_name %>, </p>
-              <p>I have installed solar panels on my roof, and happily consume my own clean energy.</p>
-              <p>I have surplus from time to time... Would you like to share it with me?</p>
-              <h3>Grid price: 0,15cent/kWh</h3>
-              <h3><%= @best_panel.user.first_name %> offer: 0,14cent/kWh </h3>
+              <p><%= @best_panel.user.first_name %></p>
+              <p><%= @best_panel.user.address %></p>
+              <h3>10% discount from grid price</h3>
             </div>
           </div>
           <div class="content text-center">
-            <%= link_to "Sounds good", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
+            <%= link_to "Sounds good", "#", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
             <br>
             <br>
             <%= link_to 'See more offers', located_solar_panels_path, class: "navbar-wagon-button-orange" %>

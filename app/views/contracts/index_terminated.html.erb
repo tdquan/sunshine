@@ -1,3 +1,4 @@
+<% @sidebar = true %>
 <% if current_user.contracts.where(end_date: nil).nil? %>
 <h2 class=title><%= t('.title')%></h2>
 

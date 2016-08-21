@@ -2,12 +2,11 @@
 <div class="funnel-container">
   <div class="container max-height">
     <div class="row">
-      <div class="col-xs-10 col-offset-xs-1 col-md-6 col-offset-md-3">
+      <div class="col-xs-12">
         <div class="funnel-card funnel-card-1">
           <div class="focuses">
-            <h3><%= "Hello #{@first_name}!"%></h3>
             <%= simple_form_for @user, url: {action: "create_step1"} do |f| %>
-            <%= f.input :address, label: "Where do you live?" %>
+            <%= f.input :address, label: "#{@first_name}, take part to an innovative experimentation in your neighbourhood...", placeholder: "Enter your address" %>
             <% end %>
           </div>
         </div>

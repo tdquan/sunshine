@@ -1,15 +1,14 @@
 <div class="funnel-container">
   <div class="container max-height">
     <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <div class="funnel-card text-center">
-
+      <div class="col-xs-12">
+        <div class="funnel-card funnel-card-1">
+        <h3>Receive an update on the simulation on your consumption </h3>
           <div class="focuses">
             <%= simple_form_for @user, url: {action: "create_step3"} do |f| %>
-              <%= f.input :premium, label: "What price would you be willing to pay for local solar energy?", :input_html => { :value => 30}%>
+            <%= f.input :email, label: '', placeholder: "enter your email" %>
             <% end %>
           </div>
-          <h3>Your monthly electricity bill estimate: 30€</h3>
         </div>
       </div>
     </div>
