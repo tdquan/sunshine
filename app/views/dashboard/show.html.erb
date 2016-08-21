@@ -1,13 +1,11 @@
+<% @sidebar = true %>
 <div class="col-xs-12 col-sm-6 col-md-4">
   <%= render 'shared/money_counter' if can? :show, current_user.contracts.first %>
 </div>
 
-
 <div class="col-xs-12 col-sm-6 col-md-4">
   <%= render 'shared/pie_chart' if can? :show, current_user.contracts.first %>
 </div>
-
-
 
 <div class="col-xs-12 col-sm-6 col-md-4">
   <%= render 'shared/animated_barchart' if can? :show, current_user.solar_panel %>

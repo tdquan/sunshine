@@ -1,13 +1,4 @@
-  <% if current_user.nil? %>
-    <% address = params[:street] %>
-  <% else %>
-    <% address = current_user.address %>
-  <% end %>
-
-  <% if address.nil? %>
-    <%= render "shared/address_check" %>
-
-  <% else %>
+<% @sidebar = true %>
     <h2 class="text-center"><%=t('.title')%></h2>
     <br>
     <% if @solar_panels.empty? %>
@@ -71,11 +62,4 @@
       <% end %>
   <% end %>
 
-<% end %>
-
-
-<% if current_user.nil? %>
-<%= link_to(t('.back_link'), root_path, class: "navbar-wagon-button-orange back-btn")%>
-<% else %>
 <%= link_to(t('.back_link'), dashboard_path, class: "navbar-wagon-button-orange back-btn")%>
-<% end %>

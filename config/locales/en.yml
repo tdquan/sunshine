@@ -21,8 +21,8 @@
 
 en:
 # -------------------       CONTRACTS VIEWS   -------------------------------
-  contracts: 
-    index: 
+  contracts:
+    index:
       title: "My current agreements"
       agreement: "Agreement"
       producer: "Producer"
@@ -50,7 +50,7 @@ en:
       price: "Price"
       link1: "Seal agreement"
       link2: "Back"
-    
+
     show:
       title: "Agreement Details"
       firstentry: "is sharing energy with you"
@@ -59,17 +59,17 @@ en:
   pages:
     home:
       title: "SunShine"
-      title1: "It´s your green energy!"
-      enter_simulation: "Enter the simulation"
-      subtitle_0: "A proof of concept for a "
-      subtitle_1: "hyper-local "
-      subtitle_2: "solar"
-      subtitle_3: " energy sharing solution"
+      title1: "Share solar energy within your neighbourhood"
+      enter_simulation: "Join the experimentation"
+      subtitle_0: ""
+      subtitle_1: ""
+      subtitle_2: ""
+      subtitle_3: ""
       our_approach: "Our approach"
-      the_problems: "The problems"
-      problems_p1: "You don't understand where your electricity comes from."
+      the_problems: "The Challenges"
+      problems_p1: "Where does my electricity come from?"
       problems_p2: "Why does it cost that much? Who makes money? How much of it is really renewable?"
-      problems_p3: "You have always wanted to use solar power."
+      problems_p3: "I have always wanted to consume solar power."
       the_solutions: "The solution"
       solutions_p1: "Sharing of solar energy, locally, across your street."
       solutions_p2: "If you have a solar panel, you can share the excess with your neighbours and make some extra €."
@@ -78,8 +78,8 @@ en:
       platform_p1: "Sunshine is a proof of concept, a simulation of a platform for solar energy sharing."
       platform_p2: "We want to demonstrate it can happen."
       platform_p3: "A future where everyone is self-sustained by green energy is possible!"
-    
-# -------------------       SOLAR PANELS VIEWS   -------------------------------    
+
+# -------------------       SOLAR PANELS VIEWS   -------------------------------
   solar_panels:
     _map_box:
       solar_panel_owner_pt: ""
@@ -98,7 +98,7 @@ en:
       price_grid: "€0.12 (Grid) - €"
       details_link: "Details"
       back_link: "Back"
-    
+
     new:
       first_title: "Becoming a Solar Producer"
       first_paragraph_1: "You are ready to become a producer. "
@@ -113,7 +113,7 @@ en:
       fourth_paragraph: "Sunshine also would like to support you with all the steps you would have to go through."
       fifth_paragraph: "Therefore we listed here the recommended sources to apply for grants. Nice of us no? :)"
       sixth_paragraph: "We hope you will reditribute part of those benefits to your community throuh discounted solar energy!"
-    
+
     obsolete_located_solar_panels:
       first_title: "We can't find solar panel in production"
       owner: "Owner :"
