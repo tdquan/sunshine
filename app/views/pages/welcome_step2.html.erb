@@ -1,7 +1,8 @@
-<div class="funnel-container">
+  <div class="funnel-container">
   <div class="container max-height">
     <div class="row">
       <div class="card funnel-info text-center col-xs-12">
+
         <h3>Sharing Solar Energy Locally among neighbours</h3>
       </div>
       <div class="col-xs-12 col-md-6">
@@ -18,27 +19,26 @@
       </div>
       <div class="no-padding col-xs-12 col-sm-8 col-sm-offset-1 col-md-5  box-shadow">
         <div class="card funnel-info text-center">
-          <h3>Already 25 participants!</h3>
+          <h3>Your neighbourhood has already <%= @participants %> participants!</h3>
           <div id="map" style="width: 100%; height: 500px;">
           </div>
         </div>
-      </div>
-      <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-      $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>   );
-      markers2 = handler.addMarkers(<%= raw @hash2.to_json %>   );
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-      handler.map.centerOn([38.736946, -9.142685]);
-    }
-    else if (markers.length == 1) {
-    handler.getMap().setZoom(20);
-  }
-});
+        <!-- marker are defined in application helper -->
+        <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw producer_markers.to_json %>);
+          markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.map.centerOn([38.736946, -9.142685]);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(20);
+          }
+  });
 });
 <% end %>
 <% end %>

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   def home
-    @user=User.new
+    @user = User.new
   end
 
   # def welcome_catch
@@ -27,21 +27,16 @@ class PagesController < ApplicationController
   end
 
   def welcome_step2
-
-
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
-    @count_panels = @solar_panels.length
+    @consumers = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
 
-    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
-      marker.lat solar_panel.latitude
-      marker.lng solar_panel.longitude
-      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
-    end
+    @participants = (@solar_panels + @consumers).length
+  end
 
     def welcome_step3_rent
       session[:profile] = "rent"
-      user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address])
-      sign_in(user)
+      # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address])
+      # sign_in(user)
     end
 
     def create_step3
@@ -67,7 +62,7 @@ class PagesController < ApplicationController
     #   marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { user: user })
 
     # end
-  end
+
 
 
 
