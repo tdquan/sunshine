@@ -16,6 +16,37 @@ ActiveRecord::Schema.define(version: 20160821103205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "consumption_patterns", force: :cascade do |t|
+    t.datetime "time"
+    t.float    "hour_01"
+    t.float    "hour_02"
+    t.float    "hour_03"
+    t.float    "hour_04"
+    t.float    "hour_05"
+    t.float    "hour_06"
+    t.float    "hour_07"
+    t.float    "hour_08"
+    t.float    "hour_09"
+    t.float    "hour_10"
+    t.float    "hour_11"
+    t.float    "hour_12"
+    t.float    "hour_13"
+    t.float    "hour_14"
+    t.float    "hour_15"
+    t.float    "hour_16"
+    t.float    "hour_17"
+    t.float    "hour_18"
+    t.float    "hour_19"
+    t.float    "hour_20"
+    t.float    "hour_21"
+    t.float    "hour_22"
+    t.float    "hour_23"
+    t.float    "hour_24"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -27,6 +58,37 @@ ActiveRecord::Schema.define(version: 20160821103205) do
 
   add_index "contracts", ["solar_panel_id"], name: "index_contracts_on_solar_panel_id", using: :btree
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
+
+  create_table "production_patterns", force: :cascade do |t|
+    t.datetime "time"
+    t.float    "hour_01"
+    t.float    "hour_02"
+    t.float    "hour_03"
+    t.float    "hour_04"
+    t.float    "hour_05"
+    t.float    "hour_06"
+    t.float    "hour_07"
+    t.float    "hour_08"
+    t.float    "hour_09"
+    t.float    "hour_10"
+    t.float    "hour_11"
+    t.float    "hour_12"
+    t.float    "hour_13"
+    t.float    "hour_14"
+    t.float    "hour_15"
+    t.float    "hour_16"
+    t.float    "hour_17"
+    t.float    "hour_18"
+    t.float    "hour_19"
+    t.float    "hour_20"
+    t.float    "hour_21"
+    t.float    "hour_22"
+    t.float    "hour_23"
+    t.float    "hour_24"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "solar_panel_id"
+  end
 
   create_table "solar_panels", force: :cascade do |t|
     t.integer  "size"
@@ -70,7 +132,9 @@ ActiveRecord::Schema.define(version: 20160821103205) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "consumption_patterns", "users"
   add_foreign_key "contracts", "solar_panels"
   add_foreign_key "contracts", "users"
+  add_foreign_key "production_patterns", "solar_panels"
   add_foreign_key "solar_panels", "users"
 end
