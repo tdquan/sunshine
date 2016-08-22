@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
 has_one :solar_panel
 has_many :contracts
 
-  # As a Consumer
-  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+# As a Consumer
+has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
 
-  # validates_presence_of :first_name
-  # validates_presence_of :last_name
+# validates_presence_of :first_name
+# validates_presence_of :last_name
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

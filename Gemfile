@@ -23,6 +23,11 @@ gem "gmaps4rails"
 gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
 
+# Sidekiq
+gem 'sidekiq'
+gem 'sinatra'  # Dependency for the Sidekiq Dashboard
+gem 'sidekiq-failures'
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
