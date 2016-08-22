@@ -35,17 +35,8 @@ class PagesController < ApplicationController
 
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
     @consumers = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
-    @markers = Gmaps4rails.build_markers(@consumers) do |consumer, marker|
-        marker.lat consumer.latitude
-        marker.lng consumer.longitude
-        marker.picture({
-            "url" => view_context.image_path("producer_label.png"), #"http://placehold.it/350x150", #          # string,  mandatory
-            "width" => 30,          # integer, mandatory
-            "height" => 30          # integer, mandatory
-          })
-    end
 
-    @count_panels = @solar_panels.length
+    @participants = (@solar_panels + @consumers).length
 
   end
 
