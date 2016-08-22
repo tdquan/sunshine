@@ -27,9 +27,7 @@ class PagesController < ApplicationController
   end
 
   def welcome_step2
-    # email = "a#{User.last.email}"
-    # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address], password: "123456", email: email)
-    # sign_in(user)
+
 
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
     @count_panels = @solar_panels.length
@@ -41,8 +39,9 @@ class PagesController < ApplicationController
     end
 
     def welcome_step3_rent
-      @user=current_user
       session[:profile] = "rent"
+      user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address])
+      sign_in(user)
     end
 
     def create_step3
