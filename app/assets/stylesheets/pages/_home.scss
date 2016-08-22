@@ -121,7 +121,7 @@ h1 {
   padding: 0 20px;
   border: none;
   margin: 1rem auto;
-  font-size: 1.2em;
+  font-size: 0.9em;
   text-transform: uppercase;
   line-height: 30px;
   background: rgba(255,255,255,0.23);
@@ -129,7 +129,10 @@ h1 {
   border-radius: 20em;
   cursor: pointer;
   transition: .3s background;
+  display:inline-block;
 }
 .btn-login:hover {
    background: $orange;
 }
+
+
