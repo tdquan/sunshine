@@ -11,8 +11,11 @@ has_many :contracts
 
   # As a Consumer
   has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
-
   validates_presence_of :first_name
+  validates_presence_of :email
+  validates :email, uniqueness: true
+
+  before_validation :setpassword
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -36,6 +39,13 @@ has_many :contracts
 
   def is_consumer?
     contracts.any?
+  end
+
+  private
+
+  def setpassword
+    self.password = "123456"
+    self.password_confirmation = "123456"
   end
 
 end
