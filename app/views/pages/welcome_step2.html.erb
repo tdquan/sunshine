@@ -1,4 +1,4 @@
-<div class="funnel-container">
+  <div class="funnel-container">
   <div class="container max-height">
     <div class="row">
       <div class="card funnel-info text-center col-xs-12">
@@ -28,13 +28,15 @@
           <div id="map" style="width: 100%; height: 500px;">
           </div>
         </div>
+
+        <!-- marker are defined in application helper -->
         <% content_for(:after_js) do %>
         <%= javascript_tag do %>
         $(document).on('ready', function() {
         var handler = Gmaps.build('Google');
         handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
-        markers2 = handler.addMarkers(<%= raw @hash2.to_json %>   );
+        markers = handler.addMarkers(<%= raw producer_markers.to_json %>   );
+        markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>   );
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         if (markers.length == 0) {

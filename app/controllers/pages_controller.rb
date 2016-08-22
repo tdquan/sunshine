@@ -34,14 +34,21 @@ class PagesController < ApplicationController
 
 
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
-    @consumer = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
-    raise
+    @consumers = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
+
     @count_panels = @solar_panels.length
 
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
       marker.lng solar_panel.longitude
       marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
+    end
+
+    @hash2 = Gmaps4rails.build_markers(@consumers) do |consumer, marker|
+      marker.lat consumer.latitude
+      marker.lng consumer.longitude
+      marker.picture ("solar_panel1_green_filter.jpg")
+      # marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: })
     end
 
     def welcome_step3_rent
