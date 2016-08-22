@@ -115,7 +115,7 @@ h1 {
 .splash-text {
   font-size: 1.2em;
 }
-.btn-login {
+.splash-page-box .btn-login {
   display: block;
   width: 35%;
   padding: 0 20px;
@@ -131,7 +131,7 @@ h1 {
   transition: .3s background;
   display:inline-block;
 }
-.btn-login:hover {
+.splash-page-box .btn-login:hover {
    background: $orange;
 }
 
