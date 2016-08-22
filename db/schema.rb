@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822111626) do
+ActiveRecord::Schema.define(version: 20160822172830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,17 @@ ActiveRecord::Schema.define(version: 20160822111626) do
     t.float    "longitude"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.float    "excess"
+    t.datetime "time"
+    t.float    "fee"
+    t.integer  "contract_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "transactions", ["contract_id"], name: "index_transactions_on_contract_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -125,7 +136,11 @@ ActiveRecord::Schema.define(version: 20160822111626) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "address"
+    t.integer  "consumption_pattern_id"
+    t.integer  "production_pattern_id"
     t.integer  "premium"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "bill"
     t.string   "status"
   end
@@ -138,4 +153,7 @@ ActiveRecord::Schema.define(version: 20160822111626) do
   add_foreign_key "contracts", "users"
   add_foreign_key "production_patterns", "solar_panels"
   add_foreign_key "solar_panels", "users"
+  add_foreign_key "transactions", "contracts"
+  add_foreign_key "users", "consumption_patterns"
+  add_foreign_key "users", "production_patterns"
 end

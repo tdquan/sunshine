@@ -1,6 +1,7 @@
   class Contract < ActiveRecord::Base
   belongs_to :user
   belongs_to :solar_panel
+  has_many :transactions
 
   validates :start_date, presence: true
   validates :user_id, presence: true
