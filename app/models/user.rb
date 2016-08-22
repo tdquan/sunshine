@@ -2,16 +2,15 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, omniauth_providers: [:facebook]
 
 # As a Prosumer
-  has_one :solar_panel
-  has_many :contracts
+has_one :solar_panel
+has_many :contracts
 
   # As a Consumer
   has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
-
 
   # validates_presence_of :first_name
   # validates_presence_of :last_name
