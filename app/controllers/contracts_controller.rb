@@ -25,7 +25,7 @@ class ContractsController < ApplicationController
     @contract.save
     redirect_to contracts_path
 
-    FetchUsageJob.perform_later(current_user.id)
+    # FetchUsageJob.perform_later(current_user.id)
   end
 
 

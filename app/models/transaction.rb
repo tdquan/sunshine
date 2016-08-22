@@ -1,3 +1,3 @@
 class Transaction < ActiveRecord::Base
-  belongs_to :contract_id
+  belongs_to :contract
 end
