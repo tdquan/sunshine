@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
 
   def is_producer?

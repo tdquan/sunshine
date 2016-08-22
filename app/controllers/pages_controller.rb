@@ -26,7 +26,10 @@ class PagesController < ApplicationController
   end
 
   def welcome_step2
+
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
+    @consumer = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
+    raise
     @count_panels = @solar_panels.length
     @best_panel = @solar_panels.first
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
