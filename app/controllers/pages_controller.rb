@@ -38,18 +38,7 @@ class PagesController < ApplicationController
 
     @count_panels = @solar_panels.length
 
-    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
-      marker.lat solar_panel.latitude
-      marker.lng solar_panel.longitude
-      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
-    end
-
-    @hash2 = Gmaps4rails.build_markers(@consumers) do |consumer, marker|
-      marker.lat consumer.latitude
-      marker.lng consumer.longitude
-      marker.picture ("solar_panel1_green_filter.jpg")
-      # marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: })
-    end
+  end
 
     def welcome_step3_rent
       @user=current_user
@@ -79,7 +68,7 @@ class PagesController < ApplicationController
     #   marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { user: user })
 
     # end
-  end
+
 
 
 

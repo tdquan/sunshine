@@ -35,16 +35,15 @@
         $(document).on('ready', function() {
         var handler = Gmaps.build('Google');
         handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw producer_markers.to_json %>   );
-        markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>   );
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-        handler.map.centerOn([38.736946, -9.142685]);
-      }
-      else if (markers.length == 1) {
-      handler.getMap().setZoom(20);
-    }
+          markers = handler.addMarkers(<%= raw producer_markers.to_json %>   );
+          markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>   );
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.map.centerOn([38.736946, -9.142685]);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(20);
+          }
   });
 });
 <% end %>
