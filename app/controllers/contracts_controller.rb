@@ -24,6 +24,8 @@ class ContractsController < ApplicationController
     authorize! :create, @contract
     @contract.save
     redirect_to contracts_path
+
+    FetchUsageJob.perform_later(current_user.id)
   end
 
 
