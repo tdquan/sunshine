@@ -5,19 +5,10 @@ class SolarPanelsController < ApplicationController
 
 
   def index
-    current_user.address = session[:current_user_address]
-    @user = current_user
-    @solar_panels = SolarPanel.near(@user.address)
-
-    @solar_panels += User.near(params[:street], 1)
-
-    @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
-      marker.lat solar_panel.latitude
-      marker.lng solar_panel.longitude
-      marker.infowindow render_to_string(partial: "/solar_panels/map_box", locals: { solar_panel: solar_panel })
-    end
-
+    @solar_panels = SolarPanel.near(session[:current_user_address], 1)
   end
+
+
 
   def new
     current_user.address = session[:current_user_address]
