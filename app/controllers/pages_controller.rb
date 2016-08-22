@@ -35,8 +35,8 @@ class PagesController < ApplicationController
 
     def welcome_step3_rent
       session[:profile] = "rent"
-      user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address])
-      sign_in(user)
+      # user = User.create(first_name: session[:current_user_first_name], address: session[:current_user_address])
+      # sign_in(user)
     end
 
     def create_step3
