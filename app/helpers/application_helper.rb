@@ -5,6 +5,11 @@ module ApplicationHelper
       marker.lat solar_panel.latitude
       marker.lng solar_panel.longitude
       marker.infowindow render("/solar_panels/map_box", solar_panel: solar_panel)
+       marker.picture({
+        "url" => image_path("producer_label.png"), #"http://placehold.it/350x150", #          # string,  mandatory
+        "width" => 30,          # integer, mandatory
+        "height" => 45          # integer, mandatory
+      })
     end
   end
 
@@ -13,9 +18,9 @@ module ApplicationHelper
       marker.lat consumer.latitude
       marker.lng consumer.longitude
       marker.picture({
-        "url" => "http://placehold.it/60x60",          # string,  mandatory
-        "width" => 20,          # integer, mandatory
-        "height" => 20          # integer, mandatory
+        "url" => image_path("consumer_label.png"), #"http://placehold.it/350x150", #          # string,  mandatory
+        "width" => 30,          # integer, mandatory
+        "height" => 45          # integer, mandatory
       })
 
       # #{url: "http://placehold.it/60x60", width: 20, height: 20}
