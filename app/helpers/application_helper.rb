@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
   def producer_markers
     Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude

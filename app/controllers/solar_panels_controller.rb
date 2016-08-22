@@ -6,7 +6,6 @@ class SolarPanelsController < ApplicationController
 
   def index
     @solar_panels = SolarPanel.near(session[:current_user_address], 1)
-    @consumers = User.all.near(session[:current_user_address], 1).select { |user| !user.is_producer? }
   end
 
 
