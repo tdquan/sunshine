@@ -5,8 +5,9 @@ class SolarPanelsController < ApplicationController
 
 
   def index
+    current_user.address = session[:current_user_address]
     @user = current_user
-    @solar_panels = SolarPanel.near(@user ? @user.address : params[:street], 1)
+    @solar_panels = SolarPanel.near(@user.address)
 
     @hash = Gmaps4rails.build_markers(@solar_panels) do |solar_panel, marker|
       marker.lat solar_panel.latitude
@@ -17,10 +18,12 @@ class SolarPanelsController < ApplicationController
   end
 
   def new
+    current_user.address = session[:current_user_address]
     @solar_panel = current_user.build_solar_panel
   end
 
   def create
+    current_user.address = session[:current_user_address]
     @solar_panel = current_user.build_solar_panel(panel_params)
     authorize! :create, @solar_panel
     if @solar_panel.save

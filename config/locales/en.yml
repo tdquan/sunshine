@@ -20,4 +20,151 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+# -------------------       CONTRACTS VIEWS   -------------------------------
+  contracts:
+    index:
+      title: "My current agreements"
+      agreement: "Agreement"
+      producer: "Producer"
+      moreinfo: "More info"
+      firstentry: "Agreement"
+      link1: "See Details"
+      link2: "View suspended agreements"
+
+    index_terminated:
+      title: "No agreements were suspended:"
+      title1: "Suspended agreements"
+      agreement: "Agreement"
+      producer: "Producer"
+      moreinfo: "More Info"
+      date: "Start date | End date"
+      agreement1: "Agreement"
+      link1: "See Details"
+      link2: "Back"
+
+    new:
+      title: "Agreements Details"
+      agreement: "Agreement with"
+      producer: "Producer"
+      consumer: "Consumer"
+      price: "Price"
+      link1: "Seal agreement"
+      link2: "Back"
+
+    show:
+      title: "Agreement Details"
+      firstentry: "is sharing energy with you"
+
+# -------------------       PAGES VIEWS   -------------------------------
+  pages:
+    home:
+      title: "SunShine"
+      title1: "Share solar energy within your neighbourhood"
+      enter_simulation: "Join the experimentation"
+      subtitle_0: ""
+      subtitle_1: ""
+      subtitle_2: ""
+      subtitle_3: ""
+      our_approach: "Our approach"
+      the_problems: "The Challenges"
+      problems_p1: "Where does my electricity come from?"
+      problems_p2: "Why does it cost that much? Who makes money? How much of it is really renewable?"
+      problems_p3: "I have always wanted to consume solar power."
+      the_solutions: "The solution"
+      solutions_p1: "Sharing of solar energy, locally, across your street."
+      solutions_p2: "If you have a solar panel, you can share the excess with your neighbours and make some extra €."
+      solutions_p3: "If you don't have a solar panel, you still can utilise the excess power of your next-door neighbour who owns one."
+      the_platform: "The platform"
+      platform_p1: "Sunshine is a proof of concept, a simulation of a platform for solar energy sharing."
+      platform_p2: "We want to demonstrate it can happen."
+      platform_p3: "A future where everyone is self-sustained by green energy is possible!"
+
+# -------------------       SOLAR PANELS VIEWS   -------------------------------
+  solar_panels:
+    _map_box:
+      solar_panel_owner_pt: ""
+      solar_panel_owner_en: "'s Solar Panel"
+      link_to_details: "Details"
+
+    index:
+      title: "Producers in your community"
+      no_solar_prod: "No solar panel in production yet"
+      request_producers: "Request Producers"
+      producer: "Producer :"
+      address: "Address :"
+      production: "Production :"
+      hour: "hour"
+      price: "Price :"
+      price_grid: "€0.12 (Grid) - €"
+      details_link: "Details"
+      back_link: "Back"
+
+    new:
+      first_title: "Becoming a Solar Producer"
+      first_paragraph_1: "You are ready to become a producer. "
+      first_paragraph_2: "Congratulations!"
+      second_paragraph: "No kidding, this is a huge step, with very significant investments. So before you decide to commit 'in real life', Sunshine will help you simulate what it means."
+      third_paragraph: "Better envision first the expected result before opening the wallet, right?"
+      suggested_option: "Our suggested option"
+      size: ""
+      discount_grid: ""
+      seek_agreement: "Seek local agreements"
+      second_title: "Some tips and support"
+      fourth_paragraph: "Sunshine also would like to support you with all the steps you would have to go through."
+      fifth_paragraph: "Therefore we listed here the recommended sources to apply for grants. Nice of us no? :)"
+      sixth_paragraph: "We hope you will reditribute part of those benefits to your community throuh discounted solar energy!"
+
+    obsolete_located_solar_panels:
+      first_title: "We can't find solar panel in production"
+      owner: "Owner :"
+      address: "Address :"
+      production: "Production :"
+      price: "Price :"
+      details: "Details"
+      link_back: "Back"
+
+    show:
+      title: "You are about to enter in agreement with "
+      firstentry: "is willing to share excess of energy with you, when available."
+      secondentry: "Daily excess :"
+      estimated_daily: "Your estimated daily usage :"
+      estimated_coverage: "Estimated coverage :"
+      listed_price: "Listed price :"
+      currency: "$"
+      infoen: "'s Info"
+      infopt: ""
+      reviews: "Reviews"
+      grid: "(Grid)"
+      back: "Back"
+      purchase: "Purchase"
+      back: "Back"
+
+    show_my:
+      title: "You have no solar panel registered yet!"
+      link_new_panel: "Create new panel"
+      owner: "Owner :"
+      address: "Address :"
+      production: "Production :"
+      price: "Price :"
+      currency: "€"
+      link_to_details: "Details"
+      link_back: ""
+
+
+#------------------ SHARED --------------------
+
+  shared:
+    sidebar:
+      home: "Home"
+      edit: "Edit Profile"
+      sign_out: "Sign Out"
+      my_production: "My production"
+      consume_energy: "Consume local solar energy"
+      sharing_agreements: "Sharing Agreements"
+      link_back: "Back to Home Page"
+      produce_energy: "Produce Solar Energy"
+
+    footer:
+      follow: "Follow us"
+
+

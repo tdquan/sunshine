@@ -1,11 +1,11 @@
-
+<% @sidebar = true %>
 <div class="row">
   <section class="col-xs-12 col-sm-7">
     <div class="card">
-      <h3 class="text-center">Becoming a Solar Producer</h3>
+      <h3 class="text-center"><%=t('.first_title')%></h3>
       <div class="card-content-container">
-        <div><span><p>You are ready to become a producer. <strong>Congratulations!</strong></p>
-          <p>No kidding, this is a huge step, with very significant investments. So before you decide to commit "in real life", Sunshine will help you simulate what it means.</p> <p>Better envision first the expected result before opening the wallet, right?</p>
+        <div><span><p><%= t('.first_paragraph_1') %><strong><%= t('.first_paragraph_2') %></strong></p>
+          <p><%= t('.second_paragraph') %></p> <p><%= t('.third_paragraph') %></p>
           <br>
         </span>
       </div>
@@ -16,7 +16,7 @@
 
 <section class="col-xs-12 col-sm-4">
   <div class="card">
-    <h3 class="text-center">Our suggested option</h3>
+    <h3 class="text-center"><%=t('.suggested_option')%></h3>
     <br>
 
     <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
@@ -32,7 +32,7 @@
         label: "Discount from grid <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Discount from grid price (=0.12$/KWh)</span></div>".html_safe%>
 
         <div class="form-actions text-center">
-          <%= f.submit value: "Seek local agreements", class: "navbar-wagon-item navbar-wagon-button-orange" %>
+          <%= (f.submit value: t('.seek_agreement'), class: "navbar-wagon-item navbar-wagon-button-orange")%>
         </div>
       </div>
     <% end %>
@@ -41,10 +41,10 @@
 
 <section class="col-xs-12 col-sm-7">
   <div class="card">
-    <h3 class="text-center">Some tips and support</h3>
+    <h3 class="text-center"><%=t('.second_title')%></h3>
     <div class="card-content-container">
-      <div><span><p>Sunshine also would like to support you with all the steps you would have to go through.</p> <p>Therefore we listed here the recommended sources to apply for grants. Nice of us no? :)</p>
-        <p>We hope you will reditribute part of those benefits to your community throuh discounted solar energy!</p>
+      <div><span><p><%= t('.fourth_paragraph') %></p> <p><%= t('.fifth_paragraph') %></p>
+        <p><%= t('.sixth_paragraph') %></p>
         <br>
       </span>
     </div>

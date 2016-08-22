@@ -1,0 +1,39 @@
+<div class="funnel-container">
+  <div class="container max-height">
+    <div class="row map-container">
+      <div class="col-md-4">
+        <div class="card funnel-info">
+          <h3>We selected for you the cheapest offer</h3>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card funnel-info">
+          <div class="profile-userpic text-center">
+            <% if @best_panel.user.facebook_picture_url.nil?%>
+            <%= image_tag "avatar.png", class: "avatar-large" %>
+            <% else %>
+            <%= image_tag @best_panel.user.facebook_picture_url, class: "avatar-large"%>
+            <% end %>
+          </div>
+          <div class="content">
+          </div>
+
+          <div class="content text-center">
+            <div class="card-content-container ">
+              <p><%= @best_panel.user.first_name %></p>
+              <p><%= @best_panel.user.address %></p>
+              <h3>10% discount from grid price</h3>
+            </div>
+          </div>
+          <div class="content text-center">
+            <%= link_to "Sounds good", "#", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
+            <br>
+            <br>
+            <%= link_to 'See more offers', located_solar_panels_path, class: "navbar-wagon-button-orange" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

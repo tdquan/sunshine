@@ -1,25 +1,27 @@
+<% @sidebar = true %>
 <% if current_user.contracts.where(end_date: nil).nil? %>
-<h2 class=title>No agreement were suspended: </h2>
+<h2 class=title><%= t('.title')%></h2>
 
 <% else %>
 <div class="row profile">
   <div class="profile-content">
-    <h2 class="text-center">Suspended agreements</h2>
+    <h2 class="text-center"><%= t('.title1') %></h2>
 
     <div class="contract-table-wrapper">
       <% unless current_user.contracts.where(end_date: nil).nil? %>
       <div class="row contract-table-headers">
-        <div class="col-xs-3 text-center">Agreement</div>
-        <div class="col-xs-3 text-center">Producer</div>
-        <div class="col-xs-3 text-center">More Info</div><div class="col-xs-3 text-center">Start date | End date</div>
+        <div class="col-xs-3 text-center"><%= t('.agreement')%></div>
+        <div class="col-xs-3 text-center"><%= t('.producer')%></div>
+        <div class="col-xs-3 text-center"><%= t('.moreinfo')%></div><div class="col-xs-3 text-center"><%= t('.date')%></div>
       </div>
       <div class="row contract-table">
         <% current_user.contracts.each do |contract| %>
         <% next if contract.end_date.nil? %>
         <div class="card contract-table-item clearfix">
-          <div class="col-xs-3 text-center">Agreement #<%= contract.id%></div>
-          <div class="col-xs-3 text-center"><%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %></div>
-          <div class="col-xs-3 text-center"><%= link_to "See Details", contract_path(contract) %> | <%= link_to "Summary", "#" %></div>
+
+          <div class="col-xs-3 text-center"><%= t('.agreement1')%> #<%= contract.id%></div>
+          <div class="col-xs-3 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
+          <div class="col-xs-3 text-center"><%= link_to(t('.link'), contract_path(contract)) %> | <%= link_to "Summary", "#" %></div>
           <div class="col-xs-3 text-center"><%= contract.start_date %> | <%= contract.end_date %></div>
         </div>
         <% end %>
@@ -30,6 +32,6 @@
   </div>
 </div>
 <% end %>
-<%= link_to "Back", contracts_path, class: "navbar-wagon-button-orange back-btn" %>
+<%= link_to(t('.link2'), contracts_path, class: "navbar-wagon-button-orange back-btn") %>
 
 

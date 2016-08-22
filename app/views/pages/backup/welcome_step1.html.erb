@@ -1,0 +1,17 @@
+
+<div class="funnel-container">
+  <div class="container max-height">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="funnel-card funnel-card-1">
+          <div class="focuses">
+            <%= simple_form_for @user, url: {action: "create_step1"} do |f| %>
+            <%= f.input :address, label: "#{@first_name}, take part to an innovative experimentation in your neighbourhood...", placeholder: "Enter your address" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

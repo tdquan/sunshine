@@ -1,28 +1,30 @@
+<% @sidebar = true %>
 <div class="row profile">
   <div class="profile-content">
-    <h2 class="text-center">My current agreements</h2>
+    <h2 class="text-center"><%= t('.title')%></h2>
 
     <div class="contract-table-wrapper">
       <% unless current_user.contracts.nil? %>
         <div class="row contract-table-headers">
-          <div class="col-xs-4 text-center">Agreement</div>
-          <div class="col-xs-4 text-center">Producer</div>
-          <div class="col-xs-4 text-center">More info</div>
+          <div class="col-xs-4 text-center"><%= t('.agreement')%></div>
+          <div class="col-xs-4 text-center"><%= t('.producer')%></div>
+          <div class="col-xs-4 text-center"><%= t('.moreinfo')%></div>
         </div>
         <div class="row contract-table">
         <% current_user.contracts.each do |contract| %>
           <% next unless contract.end_date.nil? %>
             <div class="card contract-table-item clearfix">
-              <div class="col-xs-4 text-center">Agreement #<%= contract.id%></div>
-              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize + " " + contract.solar_panel.user.last_name.capitalize %></div>
-              <div class="col-xs-4 text-center"><%= link_to "See Details", contract_path(contract) %> | <%= link_to "Summary", "#" %></div>
+
+              <div class="col-xs-4 text-center"><%= t('.firstentry')%> #<%= contract.id%></div>
+              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
+              <div class="col-xs-4 text-center"><%= link_to(t('.link1'), contract_path(contract)) %> | <%= link_to "Summary", "#" %></div>
             </div>
           <% end %>
         </div>
 
       <% end %>
     </div>
-    <%= link_to "View suspended agreements", contracts_terminated_path, class: "navbar-wagon-link" %>
+    <%= link_to(t('.link2'), contracts_terminated_path, class: "navbar-wagon-link") %>
 
   </div>
 </div>

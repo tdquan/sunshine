@@ -9,27 +9,29 @@
 }
 
 .funnel-card {
-    margin-top: 25vh;
-    display: block;
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    h1 {
-      font-size:  100px;
-      color: white;
-      font-weight: bold
-    }
-    label {
+  margin-top: 25vh;
+  display: block;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  h3 {
+    font-weight: bold;
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+  }
+
+  label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
-    font-weight: lighter;
-    font-size: 21px;
+    font-weight: bold;
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
     padding-bottom: 15px;
-    color: gray;
+
   }
   input {
     background-color: transparent;
@@ -37,7 +39,10 @@
     height: 50px;
     width: 100%;
     text: center;
-    color: black;
+    font-weight: bold;
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
     text-align: center;
     letter-spacing: normal;
     word-spacing: normal;
@@ -49,16 +54,17 @@
     &:focus {
       outline:none;
       box-shadow: none;
-}
+    }
   }
 
-  #focuses {
+  .focuses {
     width: 100%;
     margin: 0 auto;
     display: block;
     background: 0;
     border: 0;
     border-bottom: 3px solid #fff;
+
   }
 }
 
@@ -68,16 +74,21 @@
 
 
 .funnel-info {
-    h1 {
-      font-size: 20px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 
-    h2 {
-      font-size: 15px;
-      font-weight: lighter;
-      text-align: center;
-      padding: 10px 0;
-    }
-
+  h2 {
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: center;
+    padding: 10px 0;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 2em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+  }
 
 }
