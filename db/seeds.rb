@@ -124,6 +124,17 @@ SolarPanel.create!(
   )
 
 
+require 'csv'
+
+path = Dir.pwd
+
+CSV.foreach(path + '/csv/consumption.csv', :headers => true) do |row|
+  ConsumptionPattern.create!(row.to_hash)
+end
+
+CSV.foreach(path + '/csv/production.csv', :headers => true) do |row|
+  ProductionPattern.create!(row.to_hash)
+end
 
 
 
