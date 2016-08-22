@@ -115,4 +115,24 @@ h1 {
 .splash-text {
   font-size: 1.2em;
 }
+.splash-page-box .btn-login {
+  display: block;
+  width: 35%;
+  padding: 0 20px;
+  border: none;
+  margin: 1rem auto;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  line-height: 30px;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 20em;
+  cursor: pointer;
+  transition: .3s background;
+  display:inline-block;
+}
+.splash-page-box .btn-login:hover {
+   background: $orange;
+}
+
 
