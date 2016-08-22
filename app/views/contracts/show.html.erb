@@ -15,7 +15,7 @@
 
 
 
-      <div class="col-sm-4 col-sm-offset-4 card">
+      <div class="col-sm-4 col-sm-offset-1 card">
 
         <h3 class="contract-details-title">Agreement #<%= @contract.id %></h3>
         <div class="row">
@@ -55,7 +55,15 @@
         <% end %>
       </div>
 
-    </div>
+
+      <div class="col-sm-4 col-sm-offset-1 card">
+        <h3 class="contract-details-title">Latest Transactions</h3>
+        <% @transactions.each do |transaction| %>
+        <li>Transaction<%= transaction.id %>: <%= transaction.excess %>kWh <span class="transaction-amount">-<%= transaction.fee  %> €</span></li>
+        <% end %>
+      </div>
+
+      </div>
 
   </div>
 </div>

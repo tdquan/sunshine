@@ -136,12 +136,12 @@ ActiveRecord::Schema.define(version: 20160822172830) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "premium"
-    t.integer  "bill"
     t.integer  "consumption_pattern_id"
     t.integer  "production_pattern_id"
+    t.integer  "premium"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "bill"
     t.string   "status"
   end
 
