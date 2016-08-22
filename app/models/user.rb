@@ -29,9 +29,15 @@ has_many :contracts
     end
   end
 
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+
   def password_required?
     false
   end
+
 
   def is_producer?
     solar_panel.try(:persisted?)
