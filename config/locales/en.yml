@@ -155,10 +155,10 @@ en:
 
   shared:
     sidebar:
-      home: "Home"
+      home: "My neighbourhood"
       edit: "Edit Profile"
       sign_out: "Sign Out"
-      my_production: "My production"
+      my_production: "My Home"
       consume_energy: "Consume local solar energy"
       sharing_agreements: "Sharing Agreements"
       link_back: "Back to Home Page"
