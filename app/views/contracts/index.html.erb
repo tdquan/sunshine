@@ -1,30 +1,32 @@
 <% @sidebar = true %>
-<div class="row profile">
-  <div class="profile-content">
-    <h2 class="text-center"><%= t('.title')%></h2>
 
-    <div class="contract-table-wrapper">
-      <% unless current_user.contracts.nil? %>
-        <div class="row contract-table-headers">
-          <div class="col-xs-4 text-center"><%= t('.agreement')%></div>
-          <div class="col-xs-4 text-center"><%= t('.producer')%></div>
-          <div class="col-xs-4 text-center"><%= t('.moreinfo')%></div>
-        </div>
-        <div class="row contract-table">
-        <% current_user.contracts.each do |contract| %>
-          <% next unless contract.end_date.nil? %>
-            <div class="card contract-table-item clearfix">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <a href="#producers" aria-controls="producers" role="tab" data-toggle="tab">My producers</a>
+  </li>
+  <li role="presentation">
+    <a href="#consumers" aria-controls="consumers" role="tab" data-toggle="tab">My consummers</a>
+  </li>
+</ul>
 
-              <div class="col-xs-4 text-center"><%= t('.firstentry')%> #<%= contract.id%></div>
-              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
-              <div class="col-xs-4 text-center"><%= link_to(t('.link1'), contract_path(contract)) %> | <%= link_to "Summary", "#" %></div>
-            </div>
-          <% end %>
-        </div>
-
-      <% end %>
-    </div>
-    <%= link_to(t('.link2'), contracts_terminated_path, class: "navbar-wagon-link") %>
-
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="producers">
+    <% if current_user.contracts.any? %>
+      <%= render "producers" %>
+    <% else %>
+      You don't have any producer, <%=  link_to "find one", solar_panels_path %>
+    <% end %>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="consumers">
+     <% if current_user.solar_panel %>
+       <%= render "consumers" %>
+     <% else %>
+       You don't have any solar panel, <%=  link_to "add one", new_solar_panel_path %>
+     <% end %>
   </div>
 </div>
+
+
+
