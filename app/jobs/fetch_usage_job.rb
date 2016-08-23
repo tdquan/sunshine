@@ -25,7 +25,16 @@ class FetchUsageJob < ActiveJob::Base
 
               prod = FetchProductionJob.perform_now(p.time, a)
               if prod > v
-                puts "The excess is #{(prod - v).round(2)}"
+                @excess = (prod - v).round(2)
+                puts "The excess is #{@excess}"
+                puts "#{a.class}"
+                Transaction.create(
+                    excess: @excess,
+                    time: a,
+                    date: p.time,
+                    contract_id: user.contracts.first.id,
+                    fee: user.contracts.first.solar_panel.price
+                  )
               end
             end
             sleep 5
