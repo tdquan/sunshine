@@ -27,20 +27,48 @@ class FetchUsageJob < ActiveJob::Base
               if prod > v
                 @excess = (prod - v).round(2)
                 puts "The excess is #{@excess}"
-                puts "#{a.class}"
-                Transaction.create(
-                    excess: @excess,
-                    time: a,
-                    date: p.time,
-                    contract_id: user.contracts.first.id,
-                    fee: user.contracts.first.solar_panel.price
-                  )
+                surplus_distribution(user, @excess, p.time, a, v)
               end
             end
-            sleep 5
+            sleep 2
           end
         end
       end
     end
   end
 end
+
+
+
+def surplus_distribution(user, excess, date, hour, pattern)
+
+  @pattern = pattern #normal user consumption
+  @excess = excess
+
+  user.solar_panel.contracts.each do |contract|
+    next if @excess == 0
+    next if contract.end_date
+
+    if @excess > @pattern
+      @amount = pattern
+      @excess -= @amount
+    else
+      @amount = @excess
+      @excess -= @amount
+    end
+
+    puts "Contract Nr. #{contract.id} gets #{@amount}"
+
+    Transaction.create(
+    excess: @amount,
+    time: hour,
+    date: date,
+    contract_id: contract.id,
+    fee: user.solar_panel.price
+    )
+
+  end
+
+
+end
+
