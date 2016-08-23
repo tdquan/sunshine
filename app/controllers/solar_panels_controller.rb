@@ -5,18 +5,16 @@ class SolarPanelsController < ApplicationController
 
 
   def index
-    @solar_panels = SolarPanel.near(session[:current_user_address], 1)
+    @solar_panels = SolarPanel.near(current_user.address, 1)
   end
 
 
 
   def new
-    current_user.address = session[:current_user_address]
     @solar_panel = current_user.build_solar_panel
   end
 
   def create
-    current_user.address = session[:current_user_address]
     @solar_panel = current_user.build_solar_panel(panel_params)
     authorize! :create, @solar_panel
     if @solar_panel.save
