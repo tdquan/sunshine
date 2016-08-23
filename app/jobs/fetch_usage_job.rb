@@ -3,7 +3,6 @@ class FetchUsageJob < ActiveJob::Base
 
   def perform(user_id)
     unless user_id.nil?
-      user= User.find(user_id)
       # Get all daily usage pattern
       arr = ConsumptionPattern.all.sort
       # Get 1 day pattern
@@ -13,10 +12,10 @@ class FetchUsageJob < ActiveJob::Base
           if a.include? "hour"
             puts "#{p.time} : #{a} : #{v}"
             # Check if current user has a solar_panel
-            if user.solar_panel != nil
+            if User.find(user_id).solar_panel != nil
               # For testing purpose
               ProductionPattern.all.each do |p|
-                p.solar_panel_id = user.solar_panel.id
+                p.solar_panel_id = User.find(user_id).solar_panel.id
                 p.save
               end
 
@@ -27,7 +26,7 @@ class FetchUsageJob < ActiveJob::Base
               if prod > v
                 @excess = (prod - v).round(2)
                 puts "The excess is #{@excess}"
-                surplus_distribution(user, @excess, p.time, a, v)
+                surplus_distribution(User.find(user_id), @excess, p.time, a, v) if User.find(user_id).solar_panel.contracts.any?
               end
             end
             sleep 2
@@ -50,7 +49,7 @@ def surplus_distribution(user, excess, date, hour, pattern)
     next if contract.end_date
 
     if @excess > @pattern
-      @amount = pattern
+      @amount = @pattern
       @excess -= @amount
     else
       @amount = @excess
