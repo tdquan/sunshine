@@ -124,7 +124,7 @@ User.create!(
   last_name: "Natação",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua de São bento, 209",
+  address: "209 Rua São Bento",
   password: "123456",
   password_confirmation: "123456"
   ),
@@ -135,7 +135,7 @@ User.create!(
   last_name: "University",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua do Quelhas, 6",
+  address: "6 Rua do Quelhas",
   password: "123456",
   password_confirmation: "123456",
   ),
@@ -284,12 +284,89 @@ User.create!(
   ),
 
 User.create!(
+  email: "cafesaobento@gmail.pt",
+  first_name:"Café São Bento",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "212 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
   email: "mariosoares@gmail.pt",
   first_name:"Fundação Mário Soares",
   last_name: "",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua de S. Bento, 176",
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "176 Rua São Bento",
   password: "123456",
   password_confirmation: "123456",
   ),
@@ -309,7 +386,7 @@ User.create!(
 #   address: "675 President St Brooklyn, NY 11215",
 #   user: users[1],
 #   )
-  SolarPanel.create!(
+SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
@@ -337,7 +414,7 @@ User.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua do Machadinho, 20",
+  address: "20 Rua do Machadinho",
   user: users[18],
   )
 
@@ -345,7 +422,7 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua do Quelhas, 6",
+  address: "6 Rua do Quelhas",
   user: users[10],
   )
 
@@ -353,7 +430,7 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua de São bento, 209",
+  address: "209 Rua São Bento",
   user: users[9],
   )
 
@@ -361,10 +438,11 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua de S. Bento, 176",
+  address: "176 Rua São Bento",
   user: users[17],
   )
   
+
 
 
 
