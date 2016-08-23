@@ -123,29 +123,29 @@ SolarPanel.create!(
   user: users[5],
   )
 
-  # Contract.create(
-  #   start_date: Time.now,
-  #   user_id: 2,
-  #   solar_panel_id: 1,
-  # )
+  Contract.create(
+    start_date: Time.now,
+    user_id: 2,
+    solar_panel_id: 1,
+  )
 
-  # Contract.create(
-  #   start_date: Time.now,
-  #   user_id: 3,
-  #   solar_panel_id: 1,
-  # )
+  Contract.create(
+    start_date: Time.now,
+    user_id: 3,
+    solar_panel_id: 1,
+  )
 
-  # Contract.create(
-  #   start_date: Time.now,
-  #   user_id: 4,
-  #   solar_panel_id: 1,
-  # )
+  Contract.create(
+    start_date: Time.now,
+    user_id: 4,
+    solar_panel_id: 1,
+  )
 
-  # Contract.create(
-  #   start_date: Time.now,
-  #   user_id: 5,
-  #   solar_panel_id: 1,
-  # )
+  Contract.create(
+    start_date: Time.now,
+    user_id: 5,
+    solar_panel_id: 1,
+  )
 
 
 require 'csv'
