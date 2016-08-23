@@ -59,14 +59,6 @@
 <row name="apartment_size" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>0</default></row>
-<row name="id_ConsumptionPattern" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default><relation table="ConsumptionPattern" row="id" />
-</row>
-<row name="id_ProductioPattern" null="1" autoincrement="0">
-<datatype>TINYINT</datatype>
-<default>NULL</default><relation table="ProductioPattern" row="id" />
-</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -124,11 +116,15 @@
 <row name="amount" null="1" autoincrement="0">
 <datatype>DECIMAL</datatype>
 <default>NULL</default></row>
+<row name="id_User" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="User" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="1071" y="328" name="ProductioPattern">
+<table x="712" y="600" name="ProductioPattern">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -138,6 +134,10 @@
 <row name="amount" null="1" autoincrement="0">
 <datatype>DECIMAL</datatype>
 <default>NULL</default></row>
+<row name="id_SolarPanel" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default><relation table="SolarPanel" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
