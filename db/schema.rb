@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(version: 20160821103205) do
     t.datetime "token_expiry"
     t.string   "address"
     t.integer  "premium"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "bill"
   end
 

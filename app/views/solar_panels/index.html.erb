@@ -9,7 +9,6 @@
           </div>
         </div>
     <% else %>
-
       <div class="row map-container">
         <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
           <div id="map" style="width: 100%; height: 300px;">
@@ -21,7 +20,7 @@
         $(document).on('ready', function() {
         var handler = Gmaps.build('Google');
         handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'satellite' }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>   );
+        markers = handler.addMarkers(<%= raw producer_markers.to_json %>   );
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         if (markers.length == 0) {
