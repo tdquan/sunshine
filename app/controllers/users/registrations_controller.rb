@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    # FetchUsageJob.perform_later(current_user.id)
+    FetchUsageJob.perform_later(current_user.id)
   end
 
   # DELETE /resource

@@ -49,10 +49,10 @@ has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
 
   private
 
-  def setpassword
-    self.password = "123456"
-    self.password_confirmation = "123456"
-  end
+  # def setpassword
+  #   self.password = "123456"
+  #   self.save
+  # end
 
 end
 
