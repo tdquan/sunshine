@@ -9,27 +9,27 @@ SolarPanel.destroy_all
 User.destroy_all
 
 users = [
-  User.create!(
-  email: "janet@gmail.com",
-  first_name: "Janet",
-  last_name: "Marshall",
-  family_size: 3,
-  apartment_size: 100,
-  address: "676 President St Brooklyn, NY 11215",
-  password: "123456",
-  password_confirmation: "123456"
-  ),
+#   User.create!(
+#   email: "janet@gmail.com",
+#   first_name: "Janet",
+#   last_name: "Marshall",
+#   family_size: 3,
+#   apartment_size: 100,
+#   address: "676 President St Brooklyn, NY 11215",
+#   password: "123456",
+#   password_confirmation: "123456"
+#   ),
 
-User.create!(
-  email: "bob@gmail.com",
-  first_name: "Bob",
-  last_name: "Jackson",
-  family_size: 1,
-  apartment_size: 50,
-  address: "675 President St Brooklyn, NY 11215",
-  password: "123456",
-  password_confirmation: "123456"
-  ),
+# User.create!(
+#   email: "bob@gmail.com",
+#   first_name: "Bob",
+#   last_name: "Jackson",
+#   family_size: 1,
+#   apartment_size: 50,
+#   address: "675 President St Brooklyn, NY 11215",
+#   password: "123456",
+#   password_confirmation: "123456"
+#   ),
 
 User.create!(
   email: "maxime@gmail.com",
@@ -73,23 +73,231 @@ User.create!(
   address: "Rua Sao Bento 19",
   password: "123456",
   password_confirmation: "123456"
-  )
-]
-SolarPanel.create!(
-  size: 10,
-  efficiency: 3,
-  price: 2,
-  address: "676 President St Brooklyn, NY 11215",
-  user: users[0],
-  )
+  ),
 
-SolarPanel.create!(
-  size: 8,
-  efficiency: 2,
-  price: 1,
-  address: "675 President St Brooklyn, NY 11215",
-  user: users[1],
-  )
+User.create!(
+  email: "sbentohaircut@gmail.com",
+  first_name: "Amelia",
+  last_name: "Seixas",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua São Bento, 131",
+  password: "123456",
+  password_confirmation: "123456"
+  ),
+
+User.create!(
+  email: "canapeantique@sapo.pt",
+  first_name: "Assunção",
+  last_name: "Tavares",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 292",
+  password: "123456",
+  password_confirmation: "123456"
+  ),
+User.create!(
+  email: "renonauth@gmail.com",
+  first_name: "Nathalie",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua São Bento, 20",
+  password: "123456",
+  password_confirmation: "123456"
+  ),
+
+User.create!(
+  email: "mercearia@saloia.pt",
+  first_name: "Mercearia",
+  last_name: "Portuguesa",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 102",
+  password: "123456",
+  password_confirmation: "123456"
+  ),
+
+User.create!(
+  email: "atendimento@cnnatacao.pt",
+  first_name: "Clube",
+  last_name: "Natação",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 209",
+  password: "123456",
+  password_confirmation: "123456"
+  ),
+
+User.create!(
+  email: "geral@iseg.pt",
+  first_name:"ISEG",
+  last_name: "University",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua do Quelhas, 6",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "vethospital@iseg.pt",
+  first_name:"Hospital",
+  last_name: "São Bento",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 358",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "galeria@gmail.pt",
+  first_name:"Galeria",
+  last_name: "São Roque",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 199B",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "deposito@gmail.pt",
+  first_name:"Depósito",
+  last_name: "Marinha Grande",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São bento, 159",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "bloop@gmail.pt",
+  first_name:"Bloop",
+  last_name: "Vinyl Shop",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua Santos-o-Velho, 58",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "managuesthouse@gmail.pt",
+  first_name:"Maná",
+  last_name: "Guest House",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Calçada Marquês Abrantes, 97",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "museu@gmail.pt",
+  first_name:"Museu",
+  last_name: "Marioneta",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua da Esperança, 146",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "phhostel@gmail.pt",
+  first_name:"PH Lisbon Hostel",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Calçada Marquês Abrantes, 90",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "palacio@gmail.pt",
+  first_name:"Palácio do Machadinho",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua do Machadinho, 20",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "atelier145@gmail.pt",
+  first_name:"Atelier 145",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São Bento, 145",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "fadobedbreakfast@gmail.pt",
+  first_name:"Fado Bed & Breakfast",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua das Trinas, 14",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "cavalopau@gmail.pt",
+  first_name:"Loja Cavalo de Pau",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São Bento, 164",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "bocacafe@gmail.pt",
+  first_name:"Boca Café",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de São Bento, 33",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+User.create!(
+  email: "cheeseandwinesuite@gmail.pt",
+  first_name:"Cheese & Wine",
+  last_name: "Apartment Suites",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Calçada Marquês Abrantes, 40",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+]
+# SolarPanel.create!(
+#   size: 10,
+#   efficiency: 3,
+#   price: 2,
+#   address: "676 President St Brooklyn, NY 11215",
+#   user: users[0],
+#   )
+
+# SolarPanel.create!(
+#   size: 8,
+#   efficiency: 2,
+#   price: 1,
+#   address: "675 President St Brooklyn, NY 11215",
+#   user: users[1],
+#   )
 
   SolarPanel.create!(
   size: 7,
@@ -119,11 +327,25 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua Sao Bento 19",
-  user: users[5],
+  address: "Rua do Machadinho, 20",
+  user: users[18],
   )
 
+SolarPanel.create!(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "Rua do Quelhas, 6",
+  user: users[10],
+  )
 
+SolarPanel.create!(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "Rua de São bento, 209",
+  user: users[9],
+  )
 
 
 
