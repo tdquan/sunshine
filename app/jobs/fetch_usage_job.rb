@@ -29,7 +29,7 @@ class FetchUsageJob < ActiveJob::Base
                 surplus_distribution(User.find(user_id), @excess, p.time, a, v) if User.find(user_id).solar_panel.contracts.any?
               end
             end
-            sleep 2
+            # sleep 2
           end
         end
       end
