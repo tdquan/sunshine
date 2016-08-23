@@ -40,11 +40,9 @@
           <li class="profile-usermenu-item">
             <%= link_to(t('shared.sidebar.home'), dashboard_path) %>
           </li>
-          <% unless current_user.solar_panel.nil? %>
           <li class="profile-usermenu-item">
-            <%= link_to "My production", my_panel_path %>
+            <%= link_to "My contribution", my_panel_path %>
           </li>
-          <% end %>
           <li class="profile-usermenu-item">
             <%= link_to(t('shared.sidebar.consume_energy'), located_solar_panels_path )%>
           </li>
