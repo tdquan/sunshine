@@ -5,7 +5,7 @@ class FetchUsageJob < ActiveJob::Base
     unless user_id.nil?
       user= User.find(user_id)
       # Get all daily usage pattern
-      arr = ConsumptionPattern.where(user_id: user_id).sort
+      arr = ConsumptionPattern.all.sort
       # Get 1 day pattern
       arr.each do |p|
         p.attributes.each do |a,v|
@@ -23,7 +23,7 @@ class FetchUsageJob < ActiveJob::Base
               # End of testing
 
 
-              prod = FetchProductionJob.perform_now(user.solar_panel.id, p.time, a)
+              prod = FetchProductionJob.perform_now(p.time, a)
               if prod > v
                 puts "The excess is #{(prod - v).round(2)}"
               end

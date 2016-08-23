@@ -136,13 +136,11 @@ ActiveRecord::Schema.define(version: 20160822172830) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "address"
-    t.integer  "consumption_pattern_id"
-    t.integer  "production_pattern_id"
     t.integer  "premium"
-    t.float    "latitude"
-    t.float    "longitude"
     t.integer  "bill"
     t.string   "status"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -154,6 +152,4 @@ ActiveRecord::Schema.define(version: 20160822172830) do
   add_foreign_key "production_patterns", "solar_panels"
   add_foreign_key "solar_panels", "users"
   add_foreign_key "transactions", "contracts"
-  add_foreign_key "users", "consumption_patterns"
-  add_foreign_key "users", "production_patterns"
 end
