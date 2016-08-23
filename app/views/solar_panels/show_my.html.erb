@@ -13,60 +13,10 @@
     <%= render 'shared/animated_barchart' if can? :show, current_user.solar_panel %>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/daily_graph' if can? :show, current_user.solar_panel %>
+  <div class="col-xs-12">
+    <%= render 'shared/daily_graph' %>
   </div>
 
 </div>
 
 <%= link_to(t('.link_back'), dashboard_path, class: "navbar-wagon-button-orange back-btn") %>
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Hour', 'Production', 'Consumption'],
-          ['00',  00,      30],
-          ['01',  00,      30],
-          ['02',  00,      15],
-          ['03',  00,      15],
-          ['04',  00,      10],
-          ['05',  00,      10],
-          ['06',  00,      10],
-          ['07',  25,      10],
-          ['08',  49,      19],
-          ['09',  98,      19],
-          ['10',  172,    17],
-          ['11',  294,    17],
-          ['12',  368,    21],
-          ['13',  466,    21]
-          ['14',  515,    28],
-          ['15',  466,    28],
-          ['16',  368,    23],
-          ['17',  294,    23],
-          ['18',  172,    21],
-          ['19',  98,      21],
-          ['20',  49,      30],
-          ['21',  25,      30],
-          ['22',  00,      37],
-          ['23',  00,      37],
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-  </body>
-</html>
