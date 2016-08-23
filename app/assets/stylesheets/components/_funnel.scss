@@ -1,3 +1,13 @@
+.join-us {
+  display: flex;
+  align-items: center;
+  height: 500px;
+  h3 {
+    margin-top: 0px;
+    font-weight: lighter;
+  }
+}
+
 .funnel-container {
   background-image: image-url('welcome_background.jpg');
   background-size: cover;
