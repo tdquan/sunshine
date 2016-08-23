@@ -38,16 +38,13 @@
       <div>
         <ul class="profile-usermenu">
           <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.home'), dashboard_path) %>
+            <%= link_to("My dashboard", contracts_path )%>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to "My contribution", my_panel_path %>
+            <%= link_to("My impact", "#") %>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.consume_energy'), located_solar_panels_path )%>
-          </li>
-          <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.sharing_agreements'), contracts_path )%>
+            <%= link_to("My neighborhood impact", dashboard_path) %>
           </li>
         </ul>
       </div>
