@@ -13,7 +13,7 @@ class FetchUsageJob < ActiveJob::Base
           if a.include? "hour"
             puts "#{p.time} : #{a} : #{v}"
             # Check if current user has a solar_panel
-            if user.solar_panel !nil
+            if user.solar_panel != nil
               # For testing purpose
               ProductionPattern.all.each do |p|
                 p.solar_panel_id = user.solar_panel.id
