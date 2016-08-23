@@ -282,6 +282,17 @@ User.create!(
   password: "123456",
   password_confirmation: "123456",
   ),
+
+User.create!(
+  email: "mariosoares@gmail.pt",
+  first_name:"Fundação Mário Soares",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua de S. Bento, 176",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
 ]
 # SolarPanel.create!(
 #   size: 10,
@@ -298,7 +309,6 @@ User.create!(
 #   address: "675 President St Brooklyn, NY 11215",
 #   user: users[1],
 #   )
-
   SolarPanel.create!(
   size: 7,
   efficiency: 4,
@@ -347,8 +357,14 @@ SolarPanel.create!(
   user: users[9],
   )
 
-
-
+SolarPanel.create!(
+  size: 7,
+  efficiency: 4,
+  price: 2,
+  address: "Rua de S. Bento, 176",
+  user: users[17],
+  )
+  
 
 
 
