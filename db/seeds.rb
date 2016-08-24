@@ -83,9 +83,9 @@ User.create!(
   apartment_size: 100,
   address: "Rua São Bento, 131",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  facebook_picture_url: "amelia_seixas.jpg"
   ),
-
 User.create!(
   email: "canapeantique@sapo.pt",
   first_name: "Assunção",
@@ -94,7 +94,8 @@ User.create!(
   apartment_size: 100,
   address: "Rua de São bento, 292",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  facebook_picture_url: "assunção_tavares.jpg"
   ),
 User.create!(
   email: "renonauth@gmail.com",
@@ -115,7 +116,8 @@ User.create!(
   apartment_size: 100,
   address: "Rua de São bento, 102",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  facebook_picture_url: "sara.jpg"
   ),
 
 User.create!(
@@ -138,10 +140,11 @@ User.create!(
   address: "6 Rua do Quelhas",
   password: "123456",
   password_confirmation: "123456",
+  facebook_picture_url: "iseg.jpg"
   ),
 
 User.create!(
-  email: "vethospital@iseg.pt",
+  email: "vethospital@gmail.pt",
   first_name:"Hospital",
   last_name: "São Bento",
   family_size: 4,
@@ -305,71 +308,6 @@ User.create!(
   password_confirmation: "123456",
   ),
 
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "mariosoares@gmail.pt",
-  first_name:"Fundação Mário Soares",
-  last_name: "",
-  family_size: 4,
-  apartment_size: 100,
-  address: "176 Rua São Bento",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
 ]
 # SolarPanel.create!(
 #   size: 10,
@@ -390,8 +328,8 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "20 Rua Guarda-Mor",
-  user: users[2],
+  address: "Rua São Bento, 131",
+  user: users[5],
   )
 
  SolarPanel.create!(
@@ -406,8 +344,8 @@ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "25 Rua Guarda-Mor",
-  user: users[4],
+  address: "Rua de São bento, 292",
+  user: users[6],
   )
 
   SolarPanel.create!(
@@ -446,7 +384,6 @@ end
 CSV.foreach(path + '/db/csv/production.csv', :headers => true) do |row|
   ProductionPattern.create!(row.to_hash)
 end
->>>>>>> f88a167782bc75b39cd8bd7ce86a933cba36a6b1
 
 SolarPanel.create!(
   size: 7,
