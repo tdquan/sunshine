@@ -30,7 +30,12 @@
   padding: 2rem;
   font-size: 1em;
   margin-bottom: 2em;
-  height: 300px;
+  h3 {
+    font-weight: 100;
+    font-size: 25px;
+    margin: 40px;
+    margin-bottom: 0;
+  }
 }
 
 
@@ -83,7 +88,11 @@
   align-items: center;
 }
 
-
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 
 
