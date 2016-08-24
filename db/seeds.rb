@@ -434,6 +434,20 @@ SolarPanel.create!(
   user: users[9],
   )
 
+
+require 'csv'
+
+path = Dir.pwd
+
+CSV.foreach(path + '/db/csv/consumption.csv', :headers => true) do |row|
+  ConsumptionPattern.create!(row.to_hash)
+end
+
+CSV.foreach(path + '/db/csv/production.csv', :headers => true) do |row|
+  ProductionPattern.create!(row.to_hash)
+end
+>>>>>>> f88a167782bc75b39cd8bd7ce86a933cba36a6b1
+
 SolarPanel.create!(
   size: 7,
   efficiency: 4,

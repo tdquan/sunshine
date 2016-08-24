@@ -6,7 +6,7 @@
   height: 100%;
   background-color: $translucent-darkest-blue;
   color: #fff;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .profile {
@@ -24,7 +24,6 @@
 
 .profile-userpic img {
   width: 70px;
-  border: 1px solid white;
   border-radius: 50%;
 }
 
@@ -93,3 +92,21 @@
   }
 }
 
+.flags {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+
+  .flag-transparent {
+    opacity: 0.3;
+  }
+  .flag-transparent:hover {
+    opacity: 1;
+  }
+}
+.sidebar-logout {
+  padding-top: 50px;
+  opacity: 0.3;
+  display: flex;
+  justify-content: space-around;
+}
