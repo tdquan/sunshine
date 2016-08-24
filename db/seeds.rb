@@ -81,10 +81,10 @@ User.create!(
   last_name: "Seixas",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua São Bento, 131",
+  address: "Rua São Bento, 33",
   password: "123456",
   password_confirmation: "123456",
-  facebook_picture_url: "amelia_seixas.jpg"
+  facebook_picture_url: "amelia.jpg"
   ),
 User.create!(
   email: "canapeantique@sapo.pt",
@@ -92,10 +92,10 @@ User.create!(
   last_name: "Tavares",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua de São bento, 292",
+  address: "Calçada Marquês Abrantes, 97",
   password: "123456",
   password_confirmation: "123456",
-  facebook_picture_url: "assunção.jpg"
+  facebook_picture_url: "assunçao.jpg"
   ),
 User.create!(
   email: "renonauth@gmail.com",
@@ -105,7 +105,8 @@ User.create!(
   apartment_size: 100,
   address: "Rua São Bento, 20",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  facebook_picture_url: "nathalie.jpg"
   ),
 
 User.create!(
@@ -144,14 +145,15 @@ User.create!(
   ),
 
 User.create!(
-  email: "vethospital@gmail.pt",
+  email: "vethospital@iseg.pt",
   first_name:"Hospital",
   last_name: "São Bento",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua de São bento, 358",
+  address: "Rua de São bento, 164",
   password: "123456",
   password_confirmation: "123456",
+  facebook_picture_url: "hospital.jpg"
   ),
 
 User.create!(
@@ -183,17 +185,6 @@ User.create!(
   family_size: 4,
   apartment_size: 100,
   address: "Rua Santos-o-Velho, 58",
-  password: "123456",
-  password_confirmation: "123456",
-  ),
-
-User.create!(
-  email: "managuesthouse@gmail.pt",
-  first_name:"Maná",
-  last_name: "Guest House",
-  family_size: 4,
-  apartment_size: 100,
-  address: "Calçada Marquês Abrantes, 97",
   password: "123456",
   password_confirmation: "123456",
   ),
@@ -259,7 +250,7 @@ User.create!(
   last_name: "",
   family_size: 4,
   apartment_size: 100,
-  address: "Rua de São Bento, 164",
+  address: "Rua de São Bento, 168",
   password: "123456",
   password_confirmation: "123456",
   ),
@@ -324,54 +315,47 @@ User.create!(
 #   address: "675 President St Brooklyn, NY 11215",
 #   user: users[1],
 #   )
+#   
+# Nathalie id(8) 
 SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua São Bento, 131",
-  user: users[5],
+  address: "20 Rua Guarda-Mor",
+  user: users[6],
   )
-
+# Assunção id(6)
  SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
   address: "10a Rua Guarda-Mor",
-  user: users[3],
+  user: users[5],
   )
-
-  SolarPanel.create!(
+# Amelia id(5)
+ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "Rua de São bento, 292",
-  user: users[6],
+  address: "10a Rua Guarda-Mor",
+  user: users[4],
   )
-
-  SolarPanel.create!(
+# Sara id(8)
+ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "20 Rua do Machadinho",
-  user: users[18],
+  address: "10a Rua Guarda-Mor",
+  user: users[7],
   )
-
-SolarPanel.create!(
+ # Hospital id(11)
+ SolarPanel.create!(
   size: 7,
   efficiency: 4,
   price: 2,
-  address: "6 Rua do Quelhas",
+  address: "10a Rua Guarda-Mor",
   user: users[10],
   )
-
-SolarPanel.create!(
-  size: 7,
-  efficiency: 4,
-  price: 2,
-  address: "209 Rua São Bento",
-  user: users[9],
-  )
-
 
 require 'csv'
 
@@ -385,14 +369,7 @@ CSV.foreach(path + '/db/csv/production.csv', :headers => true) do |row|
   ProductionPattern.create!(row.to_hash)
 end
 
-SolarPanel.create!(
-  size: 7,
-  efficiency: 4,
-  price: 2,
-  address: "176 Rua São Bento",
-  user: users[17],
-  )
-  
+
 
 
 
