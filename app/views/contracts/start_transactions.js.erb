@@ -6,13 +6,15 @@ var nextLine = $('.transaction-line').first();
 var daysRunning = 0;
 var lightingWeeks = 0;
 var treesSaved = 0;
-
+var cumulativeTransfer = 0;
 
 
 function runner () {
    setTimeout(function () {
-    console.log("hello ta race");
+      console.log(cumulativeTransfer);
       nextLine.removeClass("hidden");
+      transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
+      cumulativeTransfer += transferAmount;
       i++;
       nextLine = nextLine.next();
       if (i < transLength) {
@@ -34,7 +36,7 @@ function runner () {
         $("#trees-saved").text(treesSaved)
       }
 
-
+      $("#total-transfer").text((cumulativeTransfer).toFixed(2));
 
 
 
