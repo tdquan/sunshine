@@ -61,7 +61,7 @@
   transition: 0.5s ease;
 }
 
-.profile-usermenu-item a:hover, .profile-usermenu-item a:active {
+.profile-usermenu-item a:hover, .profile-usermenu-item a:active, .sidebar-active {
   background-color: darken($translucent-darkest-blue, 1%);
   text-decoration: none;
   border-left: 2px solid $orange;

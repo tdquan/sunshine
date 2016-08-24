@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   # scope '(:locale)', locale: /en|pt/ do
-  #   resources :contracts, :solar_panels
+  resources :contracts, :solar_panels
   # end
 
   devise_for :users, controllers: {
