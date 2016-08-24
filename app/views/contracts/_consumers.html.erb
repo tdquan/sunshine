@@ -1,13 +1,15 @@
+<% current_user.solar_panel.contracts.each do |contract| %>
+
 <div class="card-neighbour">
   <div class="card-neighbour-infos">
-    <% if current_user.facebook_picture_url.nil?%>
+    <% if contract.user.facebook_picture_url.nil?%>
     <%= image_tag "avatar.png", class: "avatar-large" %>
     <% else %>
-    <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+    <%= image_tag contract.user.facebook_picture_url, class: "avatar-large"%>
     <% end %>
     <div class="card-neighbour-name">
-      <h3><%= current_user.first_name.capitalize %></h3>
-      <p><%= current_user.address %></p>
+      <h3><%= contract.user.first_name.capitalize %></h3>
+      <p><%= contract.user.address %></p>
       <p><span class="badge badge-danger">Active</span></p>
     </div>
   </div>
@@ -18,3 +20,4 @@
   <i class="fa fa-bolt"></i> Run a simulation
   <% end %>
 </div>
+<% end %>
