@@ -2,14 +2,13 @@
 <div class="clearfix">
   <% unless can? :show, current_user.solar_panel %>
   <p class="contracts"><%= t('.title') %></p>
-  <%= link_to(t('.link_new_panel'), new_solar_panel_path, class: "navbar-wagon-button-orange") %>
   <% end %>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="col-xs-12 col-sm-6">
   <%= render 'shared/production_data' if can? :show, current_user.solar_panel %>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="col-xs-12 col-sm-6">
     <%= render 'shared/animated_barchart' if can? :show, current_user.solar_panel %>
   </div>
 
@@ -19,4 +18,3 @@
 
 </div>
 
-<%= link_to(t('.link_back'), dashboard_path, class: "navbar-wagon-button-orange back-btn") %>
