@@ -11,7 +11,7 @@ class ContractsController < ApplicationController
   end
 
   def show
-
+    @transactions = @contract.transactions.limit(20)
   end
 
 
