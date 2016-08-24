@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # get 'errors/not_found'
+
+  # get 'errors/internal_server_error'
+
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.status == "admin" } do
     mount Sidekiq::Web => '/sidekiq'
@@ -45,6 +49,12 @@ Rails.application.routes.draw do
   get "welcome_step3_own" => 'pages#welcome_step3_own'
 
   get "welcome_step4_rent" => 'pages#welcome_step4_rent'
+
+
+  # ---------------   errors  ----------------------------
+  
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
