@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
 
   get "dashboard/show" => "dashboard#show", as: "dashboard"
+  get "dashboard/show_neighbour" => "dashboard#show_neighbour", as: "dashboard_neighbour"
 
   resources :solar_panels, only: [:show, :new, :create]
   get "located_solar_panels" => 'solar_panels#index'

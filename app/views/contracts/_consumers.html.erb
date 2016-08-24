@@ -1,0 +1,20 @@
+<div class="card-neighbour">
+  <div class="card-neighbour-infos">
+    <% if current_user.facebook_picture_url.nil?%>
+    <%= image_tag "avatar.png", class: "avatar-large" %>
+    <% else %>
+    <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+    <% end %>
+    <div class="card-neighbour-name">
+      <h3><%= current_user.first_name.capitalize %></h3>
+      <p><%= current_user.address %></p>
+      <p><span class="badge badge-danger">Active</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="text-center" style="padding-top: 20px;">
+  <%=  link_to dashboard_path, class: "navbar-wagon-button-orange" do %>
+  <i class="fa fa-bolt"></i> Run a simulation
+  <% end %>
+</div>
