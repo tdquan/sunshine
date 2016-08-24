@@ -1,18 +1,6 @@
 <aside id="sidebar" class="col-xs-12 col-sm-3 col-md-2">
   <div class="">
     <div class="profile-sidebar">
-    <!-- TRANSLATION LINKS -->
-    <div class="flags">
-      <div class="flags-content">
-        <% if I18n.locale == I18n.default_locale %>
-          <%= link_to image_tag("portugal_flag.png", class: "flag flag-transparent", style: "height: 20px"), :locale=>'pt', style: "opacity: 0.3" %>
-          <%= link_to image_tag("uk_flag.png", class: "flag", style: "height: 20px"), :locale=>'en', style: "opacity: 1"%>
-        <% else %>
-          <%= link_to image_tag("portugal_flag.png", class: "flag", style: "height: 20px"), :locale=>'pt', style: "opacity: 1"%>
-          <%= link_to image_tag("uk_flag.png", class: "flag flag-transparent", style: "height: 20px"), :locale=>'en'%>
-        <% end %>
-      </div>
-    </div>
 
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">
