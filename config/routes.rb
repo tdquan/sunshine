@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  post "contracts/:id/start_transactions" => "contracts#start_transactions", as: "start"
   get "contracts/terminated" => 'contracts#index_terminated'
   resources :contracts, only: [:show, :create, :index, :update]
+
 
 
   get "dashboard/show" => "dashboard#show", as: "dashboard"

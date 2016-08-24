@@ -1,10 +1,9 @@
 <div class="transaction-container">
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-      <h1>Transactions</h1>
       <div class="listed-transactions text-center">
-        <% @transactions.each do |transaction| %>
-          <p>Transaction <%= transaction.id %>: Transferred Amount: <%= transaction.excess %><p>
+        <% transactions.each do |transaction| %>
+          <p class="transaction-line hidden" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <%= transaction.excess %><p>
         <% end %>
       </div>
     </div>
