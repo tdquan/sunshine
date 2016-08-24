@@ -1,0 +1,11 @@
+<h1>Transactions</h1>
+
+<ul>
+  <% @transactions.each do |transaction| %>
+
+    <li>Transaction <%= transaction.id %>: Transferred Amount: <%= transaction.excess %></li>
+
+  <% end %>
+
+
+</ul>

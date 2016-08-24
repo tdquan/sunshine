@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
 
   before_action :set_solar_panel, only: [:new]
+  before_action :set_contract, only: [:show]
   load_and_authorize_resource except: [:new, :index, :create]
 
   def index
@@ -41,6 +42,10 @@ class ContractsController < ApplicationController
 
   def set_solar_panel
     @solar_panel = SolarPanel.find(params[:solar_panel_id])
+  end
+
+  def set_contract
+    @contract = Contract.find(params[:id])
   end
 
 end
