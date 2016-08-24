@@ -1,11 +1,12 @@
  <div class="card-dashboard">
   <div class="text-center">
     <div id="trees" >
-      <%= image_tag "trees.png", class: "chart" %>
+      <%= image_tag "heavyforest.png", class: "chart" %>
     </div>
     <div class="card-content-container text-left">
       <br>
-      <h4 class="text-center">In your community</h4>
+      <h4 class="text-center"> <%= @solar_count * 10000 / 10000 %> trees saved in the community </h4>
+
     </div>
   </div>
 </div>
