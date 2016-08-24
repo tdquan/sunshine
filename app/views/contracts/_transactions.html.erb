@@ -3,7 +3,7 @@
     <div class="col-xs-8 col-xs-offset-2">
       <div class="listed-transactions text-center">
         <% transactions.each do |transaction| %>
-          <p class="transaction-line hidden" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <span class="excess-amount"><%= transaction.excess %></span> </p>
+          <p class="transaction-line hidden" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <span class="excess-amount"><%= transaction.excess %> kWh</span> </p>
         <% end %>
       </div>
     </div>
