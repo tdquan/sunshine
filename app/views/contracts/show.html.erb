@@ -1,4 +1,28 @@
 <% @sidebar = true %>
+
+
+
+<div class="contracts-container">
+  <div class="contract-simulation-header text-center">
+    <div class="contract-running">
+      <%= render "shared/contract" %>
+      <h2>Running for <strong>65 days</strong></h2>
+    </div>
+    <div class="contract-energy">
+      <%= render "shared/bulb" %>
+      <h2>Consuming <strong>3 week of lighting</strong></h2>
+    </div>
+    <div class="contract-trees">
+      <%= render "shared/tree" %>
+      <h2>Saving <strong>4 trees</strong></h2>
+    </div>
+  </div>
+  <div class="contract-simulation-body">
+
+  </div>
+</div>
+
+<% if false %>
 <div class="row profile">
   <div class="text-center">
     <h2 class="text-center"><%=t('title')%></h2>
@@ -67,4 +91,4 @@
 
   </div>
 </div>
-
+<% end %>

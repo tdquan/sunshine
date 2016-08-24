@@ -1,46 +1,53 @@
 <% @sidebar = true %>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active">
-    <a href="#producers" aria-controls="producers" role="tab" data-toggle="tab">Get Energy</a>
-  </li>
-  <li role="presentation">
-    <a href="#consumers" aria-controls="consumers" role="tab" data-toggle="tab">Share My Energy</a>
-  </li>
-</ul>
+<div class="contracts-container">
+  <!-- Nav tabs -->
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="producers">
-    <% if current_user.contracts.any? %>
-    <%= render "producers" %>
-    <% else %>
-    <div class="card-dashboard text-center">
-      <%= current_user.first_name.capitalize %>, you are currently consuming all your energy from the grid.
-      <br>
-      You should get some excess energy from your neighbours!
-      <br>
-      <br>
-      <%=  link_to "Get Local Energy", solar_panels_path, class: "navbar-wagon-button-orange"  %>
-    </div>
-    <% end %>
+  <div class="tabs">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#producers" aria-controls="producers" role="tab" data-toggle="tab"><i class="fa fa-users"></i> My local producers</a>
+      </li>
+      <li role="presentation">
+        <a href="#consumers" aria-controls="consumers" role="tab" data-toggle="tab"><i class="fa fa-bolt"></i> My consumers</a>
+      </li>
+    </ul>
   </div>
-  <div role="tabpanel" class="tab-pane" id="consumers">
-   <% if current_user.solar_panel %>
-   <%= render "consumers" %>
-   <% else %>
-   <div class="card-dashboard text-center">
-     <%= current_user.first_name.capitalize %>, you could too producer your own energy.
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="producers">
+      <% if current_user.contracts.any? %>
+        <%= render "producers" %>
+      <% else %>
+      <div class="card-dashboard text-center">
+        <%= current_user.first_name.capitalize %>, you are currently consuming all your energy from the grid.
+        <br>
+        You should get some excess energy from your neighbours!
+        <br>
+        <br>
+        <%=  link_to "Get Local Energy", solar_panels_path, class: "navbar-wagon-button-orange"  %>
+      </div>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="consumers">
+     <% if current_user.solar_panel %>
+     <%= render "consumers" %>
+     <% else %>
+     <div class="card-dashboard text-center">
+       <%= current_user.first_name.capitalize %>, you could too producer your own energy.
+       <br>
+       You could share the excess with your neighbours.
      <br>
-     You could share the excess with your neighbours.
-   <br>
-   <br>
-   <%=  link_to "Produce Local Energy", new_solar_panel_path, class: "navbar-wagon-button-orange"  %>
-   <% end %>
+     <br>
+     <%=  link_to "Produce Local Energy", new_solar_panel_path, class: "navbar-wagon-button-orange"  %>
+     <% end %>
+     </div>
    </div>
- </div>
+  </div>
+
 </div>
+
 
 
 

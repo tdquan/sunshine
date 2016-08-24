@@ -34,8 +34,12 @@
 }
 
 #producers{
+  h2 {
+    font-size: 20px;
+    opacity: 0.6;
+    font-weight: 100;
+  }
   .card-dashboard{}
-  padding-top: 50px;
   font-weight: bold;
   font-size: 2em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -49,6 +53,10 @@
   font-size: 2em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
+}
+
+.contracts-container {
+  margin: 0px 80px;
 }
 
 
