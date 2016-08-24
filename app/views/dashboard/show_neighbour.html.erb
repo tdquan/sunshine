@@ -1,7 +1,18 @@
 <% @sidebar = true %>
 <div class="row">
-  <div class="card funnel-info text-center">
-  <h3>Your community</h3>
+  <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+    <div class="card-dashboard">
+      <div class="text-center">
+        <p class="cash"><%= @solar_count %> producers sharing their energy</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+    <div class="card-dashboard">
+      <div class="text-center">
+        <p class="cash"> <%= @user_count %> users consuming local solar</p>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row">
@@ -10,16 +21,16 @@
   </div>
 
   <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/pie_chart' %>
+    <%#= render 'shared/pie_chart' %>
+    <%= render 'shared/sun' %>
   </div>
 
   <div class="col-xs-12 col-sm-6 col-md-4">
     <%= render 'shared/trees_saved' %>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-xs-12">
-    <%= render 'shared/callforactionbutton' %>
+  <div class="col-xs-12 text-center">
+    <%= link_to("I want to try to make this happen", "#", class: "navbar-wagon-button-orange" )%>
   </div>
 </div>

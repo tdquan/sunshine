@@ -3,8 +3,9 @@
     <div class="money-symbol">
       <i class="fa fa-eur fa-5x money" aria-hidden="true"></i>
     </div>
-    <p id="cash">2000</p>
+    <p id="cash"> <%= (@solar_count * 10000 * 0.15/12).round %></p>
 
-    <h4>monthly redistribution locally</h4>
+    <h4>monthly revenue for the <%= @solar_count %> producers </h4>
   </div>
 </div>
+

@@ -1,16 +1,16 @@
  <div class="card-dashboard">
   <div class="text-center">
     <div id="pieChart" >
-      <%= image_tag "piechart.jpg", class: "chart" %>
+      <%= image_tag "sun.png", class: "chart" %>
     </div>
     <div class="card-content-container text-left">
       <br>
-      <h4 class="text-center"> <%= (@solar_count*10000* 100 / (@user_count*2531) )%> % solar produced locally!</h4>
+      <p id="cash"><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p>
 
+      <h4 class="text-center">solar produced locally!</h4>
     </div>
   </div>
 </div>
-
 
 
 
