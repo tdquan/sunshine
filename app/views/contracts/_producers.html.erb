@@ -1,29 +1,30 @@
 <div class="row profile">
   <div class="profile-content">
-    <h2 class="text-center"><%= t('.title')%></h2>
-
+    <h2 class="text-center">You are consuming excess energy from your neighbours</h2>
+    <br>
     <div class="contract-table-wrapper">
       <% unless current_user.contracts.nil? %>
-        <div class="row contract-table-headers">
-          <div class="col-xs-4 text-center"><%= t('.agreement')%></div>
-          <div class="col-xs-4 text-center"><%= t('.producer')%></div>
-          <div class="col-xs-4 text-center"><%= t('.moreinfo')%></div>
-        </div>
-        <div class="row contract-table">
+      <div class="row contract-table">
         <% current_user.contracts.each do |contract| %>
-          <% next unless contract.end_date.nil? %>
-            <div class="card contract-table-item clearfix">
-
-              <div class="col-xs-4 text-center"><%= t('.firstentry')%> #<%= contract.id%></div>
-              <div class="col-xs-4 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
-              <div class="col-xs-4 text-center"><%= link_to(t('.link1'), contract_path(contract)) %> | <%= link_to "Summary", "#" %></div>
-            </div>
-          <% end %>
+        <% next unless contract.end_date.nil? %>
+        <div class="card contract-table-item clearfix">
+          <div class="col-xs-2 text-center">
+           <div class="profile-userpic text-center">
+            <% if contract.solar_panel.user.facebook_picture_url.nil?%>
+            <%= image_tag "avatar.png", class: "avatar-large" %>
+            <% else %>
+            <%= image_tag contract.solar_panel.user.facebook_picture_url, class: "avatar-large"%>
+            <% end %>
+          </div>
         </div>
-
+        <div class="col-xs-5 text-center"><%= contract.solar_panel.user.first_name.capitalize %></div>
+        <div class="col-xs-5 text-center"><%= link_to("See it!", contract_path(contract))%></div>
+      </div>
       <% end %>
     </div>
-    <%= link_to(t('.link2'), contracts_terminated_path, class: "navbar-wagon-link") %>
-
+    <% end %>
+    <%=  link_to "Get more from someone else", solar_panels_path, class: "navbar-wagon-button-orange"  %>
   </div>
 </div>
+</div>
+

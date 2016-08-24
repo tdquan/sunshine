@@ -33,6 +33,24 @@
   width: 100%
 }
 
+#producers{
+  .card-dashboard{}
+  padding-top: 50px;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+#consumers{
+  .card-dashboard{}
+  padding-top: 50px;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
 
 // // ------- ENERGY SOURCES PIE-CHART ------
 

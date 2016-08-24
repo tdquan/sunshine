@@ -3,10 +3,10 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active">
-    <a href="#producers" aria-controls="producers" role="tab" data-toggle="tab">My producers</a>
+    <a href="#producers" aria-controls="producers" role="tab" data-toggle="tab">Get Energy</a>
   </li>
   <li role="presentation">
-    <a href="#consumers" aria-controls="consumers" role="tab" data-toggle="tab">My consummers</a>
+    <a href="#consumers" aria-controls="consumers" role="tab" data-toggle="tab">Share My Energy</a>
   </li>
 </ul>
 
@@ -14,18 +14,32 @@
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="producers">
     <% if current_user.contracts.any? %>
-      <%= render "producers" %>
+    <%= render "producers" %>
     <% else %>
-      You don't have any producer, <%=  link_to "find one", solar_panels_path %>
+    <div class="card-dashboard text-center">
+      <%= current_user.first_name.capitalize %>, you are currently consuming all your energy from the grid.
+      <br>
+      You should get some excess energy from your neighbours!
+      <br>
+      <br>
+      <%=  link_to "Get Local Energy", solar_panels_path, class: "navbar-wagon-button-orange"  %>
+    </div>
     <% end %>
   </div>
   <div role="tabpanel" class="tab-pane" id="consumers">
-     <% if current_user.solar_panel %>
-       <%= render "consumers" %>
-     <% else %>
-       You don't have any solar panel, <%=  link_to "add one", new_solar_panel_path %>
-     <% end %>
-  </div>
+   <% if current_user.solar_panel %>
+   <%= render "consumers" %>
+   <% else %>
+   <div class="card-dashboard text-center">
+     <%= current_user.first_name.capitalize %>, you could too producer your own energy.
+     <br>
+     You could share the excess with your neighbours.
+   <br>
+   <br>
+   <%=  link_to "Produce Local Energy", new_solar_panel_path, class: "navbar-wagon-button-orange"  %>
+   <% end %>
+   </div>
+ </div>
 </div>
 
 
