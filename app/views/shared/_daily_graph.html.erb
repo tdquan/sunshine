@@ -1,0 +1,95 @@
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      console.log("Hello");
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Hour', 'Production', 'Consumption'],
+          ['00',  0,      30],
+          ['01',  0,      30],
+          ['02',  0,      15],
+          ['03',  0,      15],
+          ['04',  0,      10],
+          ['05',  0,      10],
+          ['06',  0,      10],
+          ['07',  25,     10],
+          ['08',  49,     19],
+          ['09',  98,     19],
+          ['10',  172,    17],
+          ['11',  294,    17],
+          ['12',  368,    21],
+          ['13',  466,    21],
+          ['14',  515,    28],
+          ['15',  466,    28],
+          ['16',  368,    23],
+          ['17',  294,    23],
+          ['18',  172,    21],
+          ['19',  98,      21],
+          ['20',  49,      30],
+          ['21',  25,      30],
+          ['22',  0,      37],
+          ['23',  0,      37]
+        ]);
+
+        var options = {
+          title: 'Summer',
+          hAxis: {title: 'Hour',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="chart_div" style="width: 900px; height: 300px;"></div>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      console.log("Hello");
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Hour', 'Production in cents', 'Consumption in cents'],
+          ['00',  0,      60],
+          ['01',  0,      60],
+          ['02',  0,      30],
+          ['03',  0,      30],
+          ['04',  0,      20],
+          ['05',  0,      20],
+          ['06',  0,      20],
+          ['07',  25,     20],
+          ['08',  49,     38],
+          ['09',  98,     38],
+          ['10',  147,    34],
+          ['11',  196,    34],
+          ['12',  245,    42],
+          ['13',  196,    42],
+          ['14',  147,    56],
+          ['15',  98,     56],
+          ['16',  49,     46],
+          ['17',  25,     46],
+          ['18',  0,      42],
+          ['19',  0,      42],
+          ['20',  0,      60],
+          ['21',  0,      60],
+          ['22',  0,      74],
+          ['23',  0,      74]
+        ]);
+
+        var options = {
+          title: 'Winter',
+          hAxis: {title: 'Hour',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="chart_div2" style="width: 900px; height: 300px;"></div>
+
+

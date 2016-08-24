@@ -1,0 +1,26 @@
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-tabs {
+  border: none !important;
+  font-weight: bold !important;
+}
+.tabs a {
+  padding: 20px 45px !important;
+  border: none !important;
+}
+.tabs a:hover {
+  background: #172129 !important;
+  color: white !important;
+}
+.tabs .active a:hover {
+  background: white !important;
+  color: #555555 !important;
+}
+.tabs  li:first-child a {
+  border-radius: 10px 0 0 0;
+}
+.tabs  li:last-child a {
+  border-radius: 0 10px 0 0;
+}

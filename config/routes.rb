@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.status == "admin" } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   scope '(:locale)', locale: /en|pt/ do
     resources :contracts, :solar_panels
   end

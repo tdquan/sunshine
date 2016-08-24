@@ -2,11 +2,17 @@
   <div class="">
     <div class="profile-sidebar">
     <!-- TRANSLATION LINKS -->
-    <% if I18n.locale == I18n.default_locale %>
-    <%= link_to image_tag("portugal.jpg", class: "flag"), :locale=>'pt'%>
-    <% else %>
-    <%= link_to image_tag("unitedkingdom.jpg", class: "flag"), :locale=>'en'%>
-    <% end %>
+    <div class="flags">
+      <div class="flags-content">
+        <% if I18n.locale == I18n.default_locale %>
+          <%= link_to image_tag("portugal_flag.png", class: "flag flag-transparent", style: "height: 20px"), :locale=>'pt', style: "opacity: 0.3" %>
+          <%= link_to image_tag("uk_flag.png", class: "flag", style: "height: 20px"), :locale=>'en', style: "opacity: 1"%>
+        <% else %>
+          <%= link_to image_tag("portugal_flag.png", class: "flag", style: "height: 20px"), :locale=>'pt', style: "opacity: 1"%>
+          <%= link_to image_tag("uk_flag.png", class: "flag flag-transparent", style: "height: 20px"), :locale=>'en'%>
+        <% end %>
+      </div>
+    </div>
 
       <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic text-center">
@@ -26,11 +32,6 @@
         <div class="user-city">
           <p><%= current_user.address %></p>
         </div>
-        <div class="">
-
-          <%= link_to(t('shared.sidebar.edit'), edit_user_registration_path, class: "navbar-wagon-link") %>&nbsp;|
-          <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "navbar-wagon-link" %>
-        </div>
       </div>
       <!-- END SIDEBAR USER TITLE -->
 
@@ -38,28 +39,27 @@
       <div>
         <ul class="profile-usermenu">
           <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.home'), dashboard_path) %>
-          </li>
-          <% unless current_user.solar_panel.nil? %>
-          <li class="profile-usermenu-item">
-            <%= link_to "My production", my_panel_path %>
-          </li>
-          <% end %>
-          <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.consume_energy'), located_solar_panels_path )%>
+            <%= link_to("My dashboard", contracts_path )%>
           </li>
           <li class="profile-usermenu-item">
-            <%= link_to(t('shared.sidebar.sharing_agreements'), contracts_path )%>
+            <%= link_to("My impact", "#") %>
+          </li>
+          <li class="profile-usermenu-item">
+            <%= link_to("My neighborhood impact", dashboard_path) %>
           </li>
         </ul>
+      </div>
+
+
+      <div class="sidebar-logout">
+        <div>
+        <%= link_to(t('shared.sidebar.edit'), edit_user_registration_path, class: "navbar-wagon-link") %>&nbsp;|
+        <%= link_to t(".sign_out", default: "Log out"), destroy_user_session_path, method: :delete, class: "navbar-wagon-link" %>
+        </div>
       </div>
       <!-- END MENU -->
     </div>
   </div>
 
-  <div class="text-center sidebar-bottom-button-grp">
-    <div><%= link_to(t('shared.sidebar.link_back'), root_path, class: "navbar-wagon-link-blue" )%></div>
-    <div><%= link_to(t('shared.sidebar.produce_energy'), new_solar_panel_path, class: "navbar-wagon-button-orange")%></div>
-  </div>
 
 </aside>

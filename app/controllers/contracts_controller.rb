@@ -10,6 +10,7 @@ class ContractsController < ApplicationController
   end
 
   def show
+    @transactions = @contract.transactions
   end
 
 
@@ -24,6 +25,8 @@ class ContractsController < ApplicationController
     authorize! :create, @contract
     @contract.save
     redirect_to contracts_path
+
+    #FetchUsageJob.perform_later(current_user.id)
   end
 
 
