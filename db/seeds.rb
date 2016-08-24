@@ -95,7 +95,7 @@ User.create!(
   address: "Rua de São bento, 292",
   password: "123456",
   password_confirmation: "123456",
-  facebook_picture_url: "assunção_tavares.jpg"
+  facebook_picture_url: "assunção.jpg"
   ),
 User.create!(
   email: "renonauth@gmail.com",
