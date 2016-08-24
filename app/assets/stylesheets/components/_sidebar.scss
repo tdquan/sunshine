@@ -61,9 +61,19 @@
   transition: 0.5s ease;
 }
 
-.profile-usermenu-item a:hover, .profile-usermenu-item a:active, .sidebar-active {
+.profile-usermenu-item a:hover {
   background-color: darken($translucent-darkest-blue, 1%);
   text-decoration: none;
+  border-left: 2px solid $orange;
+}
+
+.sidebar-active a{
+  background-color: $orange;
+  border-left: 2px solid $orange;
+}
+
+.sidebar-active a:hover {
+  background-color: $orange;
   border-left: 2px solid $orange;
 }
 
@@ -106,7 +116,6 @@
 }
 .sidebar-logout {
   padding-top: 50px;
-  opacity: 0.3;
   display: flex;
   justify-content: space-around;
 }
