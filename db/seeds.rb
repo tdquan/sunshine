@@ -147,29 +147,29 @@ SolarPanel.create!(
   #   solar_panel_id: 1,
   # )
 
-  Transaction.create!(
-    contract_id: 2,
-    excess: 0.12,
-    fee: 2,
-    date: Time.now(),
-    time: "hour 12"
-    )
+  # Transaction.create!(
+  #   contract_id: 2,
+  #   excess: 0.12,
+  #   fee: 2,
+  #   date: Time.now(),
+  #   time: "hour 12"
+  #   )
 
-  Transaction.create!(
-    contract_id: 2,
-    excess: 0.14,
-    fee: 2,
-    date: Time.now(),
-    time: "hour 13"
-    )
+  # Transaction.create!(
+  #   contract_id: 2,
+  #   excess: 0.14,
+  #   fee: 2,
+  #   date: Time.now(),
+  #   time: "hour 13"
+  #   )
 
-  Transaction.create!(
-    contract_id: 2,
-    excess: 0.17,
-    fee: 2,
-    date: Time.now(),
-    time: "hour 14"
-    )
+  # Transaction.create!(
+  #   contract_id: 2,
+  #   excess: 0.17,
+  #   fee: 2,
+  #   date: Time.now(),
+  #   time: "hour 14"
+  #   )
 
 
 
