@@ -1,25 +1,92 @@
 <% @sidebar = true %>
-<div class="row">
-  <div class="card funnel-info text-center">
-  <h3>Your community</h3>
+
+<div class="contracts-container">
+  <div class="contract-simulation-header text-center">
+    <div class="contract-running">
+      <%= render "shared/contract" %>
+      <h2>In production for <strong><%= ((Time.now - current_user.solar_panel.created_at)/3600).round %> hours</strong></h2>
+    </div>
+    <div class="contract-energy">
+      <%= render "shared/bulb" %>
+      <h2>Producing <strong><%= 3 %> week of lighting</strong></h2>
+    </div>
+    <div class="contract-trees">
+      <%= render "shared/tree" %>
+      <h2>Saving <strong><%= 3 %> trees</strong></h2>
+    </div>
+  </div>
+  <div class="contract-simulation-body">
+
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/money_counter' %>
-  </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/pie_chart' %>
-  </div>
+<% if false %>
+<div class="row profile">
+  <div class="text-center">
+    <h2 class="text-center"><%=t('title')%></h2>
+    <div class="contract-details-wrapper">
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/trees_saved' %>
+
+      <div class="card">
+      <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> <%= t('.firstentry') %></h1>
+      <p>You have an ongoing agreement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
+      <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
+      <p>Way to go!</p>
+
+    </div>
+
+
+
+      <div class="col-sm-4 col-sm-offset-1 card">
+
+        <h3 class="contract-details-title">Agreement #<%= @contract.id %></h3>
+        <div class="row">
+          <div class="col-xs-6 text-left">Producer</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.solar_panel.user.first_name.capitalize %></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Consumer</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize %></b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Price</div>
+          <b class="col-xs-6 text-center orange-text">$0.12 (grid) - $<%= @contract.solar_panel.price %> / Kwh</b>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 text-left">Start date</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.start_date %></b>
+        </div>
+
+        <% if @contract.end_date %>
+          <div class="row">
+            <div class="col-xs-6 text-left">End date</div>
+            <b class="col-xs-6 text-center orange-text"><%= @contract.end_date %></b>
+          </div>
+        <% end %>
+
+        <br><br>
+
+        <% if @contract.end_date %>
+          <%= link_to 'Back', contracts_path, class: "navbar-wagon-button-orange" %>
+        <% else %>
+          <%= link_to "Cancel Contract", contract_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
+          <%= link_to 'Back', dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+        <% end %>
+      </div>
+
+
+      <div class="col-sm-4 col-sm-offset-1 card">
+        <h3 class="contract-details-title">Latest Transactions</h3>
+        <% @transactions.each do |transaction| %>
+        <li>Transaction<%= transaction.id %>: <%= transaction.excess %>kWh <span class="transaction-amount">-<%= transaction.fee  %> €</span></li>
+        <% end %>
+      </div>
+
+      </div>
+
   </div>
 </div>
-
-<div class="row">
-  <div class="col-xs-12">
-    <%= render 'shared/callforactionbutton' %>
-  </div>
-</div>
+<% end %>
