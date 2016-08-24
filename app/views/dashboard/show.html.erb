@@ -4,7 +4,7 @@
   <div class="contract-simulation-header text-center">
     <div class="contract-running">
       <%= render "shared/contract" %>
-      <h2>In production for <strong><%= ((Time.now - current_user.solar_panel.created_at)/3600).round %> hours</strong></h2>
+      <h2>In production for <strong><%=3600.round %> hours</strong></h2>
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
