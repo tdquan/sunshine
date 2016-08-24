@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
 
   before_action :set_solar_panel, only: [:new]
+  before_action :set_contract, only: [:show, :start_transactions]
   load_and_authorize_resource except: [:new, :index, :create]
 
   def index
@@ -10,7 +11,7 @@ class ContractsController < ApplicationController
   end
 
   def show
-    @transactions = @contract.transactions
+
   end
 
 
@@ -36,11 +37,24 @@ class ContractsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def start_transactions
+    FetchUsageJob.perform_later(@contract.solar_panel.user.id)
+    @transactions = @contract.transactions.limit(20)
+    respond_to do |format|
+      format.js
+    end
+    #redirect_to contract_path(@contract)
+  end
+
 
   private
 
   def set_solar_panel
     @solar_panel = SolarPanel.find(params[:solar_panel_id])
+  end
+
+  def set_contract
+    @contract = Contract.find(params[:id])
   end
 
 end

@@ -315,8 +315,8 @@ User.create!(
 #   address: "675 President St Brooklyn, NY 11215",
 #   user: users[1],
 #   )
-#   
-# Nathalie id(8) 
+#
+# Nathalie id(8)
 SolarPanel.create!(
   size: 7,
   efficiency: 4,
@@ -356,7 +356,6 @@ SolarPanel.create!(
   address: "10a Rua Guarda-Mor",
   user: users[10],
   )
-
 require 'csv'
 
 path = Dir.pwd
