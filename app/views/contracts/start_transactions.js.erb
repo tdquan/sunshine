@@ -1,4 +1,4 @@
-console.log("Waazzz");
+
 
 $('#transactions').html("<%= j render 'transactions', transactions: @transactions %>");
 
@@ -13,7 +13,6 @@ var cumulativeTransfer = 0;
 var dps = [];
 
 function runner () {
-console.log("Waazzz");
     var chart = new CanvasJS.Chart("chartContainer",{
          title :{
         text: "Total Energy Transfer",
@@ -47,7 +46,6 @@ console.log("Waazzz");
         });
 
 
-      console.log(dps)
       chart.render();
 
     };
@@ -55,8 +53,7 @@ console.log("Waazzz");
     // generates first set of dataPoints
     updateChart(i, cumulativeTransfer);
 
-
-   setTimeout(function () {
+  setTimeout(function () {
       console.log(nextLine);
       nextLine.removeClass("hidden");
       transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
