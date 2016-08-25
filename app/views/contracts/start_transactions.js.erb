@@ -8,15 +8,57 @@ var lightingWeeks = 0;
 var treesSaved = 0;
 var cumulativeTransfer = 0;
 
+var dps = [];
 
 function runner () {
+
+    var chart = new CanvasJS.Chart("chartContainer",{
+      title :{
+        text: "Total Energy Transfer"
+      },
+      data: [{
+        type: "area",
+        dataPoints: dps
+      }],
+      axisX:{
+        viewportMinimum: 0,
+        viewportMaximum: 30,
+      },
+      axisY:{
+        viewportMinimum: 0,
+        viewportMaximum: 15,
+      }
+    });
+
+
+    var dataLength = 30; // number of dataPoints visible at any point
+
+    var updateChart = function (xVal, yVal) {
+
+        dps.push({
+          x: xVal,
+          y: yVal
+        });
+
+
+      console.log(dps)
+      chart.render();
+
+    };
+
+    // generates first set of dataPoints
+    updateChart(i, cumulativeTransfer);
+
+
    setTimeout(function () {
-      console.log(cumulativeTransfer);
+      console.log(nextLine);
       nextLine.removeClass("hidden");
       transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
       cumulativeTransfer += transferAmount;
       i++;
+      updateChart(i, cumulativeTransfer);
       nextLine = nextLine.next();
+      console.log(nextLine);
       if (i < transLength) {
          runner();
       }
@@ -44,5 +86,13 @@ function runner () {
 }
 
 runner();
+
+
+
+
+
+
+
+
 
 

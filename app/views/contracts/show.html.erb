@@ -24,9 +24,10 @@
 <div class="trade-container text-center">
   <h1>Transactions</h1>
   <div id="cum-transfer">
-    Total Transfer <span id="total-transfer">0</span> kWh
+    Total Transfer <span id="total-transfer">0</span>
   </div>
   <%= link_to "Start Simulation", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange" %>
+
   <div id="transactions">
 
   </div>
@@ -37,7 +38,7 @@
 <div class="trade-container text-center">
   <h1>Last 20 Transactions</h1>
   <div id="cum-transfer">
-  Total Transfer <span id="total-transfer">7.57</span> kWh
+  Total Transfer <span id="total-transfer"><%= @cum_transfer %></span> kWh
   </div>
 
   <p>Simulation done</p>
