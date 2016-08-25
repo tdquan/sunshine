@@ -1,4 +1,4 @@
-$('#start-transaction-btn').click(function(){
+$('#start-transaction-button').click(function(){
   $(this).hide();
 });
 

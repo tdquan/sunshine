@@ -1,11 +1,25 @@
-.money-symbol {
-  height: 100px;
-  padding-top: 10px;
-  i {
-    color: green;
-  }
-  .fa-eur {
-    font-size: 100px;
-  }
+.element-size {
+	height: 140px;
+}
 
+.sun-size {
+	height: 210px;
+}
+
+.nb-container {
+	margin: 0px 80px;
+}
+
+.nb-header {
+	 display: flex;
+  align-items: center;
+  justify-content: space-around;
+  svg {
+    width: 200px;
+    height: 200px;
+  }
+  h2 {
+    font-weight: 100;
+    font-size: 22px;
+}
 }

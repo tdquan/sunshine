@@ -8,11 +8,11 @@
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
-      <h2>Consuming <strong><span id="lighting-weeks">0</span> week of lighting</strong></h2>
+      <h2>Consuming <strong><span id="lighting-weeks">0</span> days of lighting</strong></h2>
     </div>
     <div class="contract-trees">
       <%= render "shared/tree" %>
-      <h2>Saving <strong><span id="trees-saved">0</span> trees</strong></h2>
+      <h2>Saving <strong>0.<span id="trees-saved">0</span>0 % of a tree</strong></h2>
     </div>
   </div>
   <div class="contract-simulation-body">
@@ -20,45 +20,12 @@
   </div>
 </div>
 
-<% if !@contract.transactions.any? %>
+
 <div class="trade-container text-center">
   <h1>Transactions</h1>
-  <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange", id: "start-transaction-btn" %>
+  <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange", id: "start-transaction-button" %>
   <div id="transactions">
 
   </div>
 
 </div>
-
-<% else %>
-
-  <div class="col-xs-12 card">
-    <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
-    </div>
-  </div>
-
-  <div class="transaction-container col-xs-12 card text-center">
-    <div>
-      <div class="transaction-header">
-        <span class="transaction-time col-xs-4">Time</span>
-        <span class="transaction-from col-xs-4">From</span>
-        <span class="transaction-amount col-xs-4">Amount(kWh)</span>
-      </div>
-      <ul class="listed-transactions text-center">
-        <% @transactions.each do |transaction| %>
-          <li class="transaction-line" id="transaction-<%= transaction.id %>">
-            <span class="col-xs-4 text-center"><%= transaction.date %> <%= transaction.time %></span>
-            <span class="col-xs-4 text-center"><%= transaction.contract.solar_panel.user.first_name %></span>
-            <span class="col-xs-4 text-center"><%= transaction.excess %></span>
-          </li>
-        <% end %>
-      </ul>
-      <div class="transaction-summary">
-        <span class="text-center col-xs-4">Total energy received</span>
-        <span class="col-xs-4"></span>
-        <span class="orange-text text-center col-xs-4" id="total-transfer"><%= @cum_transfer %></span>
-      </div>
-    </div>
-  </div>
-
-<% end %>
