@@ -1,36 +1,22 @@
 <% @sidebar = true %>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-6 text-center">
-    <div class="card-dashboard">
-      <div class="text-center">
-        <p class="cash"><%= @solar_count %> producers sharing their energy</p>
-      </div>
+   <div class="contract-energy text-center">
+      <%= render "shared/sun" %>
+      <h2><strong><p><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p></strong>Solar Energy <strong>produced locally</strong></h2>
     </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 text-center">
-    <div class="card-dashboard">
-      <div class="text-center">
-        <p class="cash"> <%= @user_count %> users consuming local solar</p>
-      </div>
+  <div class="nb-container">
+  <div class="nb-header text-center">
+    <div class="contract-energy">
+    <div class="nb-txt-size">
+      <%= render "shared/money_counter" %>
+      <h2><strong><%= (@solar_count * 10000 * 0.15/12).round %> <i class="fa fa-eur money" aria-hidden="true"></i> Monthly revenue </strong><br>among the <strong><%= @solar_count %> producers</strong></h2></br>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/money_counter' %>
-  </div>
+    </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%#= render 'shared/pie_chart' %>
-    <%= render 'shared/sun' %>
-  </div>
-
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <%= render 'shared/trees_saved' %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 text-center">
-    <%= link_to("I want to try to make this happen", "#", class: "navbar-wagon-button-orange" )%>
+    <div class="contract-energy">
+    <div class="nb-txt-size">
+      <%= render "shared/trees_saved" %>
+      <h2><strong><%= @solar_count * 10000 / 10000 %> trees</strong> Saved in the neighbourhood </h2>
+    </div>
+    </div>
   </div>
 </div>
