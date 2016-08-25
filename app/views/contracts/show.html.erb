@@ -35,29 +35,31 @@
 </div>
 
 <% else %>
-<div class="trade-container text-center">
-  <h1>Last 30 Transactions</h1>
-  <div id="cum-transfer">
-  Total Transfer <span id="total-transfer"><%= @cum_transfer %></span> kWh
+  <div class="trade-container text-center">
+    <h1>Last 30 Transactions</h1>
+    <div id="cum-transfer">
+      Total Transfer <span id="total-transfer"><%= @cum_transfer %></span> kWh
+    </div>
+
+    <p>Simulation done</p>
+
+    <div class="transaction-container">
+      <div class="row">
+        <div class="col-xs-6">
+          <% @transactions.each do |transaction| %>
+            <p class="transaction-line" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <span class="excess-amount"><%= transaction.excess %> kWh</span> </p>
+          <% end %>
+        </div>
+        <div class="col-xs-6">
+          <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <p>Simulation done</p>
-
-  <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
-
-  </div>
-
-<div class="transaction-container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <% @transactions.each do |transaction| %>
-        <p class="transaction-line" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <span class="excess-amount"><%= transaction.excess %> kWh</span> </p>
-      <% end %>
-      </div>
-      </div>
-      </div>
-      </div>
 <% end %>
+
 <% if false %>
 <div class="row profile">
   <div class="text-center">
