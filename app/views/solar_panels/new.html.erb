@@ -1,52 +1,34 @@
 <% @sidebar = true %>
 <div class="row">
-  <section class="col-xs-12 col-sm-7">
+  <section class="col-xs-12 col-sm-offset-2 col-sm-8">
     <div class="card">
       <h3 class="text-center"><%=t('.first_title')%></h3>
       <div class="card-content-container">
         <div><span><p><%= t('.first_paragraph_1') %><strong><%= t('.first_paragraph_2') %></strong></p>
-          <p><%= t('.second_paragraph') %></p> <p><%= t('.third_paragraph') %></p>
+          <p><%= t('.second_paragraph') %></p>
+          <p>Investing into solar panels has great economical returns (about 10% over 20 years). Yet a typical solar panel of 45m2 costs 20000€ to install.</p>
+          <p></p>
+          <p>But good news! Here it is only a simluation! :)</p>
           <br>
         </span>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="col-xs-12 col-sm-4">
-  <div class="card">
-    <h3 class="text-center"><%=t('.suggested_option')%></h3>
-    <br>
-
-    <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
+      <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
       <div class="form-inputs text-left card-content-container">
         <%= f.input :size, required: true, autofocus: true,
-        :input_html => { :value => 45},
+        :input_html => { :value => 45, class: "hidden"},
         placeholder: "m2",
-        label: "Size <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Please enter the size of you solar panel</span></div>".html_safe%>
+        label: false%>
 
         <%= f.input :price, required: true, autofocus: true,
-        :input_html => { :value => 0.2},
+        :input_html => { :value => 0.2, class: "hidden"},
         placeholder: "Price per kWh",
-        label: "Discount from grid <a class='hover-link'>(?)</a><div class='hover-box'><span class='new-solar-form-box'>Discount from grid price (=0.12$/KWh)</span></div>".html_safe%>
+        label: false%>
 
         <div class="form-actions text-center">
-          <%= (f.submit value: t('.seek_agreement'), class: "navbar-wagon-item navbar-wagon-button-orange")%>
+          <%= (f.submit value: "Produce my energy", class: "navbar-wagon-item navbar-wagon-button-orange")%>
         </div>
       </div>
-    <% end %>
-  </div>
-</section>
-
-<section class="col-xs-12 col-sm-7">
-  <div class="card">
-    <h3 class="text-center"><%=t('.second_title')%></h3>
-    <div class="card-content-container">
-      <div><span><p><%= t('.fourth_paragraph') %></p> <p><%= t('.fifth_paragraph') %></p>
-        <p><%= t('.sixth_paragraph') %></p>
-        <br>
-      </span>
+      <% end %>
     </div>
   </div>
-</div>
+</section>
