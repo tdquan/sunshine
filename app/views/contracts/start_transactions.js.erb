@@ -11,82 +11,80 @@ $(document).ready(function(){
   var treesSaved = 0;
   var cumulativeTransfer = 0;
 
-  var dps = [];
+  // var dps = [];
 
-  function runner () {
-  console.log("Waazzz");
-      var chart = new CanvasJS.Chart("chartContainer",{
-           title :{
-          text: "Total Energy Transfer",
-          fontColor: "#F5A623",
-        },
-        data: [{
-          type: "area",
-          dataPoints: dps,
-          color: "#F5A623",
-          fillOpacity: .3,
-        }],
-        axisX:{
-          viewportMinimum: 0,
-          viewportMaximum: 30,
-        },
-        axisY:{
-          viewportMinimum: 0,
-          viewportMaximum: 15,
-        },
-         backgroundColor: ""
+  // function runner () {
+  //   var chart = new CanvasJS.Chart("chartContainer",{
+  //        title :{
+  //       text: "Total Energy Transfer",
+  //       fontColor: "#F5A623",
+  //     },
+  //     data: [{
+  //       type: "area",
+  //       dataPoints: dps,
+  //       color: "#F5A623",
+  //       fillOpacity: .3,
+  //     }],
+  //     axisX:{
+  //       viewportMinimum: 0,
+  //       viewportMaximum: 30,
+  //     },
+  //     axisY:{
+  //       viewportMinimum: 0,
+  //       viewportMaximum: 15,
+  //     },
+  //      backgroundColor: ""
+  //   });
+
+
+  //   var dataLength = 30; // number of dataPoints visible at any point
+
+  //   var updateChart = function (xVal, yVal) {
+
+  //       dps.push({
+  //         x: xVal,
+  //         y: yVal
+  //       });
+
+
+  //     chart.render();
+
+  //   };
+
+  //   // generates first set of dataPoints
+  //   updateChart(i, cumulativeTransfer);
+
+
+   setTimeout(function () {
+      nextLine.fadeIn(300);
+      container.animate({
+          scrollTop: container.offset().top - scrollTo.offset().top + container.scrollTop()
       });
-
-
-      var dataLength = 30; // number of dataPoints visible at any point
-
-      var updateChart = function (xVal, yVal) {
-
-          dps.push({
-            x: xVal,
-            y: yVal
-          });
-
-
-        console.log(dps)
-        chart.render();
-
-      };
-
-      // generates first set of dataPoints
+      transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
+      cumulativeTransfer += transferAmount;
+      i++;
       updateChart(i, cumulativeTransfer);
+      nextLine = nextLine.next();
+      if (i < transLength) {
+         runner();
+      }
 
+      if (i % 5 == 0){
+        daysRunning += 1;
+        $("#days-running").text(daysRunning)
+      }
 
-     setTimeout(function () {
-        nextLine.fadeIn(300);
-        container.animate({
-            scrollTop: container.offset().top - scrollTo.offset().top + container.scrollTop()
-        });
-        transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
-        cumulativeTransfer += transferAmount;
-        i++;
-        updateChart(i, cumulativeTransfer);
-        nextLine = nextLine.next();
-        if (i < transLength) {
-           runner();
-        }
+      if (i % 2 == 0) {
+        lightingWeeks += 1;
+        $("#lighting-weeks").text(lightingWeeks)
+      }
 
-        if (i % 5 == 0){
-          daysRunning += 1;
-          $("#days-running").text(daysRunning)
-        }
+      if ( i % 4 == 0 ) {
+        treesSaved += 1;
+        $("#trees-saved").text(treesSaved)
+      }
 
-        if (i % 2 == 0) {
-          lightingWeeks += 1;
-          $("#lighting-weeks").text(lightingWeeks)
-        }
-
-        if ( i % 4 == 0 ) {
-          treesSaved += 1;
-          $("#trees-saved").text(treesSaved)
-        }
-
-        $("#total-transfer").text((cumulativeTransfer).toFixed(2));
+      $("#total-transfer").text((cumulativeTransfer).toFixed(2));
 
 
      }, 1000)
