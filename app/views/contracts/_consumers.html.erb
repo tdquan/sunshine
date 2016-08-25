@@ -1,0 +1,24 @@
+<% current_user.solar_panel.contracts.each do |contract| %>
+
+<div class="card-neighbour">
+  <div class="card-neighbour-infos">
+    <% if contract.user.facebook_picture_url.nil?%>
+    <%= image_tag "avatar.png", class: "avatar-large" %>
+    <% else %>
+    <%= image_tag contract.user.facebook_picture_url, class: "avatar-large"%>
+    <% end %>
+    <div class="card-neighbour-name">
+      <h3><%= contract.user.first_name.capitalize %></h3>
+      <p><%= contract.user.address %></p>
+      <p><span class="badge badge-danger">Active</span></p>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="text-center" style="padding-top: 20px;">
+  <%=  link_to dashboard_path, class: "navbar-wagon-button-orange" do %>
+  <i class="fa fa-bolt"></i> Run a simulation
+  <% end %>
+</div>
+

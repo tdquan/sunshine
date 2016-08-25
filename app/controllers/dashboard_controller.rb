@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
-  def show
-    current_user.update(address: session[:current_user_address])
+  def show_neighbour
     sign_in current_user, bypass: true
+    @solar_count= SolarPanel.count
+    @user_count= User.count
   end
 end

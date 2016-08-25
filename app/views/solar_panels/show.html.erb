@@ -1,35 +1,37 @@
 <% @sidebar = true %>
 <div class="row">
-  <section class="col-xs-12 col-sm-10">
-    <div class="card">
+  <section class="col-xs-12 col-sm-12">
+    <div class="card text-center">
 
-      <h3 class="text-center"><%=t('.title')%></h3>
+      <h3 class="text-center"><%=t('.title')%><%= @solar_panel.user.first_name.capitalize%></h3>
+      <br>
+      <% if @solar_panel.user.facebook_picture_url.nil?%>
+      <%= image_tag "avatar.png", class: "avatar-large" %>
+      <% else %>
+      <%= image_tag @solar_panel.user.facebook_picture_url, class: "avatar-large"%>
+      <% end %>
+
+      <br>
+      <br>
+
+      <% if current_user.facebook_picture_url.nil?%>
+      <%= image_tag "avatar.png", class: "avatar-large" %>
+      <% else %>
+      <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+      <% end %>
 
       <div class="card-content-container">
-      <br>
-      <p><%= @solar_panel.user.first_name.capitalize%> <%= t('.firstentry') %>
-
-      </p>
-      <p> This simulation will allow you to test how much energy will now come from local clean solar production.
-      </p>
-
-      <br>
-        <div class="row">
-          <div class="col-xs-6"><%= t('.secondentry') %></div>
-          <div class="col-xs-6 orange-text"><b>12 Kwh</b></div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6"><%= t('.estimated_daily') %></div>
-          <div class="col-xs-6 orange-text"><b>80 Kwh</b></div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6"><%= t('.estimated_coverage') %></div>
-          <div class="col-xs-6 orange-text"><b>20 Kwh</b></div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6"><%= t('.listed_price') %></div>
-          <div class="col-xs-6 orange-text"><b><%=t('.currency') %> 0.12 <%= t('.grid') %> - <%=t('.currency') %> 0.02 / Kwh</b></div>
-        </div>
+        <br>
+        <h3> This simulation will allow you to test local clean solar production!
+        </h3>
+        <br>
+        <% if current_user %>
+        <% if @solar_panel.user.id != current_user.id %>
+        <%= link_to "Get Energy from #{@solar_panel.user.first_name} ", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
+        <% end %>
+        <% else %>
+        <%= link_to(t('.purchase'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange") %>
+        <% end %>
       </div>
     </div>
   </section>
@@ -39,15 +41,7 @@
 <br>
 
 
-<% if current_user %>
-  <% if @solar_panel.user.id != current_user.id %>
-    <%= link_to "Seal agreement with #{@solar_panel.user.first_name}", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
-  <% end %>
-  <%= link_to(t('.back'), my_panel_path, class: "navbar-wagon-button-orange back-btn") %>
-<% else %>
-  <%= link_to(t('.purchase'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange") %>
-  <%= link_to(t('.back'), dashboard_path, class: "navbar-wagon-button-orange back-btn") %>
-<% end %>
+
 
 
 

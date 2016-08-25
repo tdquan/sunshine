@@ -1,25 +1,35 @@
 <% @sidebar = true %>
 
-
-
 <div class="contracts-container">
   <div class="contract-simulation-header text-center">
     <div class="contract-running">
       <%= render "shared/contract" %>
-      <h2>Running for <strong>65 days</strong></h2>
+      <h2>Running for <strong><span id="days-running">0</span> days</strong></h2>
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
-      <h2>Consuming <strong>3 week of lighting</strong></h2>
+      <h2>Consuming <strong><span id="lighting-weeks">0</span> week of lighting</strong></h2>
     </div>
     <div class="contract-trees">
       <%= render "shared/tree" %>
-      <h2>Saving <strong>4 trees</strong></h2>
+      <h2>Saving <strong><span id="trees-saved">0</span> trees</strong></h2>
     </div>
   </div>
   <div class="contract-simulation-body">
 
   </div>
+</div>
+
+<div class="trade-container text-center">
+  <h1>Transactions</h1>
+  <div id="cum-transfer">
+    Total Transfer <span id="total-transfer">0</span> kWh
+  </div>
+  <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange" %>
+  <div id="transactions">
+
+  </div>
+
 </div>
 
 <% if false %>

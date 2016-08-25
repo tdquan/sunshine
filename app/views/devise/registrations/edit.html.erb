@@ -10,9 +10,9 @@
         <%= f.input :email, required: false, autofocus: true, :input_html => { :value => current_user.email} %>
         <%= f.input :address, autofocus: true, :input_html => { :value => current_user.address} %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
+        <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <!-- <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p> -->
+        <%# end %>
 
         <%#= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
         <%#= f.input :password_confirmation, required: false %>
@@ -30,6 +30,4 @@
     </div>
   </div>
 </div>
-
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 

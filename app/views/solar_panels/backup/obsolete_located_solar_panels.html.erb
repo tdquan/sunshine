@@ -67,10 +67,3 @@
   <% end %>
 
 <% end %>
-
-
-<% if current_user.nil? %>
-<%= link_to(t('.link_back'), root_path, class: "navbar-wagon-button-orange back-btn") %>
-<% else %>
-<%= link_to(t('.link_back'), user_dashboard_path, class: "navbar-wagon-button-orange back-btn")%>
-<% end %>

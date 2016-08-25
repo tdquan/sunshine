@@ -1,0 +1,48 @@
+$('#transactions').html("<%= j render 'transactions', transactions: @transactions %>")
+
+var i = 1;
+var transLength =  $('.transaction-line').length;
+var nextLine = $('.transaction-line').first();
+var daysRunning = 0;
+var lightingWeeks = 0;
+var treesSaved = 0;
+var cumulativeTransfer = 0;
+
+
+function runner () {
+   setTimeout(function () {
+      console.log(cumulativeTransfer);
+      nextLine.removeClass("hidden");
+      transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
+      cumulativeTransfer += transferAmount;
+      i++;
+      nextLine = nextLine.next();
+      if (i < transLength) {
+         runner();
+      }
+
+      if (i % 5 == 0){
+        daysRunning += 1;
+        $("#days-running").text(daysRunning)
+      }
+
+      if (i % 2 == 0) {
+        lightingWeeks += 1;
+        $("#lighting-weeks").text(lightingWeeks)
+      }
+
+      if ( i % 4 == 0 ) {
+        treesSaved += 1;
+        $("#trees-saved").text(treesSaved)
+      }
+
+      $("#total-transfer").text((cumulativeTransfer).toFixed(2));
+
+
+
+   }, 1000)
+}
+
+runner();
+
+

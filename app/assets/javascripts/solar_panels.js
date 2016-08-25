@@ -3,10 +3,10 @@
 
 
 
-$('.navbar-wagon-button-orange').click(function(){
-    $('.address-pop-up.hidden:first').removeClass('hidden').fadeIn( "slow"
-  );
-});
+// $('.navbar-wagon-button-orange').click(function(){
+//     $('.address-pop-up.hidden:first').removeClass('hidden').fadeIn( "slow"
+//   );
+// });
 
 
 
