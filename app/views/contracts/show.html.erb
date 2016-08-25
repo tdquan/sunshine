@@ -1,3 +1,35 @@
+<% @sidebar = true %>
+
+<div class="contracts-container">
+  <div class="contract-simulation-header text-center">
+    <div class="contract-running">
+      <%= render "shared/contract" %>
+      <h2>Running for <strong><span id="days-running">0</span> days</strong></h2>
+    </div>
+    <div class="contract-energy">
+      <%= render "shared/bulb" %>
+      <h2>Consuming <strong><span id="lighting-weeks">0</span> week of lighting</strong></h2>
+    </div>
+    <div class="contract-trees">
+      <%= render "shared/tree" %>
+      <h2>Saving <strong><span id="trees-saved">0</span> trees</strong></h2>
+    </div>
+  </div>
+  <div class="contract-simulation-body">
+
+  </div>
+</div>
+
+<div class="trade-container text-center">
+  <h1>Transactions</h1>
+  <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange", id: "start-transaction-btn" %>
+  <div id="transactions">
+
+  </div>
+
+</div>
+
+<% if false %>
 <div class="row profile">
   <div class="text-center">
     <h2 class="text-center"><%=t('title')%></h2>
@@ -14,7 +46,7 @@
 
 
 
-      <div class="col-sm-4 col-sm-offset-4 card">
+      <div class="col-sm-4 col-sm-offset-1 card">
 
         <h3 class="contract-details-title">Agreement #<%= @contract.id %></h3>
         <div class="row">
@@ -24,7 +56,7 @@
 
         <div class="row">
           <div class="col-xs-6 text-left">Consumer</div>
-          <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize + " " + @contract.user.last_name.capitalize %></b>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize %></b>
         </div>
 
         <div class="row">
@@ -54,8 +86,16 @@
         <% end %>
       </div>
 
-    </div>
+
+      <div class="col-sm-4 col-sm-offset-1 card">
+        <h3 class="contract-details-title">Latest Transactions</h3>
+        <% @transactions.each do |transaction| %>
+        <li>Transaction<%= transaction.id %>: <%= transaction.excess %>kWh <span class="transaction-amount">-<%= transaction.fee  %> €</span></li>
+        <% end %>
+      </div>
+
+      </div>
 
   </div>
 </div>
-
+<% end %>

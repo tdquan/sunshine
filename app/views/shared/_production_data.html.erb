@@ -1,0 +1,20 @@
+<% if can? :show, current_user.solar_panel %>
+    <div class="card flex text-center" style="height: 450px;">
+
+     <div class="card-content-container text-center">
+       <% if user_signed_in? && current_user.facebook_picture_url %>
+       <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+       <% else %>
+       <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
+       <% end %>
+
+       <hr>
+
+      <p><b><%= t('.owner') %></b>&nbsp;<span><%= @solar_panel.user.first_name.capitalize %></span></p>
+      <p><b><%= t('.address') %></b>&nbsp;<span><%= @solar_panel.address %></span></p>
+      <p><b><%= t('.production') %></b>&nbsp;<span><%= @solar_panel.size || 0 %></span>&nbsp;sol/hour</p>
+      <p><b><%= t('.price') %></b>&nbsp;<span><%=t('.currency')%><%= @solar_panel.price || 0 %>/sol</span></p>
+    </div>
+
+  </div>
+<% end %>

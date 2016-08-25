@@ -1,0 +1,13 @@
+.contract-simulation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  svg {
+    width: 200px;
+    height: 200px;
+  }
+  h2 {
+    font-weight: 100;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,44 @@
+.transaction-container {
+  max-height: 300px;
+  padding: 0;
+  overflow: hidden;
+  .listed-transactions {
+    overflow: scroll;
+    max-height: 200px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.transaction-header, .transaction-line {
+  height: 40px;
+  line-height: 40px;
+}
+
+.transaction-summary {
+  height: 60px;
+  line-height: 60px;
+}
+
+.transaction-total {
+  font-size: 1.8em;
+}
+
+.transaction-header, .transaction-summary {
+  background-color: $darkest-blue;
+}
+
+.transaction-line.latest {
+  background-color: $darkest-blue;
+}
+
+.trade-container {
+  margin-top: 80px;
+  p {
+    padding: 3px;
+  }
+  .navbar-wagon-button-orange {
+    margin: 25px 0;
+  }
+
+}

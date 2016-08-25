@@ -17,7 +17,8 @@ function onPlaceChanged() {
   var components = getAddressComponents(place);
 
   $('#user_address').trigger('blur').val(components.address);
-}
+  $('form:first').submit()
+};
 
 
 function getAddressComponents(place) {

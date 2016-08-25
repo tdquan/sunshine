@@ -1,0 +1,42 @@
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+.nav-tabs {
+  border: none !important;
+  font-weight: bold !important;
+}
+.tabs li a {
+  padding: 20px 45px;
+  border: 2px solid $darkest-blue;
+  background-color: $darkest-blue;
+  opacity: 0.4;
+  transition: all 0.2s ease;
+  color : darken(white, 10%) !important;
+  margin: 0;
+}
+.tabs li.active a {
+  background-color: $darkest-blue !important;
+  border: 2px solid $darkest-blue !important;
+  opacity: 1;
+  color: white !important;
+}
+.tabs li a:hover {
+  border: 2px solid $darkest-blue;
+  background-color: $darkest-blue;
+  opacity: 1;
+  color: white;
+}
+
+.tabs li.active a:hover {
+  border: 2px solid $darkest-blue;
+  background-color: darken($darkest-blue, 5%);
+  color: white;
+}
+
+.tabs  li:first-child a {
+  border-radius: 50px 0 0 50px;
+}
+.tabs  li:last-child a {
+  border-radius: 0 500px 500px 0;
+}

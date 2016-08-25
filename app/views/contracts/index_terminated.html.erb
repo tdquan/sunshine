@@ -1,3 +1,4 @@
+<% @sidebar = true %>
 <% if current_user.contracts.where(end_date: nil).nil? %>
 <h2 class=title><%= t('.title')%></h2>
 
@@ -31,6 +32,5 @@
   </div>
 </div>
 <% end %>
-<%= link_to(t('.link2'), contracts_path, class: "navbar-wagon-button-orange back-btn") %>
 
 

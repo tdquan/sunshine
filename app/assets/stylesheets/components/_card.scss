@@ -30,5 +30,78 @@
   padding: 2rem;
   font-size: 1em;
   margin-bottom: 2em;
-  min-height: 500px;
+  h3 {
+    font-weight: 100;
+    font-size: 25px;
+    margin: 40px;
+    margin-bottom: 0;
+  }
+}
+
+
+/* card neighbour */
+.card-neighbour {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #172129;
+  margin-top: 10px;
+  box-shadow: 1px 1px 3px darken(#172129, 10%);
+  border-radius: 4px;
+}
+.card-neighbour-infos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  p {
+    font-size: 15px;
+    margin-top: 0;
+    font-weight: lighter;
+    opacity: 0.7;
+    margin-bottom: 0;
+  }
+}
+
+.card-neighbour:hover .contract-link {
+  opacity: 0.5;
+}
+.card-neighbour-name {
+  padding: 10px;
+}
+.contract-link {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0;
+}
+.contract-link:hover {
+  opacity: 1 !important;
+  cursor: pointer;
+}
+.card-neighbour-controls {
+  display: flex;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+// Card of solar panels
+
+.panel-avatar-container {
+  height: 0;
+}
+
+.panel-avatar {
+  position: relative;
+  top: -25px;
+  left: 25px;
 }

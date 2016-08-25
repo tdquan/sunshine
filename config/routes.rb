@@ -1,19 +1,31 @@
 Rails.application.routes.draw do
 
-  scope '(:locale)', locale: /en|pt/ do 
-    resources :contracts, :solar_panels
+  # get 'errors/not_found'
+
+  # get 'errors/internal_server_error'
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.status == "admin" } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 
-  devise_for :users, :controllers => {
+  # scope '(:locale)', locale: /en|pt/ do
+  resources :contracts, :solar_panels
+  # end
+
+  devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: "users/registrations"
+    registrations: 'users/registrations'
   }
 
+  post "contracts/:id/start_transactions" => "contracts#start_transactions", as: "start"
   get "contracts/terminated" => 'contracts#index_terminated'
   resources :contracts, only: [:show, :create, :index, :update]
 
 
+
   get "dashboard/show" => "dashboard#show", as: "dashboard"
+  get "dashboard/show_neighbour" => "dashboard#show_neighbour", as: "dashboard_neighbour"
 
   resources :solar_panels, only: [:show, :new, :create]
   get "located_solar_panels" => 'solar_panels#index'
@@ -22,14 +34,27 @@ Rails.application.routes.draw do
   patch "solar_panels/addUserAddress" => "solar_panels#addUserAddress"
 
   root to: 'pages#home'
-  get "welcome" => 'pages#welcome_step0'
-  post "welcome_step0" => 'pages#create_step0'
+  # get "welcome" => 'pages#welcome_step0'
 
-  get "welcome_step1" => 'pages#welcome_step1'
+  # post "welcome_step0" => 'pages#create_step0'
+
+  # get "welcome_step1" => 'pages#welcome_step1'
   post "welcome_step1" => 'pages#create_step1'
 
   get "welcome_step2" => 'pages#welcome_step2'
 
+  # get "welcome_step3_rent" => 'pages#welcome_step3_rent'
+  # patch "welcome_step3" => 'pages#create_step3'
+
+  # get "welcome_step3_own" => 'pages#welcome_step3_own'
+
+  # get "welcome_step4_rent" => 'pages#welcome_step4_rent'
+
+
+  # ---------------   errors  ----------------------------
+  
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

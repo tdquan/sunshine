@@ -6,18 +6,17 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: false, autofocus: true %>
-        <%= f.input :first_name, required: true, autofocus: true %>
-        <%= f.input :last_name, required: false, autofocus: true %>
-        <%= f.input :address, autofocus: true %>
+        <%= f.input :first_name, required: true, autofocus: true, :input_html => { :value => current_user.first_name} %>
+        <%= f.input :email, required: false, autofocus: true, :input_html => { :value => current_user.email} %>
+        <%= f.input :address, autofocus: true, :input_html => { :value => current_user.address} %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
+        <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <!-- <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p> -->
+        <%# end %>
 
-        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-        <%= f.input :password_confirmation, required: false %>
-        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <%#= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+        <%#= f.input :password_confirmation, required: false %>
+        <%#= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
       </div>
 
 
@@ -31,6 +30,4 @@
     </div>
   </div>
 </div>
-
-<%= link_to "Back", dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
 

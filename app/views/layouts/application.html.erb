@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>SunShine</title>
-    <link rel="logo" href="sunshine_logo.svg">
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SunShine</title>
+  <link rel="logo" href="sunshine_logo.svg">
+  <%= favicon_link_tag 'favicon.png' %>
+  <%= csrf_meta_tags %>
 
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <% if @homepage %>
-      <%= yield %>
-    <% else %>
-      <% if current_user.nil? %>
-        <%= render 'layouts/messages' %>
+  <% if @sidebar %>
+    <div class="dashboard-body clearfix">
+      <%= render 'shared/sidebar' %>
+      <div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 dashboard-wrapper">
         <%= yield %>
-      <% else %>
-        <div class="dashboard-body clearfix">
-          <%= render 'shared/sidebar' %>
-          <div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 dashboard-wrapper">
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-          </div>
-        </div>
-      <% end %>
+      </div>
+    </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
-    <% end %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+  <%= javascript_include_tag 'application' %>
 
-    <%= javascript_include_tag 'application' %>
+  <%= yield(:after_js) %>
 
-    <%= yield(:after_js) %>
-
-  </body>
+</body>
 </html>

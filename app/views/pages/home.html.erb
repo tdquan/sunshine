@@ -1,5 +1,3 @@
-<% @homepage = true %>
-
 <%= render "shared/homepage_navbar" %>
 
 <!-- VIDEO BACKGROUND SPLASH -->
@@ -8,9 +6,14 @@
   <div class="splash-page-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
     <h1 class="splash-title"><%=t('.title')%></h1>
     <h2 class="splash-sub-title text-center"><%=t('.title1')%></h2>
-    <p class="text-center splash-text"><%=t('.subtitle_0')%><br><%=t('.subtitle_1') %><span class="orange-text"><%=t('.subtitle_2') %></span><%=t('.subtitle_3') %></p>
+    <p class="text-center splash-text"><%=t('.subtitle_0')%><br><span class="orange-text"><%=t('.subtitle_1') %></span><%=t('.subtitle_2') %><%=t('.subtitle_3') %></p>
     <div class="center-button text-center">
-      <%= link_to(t('.enter_simulation'), welcome_path, class: "splash-page-box-btn") %>
+      <%= simple_form_for @user, url: {action: "create_step1"} do |f| %>
+          <%= button_tag(type: 'button', class: 'splash-page-box-btn', id: 'splash-page-box-btn') do %>
+            Join the experiment!
+          <% end %>
+          <%= f.input :address, input_html: {class: " splash-page-field address", style: "display: none"}, label: false, placeholder: "Where do you live?" %>
+      <% end %>
     </div>
   </div>
   <%= render 'shared/fullscreen_video' %>
@@ -80,7 +83,7 @@
         <div class="col-xs-12 col-sm-6 goal-column">
           <h4 class="text-center card-title"><%= t('.the_platform') %></h4>
           <div class="card-content-container">
-          <p>
+            <p>
               <%= t('.platform_p1') %>
             </p>
             <p>

@@ -12,7 +12,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 # Translation Default Language
 # config.i18n.default_locale = :en
-
+#
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -33,5 +33,8 @@ module Sunshine
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.active_job.queue_adapter = :sidekiq
+    # this next line tells rails to use our routes to handle the error pages
+    config.exceptions_app = self.routes
   end
 end

@@ -1,0 +1,35 @@
+<% current_user.contracts.each do |contract| %>
+
+  <% if contract.end_date.nil? %>
+    <div class="card-neighbour">
+      <div class="card-neighbour-infos">
+        <% if contract.solar_panel.user.facebook_picture_url.nil?%>
+          <%= image_tag "avatar.png", class: "avatar-large" %>
+        <% else %>
+          <%= image_tag contract.solar_panel.user.facebook_picture_url, class: "avatar-large"%>
+        <% end %>
+        <div class="card-neighbour-name">
+          <h3><%= contract.producer.first_name.capitalize %></h3>
+          <p><%= contract.producer.address %></p>
+          <p><span class="badge badge-danger"><%= rand(1..15) %>% monthly</span></p>
+        </div>
+      </div>
+      <div class="card-neighbour-controls">
+        <%= link_to contract_path(contract), class: "contract-link" do %>
+          <i class="fa fa-eye"></i> See details
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+
+<div class="text-center" style="padding-top: 20px;">
+  <%=  link_to solar_panels_path, class: "navbar-wagon-button-orange" do %>
+    <i class="fa fa-plus"></i> Add a new neighbour
+  <% end %>
+</div>
+
+

@@ -10,11 +10,11 @@
   <!-- Right Navigation -->
   <div class="float-right hidden-xs hidden-sm">
   <!-- Language Flag -->
-      <% if I18n.locale == I18n.default_locale %>
-      <%= link_to image_tag("portugal.jpg", class: "flag"), :locale=>'pt'%>
-      <% else %>
-      <%= link_to image_tag("unitedkingdom.jpg", class: "flag"), :locale=>'en'%>
-      <% end %>
+      <%# if I18n.locale == I18n.default_locale %>
+      <%#= link_to image_tag("portugal.jpg", class: "flag"), :locale=>'pt'%>
+      <%# else %>
+      <%#= link_to image_tag("unitedkingdom.jpg", class: "flag"), :locale=>'en'%>
+      <%# end %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -57,8 +57,8 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-avatar-group hidden-md hidden-lg">
-    <div class="dropdown">
+  <div class="navbar-avatar-group hidden-md hidden-lg float-right">
+    <div class="dropdown text-center">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
          <li>
@@ -76,7 +76,6 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
-            <%= link_to t(".top_call_to_action", default: "Make it happen"), "http://brooklynmicrogrid.com/", class: "navbar-wagon-item navbar-wagon-button-orange btn", :target => '_blank' %>
       </ul>
     </div>
   </div>

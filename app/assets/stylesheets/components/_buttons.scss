@@ -1,14 +1,14 @@
 .navbar-wagon-button-orange {
   text-align: center;
   display: inline-block;
-  padding: 0 20px;
+  padding: 5px 25px;
   border: none;
   border-radius: 20em;
   line-height: 40px;
   min-width: 100px;
   background-color: $orange;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
   transition: all 0.2s ease;
 }
 .navbar-wagon-button-orange:hover {
@@ -42,5 +42,9 @@ a.navbar-wagon-button-orange {
 
 
 a.navbar-wagon-button-orange:visited {
+  color: white;
+}
+
+a {
   color: white;
 }

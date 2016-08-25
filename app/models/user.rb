@@ -2,19 +2,20 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+  :rememberable, :trackable, :validatable,
+  :omniauthable, omniauth_providers: [:facebook]
 
 # As a Prosumer
-  has_one :solar_panel
-  has_many :contracts
-
-  # As a Consumer
-  has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+has_one :solar_panel
+has_many :contracts
 
 
-  # validates_presence_of :first_name
-  # validates_presence_of :last_name
+# As a Consumer
+has_many :contracted_solar_panels, through: :contracts, source: :solar_panel
+
+# validates_presence_of :first_name
+# validates_presence_of :last_name
+
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -29,6 +30,14 @@ class User < ActiveRecord::Base
   end
 
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+
+  def password_required?
+    false
+  end
+
 
   def is_producer?
     solar_panel.try(:persisted?)
@@ -37,6 +46,13 @@ class User < ActiveRecord::Base
   def is_consumer?
     contracts.any?
   end
+
+  private
+
+  # def setpassword
+  #   self.password = "123456"
+  #   self.save
+  # end
 
 end
 
