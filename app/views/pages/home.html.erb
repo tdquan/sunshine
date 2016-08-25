@@ -9,7 +9,10 @@
     <p class="text-center splash-text"><%=t('.subtitle_0')%><br><span class="orange-text"><%=t('.subtitle_1') %></span><%=t('.subtitle_2') %><%=t('.subtitle_3') %></p>
     <div class="center-button text-center">
       <%= simple_form_for @user, url: {action: "create_step1"} do |f| %>
-      <%= f.input :address, label: "Join the experimentation", placeholder: "Where do you live?" %>
+          <%= button_tag(type: 'button', class: 'splash-page-box-btn', id: 'splash-page-box-btn') do %>
+            Join the experiment!
+          <% end %>
+          <%= f.input :address, input_html: {class: " splash-page-field address", style: "display: none"}, label: false, placeholder: "Where do you live?" %>
       <% end %>
     </div>
   </div>

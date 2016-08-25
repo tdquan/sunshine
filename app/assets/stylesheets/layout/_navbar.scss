@@ -152,9 +152,23 @@
 }
 
 // Translation Flags
-// 
+
 .flag {
   height: 35px;
   width: 35px;
   margin: 10px;
+}
+
+// Mobile menu group
+
+.navbar-avatar-group.hidden-md.hidden-lg {
+  color: white;
+  width: 30px;
+  margin-top: 10px;
+  .dropdown {
+    width: 100%;
+    .dropdown-toggle {
+      font-size: 20px;
+    }
+  }
 }

@@ -3,17 +3,19 @@ $('#transactions').html("<%= j render 'transactions', transactions: @transaction
 var i = 1;
 var transLength =  $('.transaction-line').length;
 var nextLine = $('.transaction-line').first();
+var container = $('.listed-transactions'),
+    scrollTo = $('.transaction-line').last();
 var daysRunning = 0;
 var lightingWeeks = 0;
 var treesSaved = 0;
 
-
-
 function runner () {
    setTimeout(function () {
-    console.log("hello ta race");
-      nextLine.removeClass("hidden");
+      nextLine.fadeIn(300);
       i++;
+      container.animate({
+          scrollTop: container.offset().top - scrollTo.offset().top + container.scrollTop()
+      });
       nextLine = nextLine.next();
       if (i < transLength) {
          runner();

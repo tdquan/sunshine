@@ -45,11 +45,54 @@ h1.splash-title {
 
 h2.splash-sub-title {
   font-weight: normal;
+  font-size: 2em;
 }
 
 .splash-page-box p {
   font-size: 1.2em;
 }
+
+.splash-page-field {
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  height: 60px;
+  font-size: 24px;
+  border-radius: 0;
+  box-shadow: none;
+  color: white;
+}
+
+.splash-page-field:focus {
+  outline: none;
+  border-color: $orange;
+  box-shadow: none;
+  color: white;
+}
+
+.pac-container {
+  background-color: rgba(0,0,0,0.2);
+  border: none;
+  .pac-item {
+    color: $orange;
+    border: none;
+    line-height: 35px;
+    .pac-item-query {
+      color: white;
+    }
+    .pack-matched {
+      background-color: $orange;
+    }
+    &:hover {
+      background-color:rgba(0,0,0,0.4);
+    }
+  }
+  .pac-item-selected {
+    background-color:rgba(0,0,0,0.4);
+  }
+}
+
 
 // Homepage video
 
@@ -93,7 +136,7 @@ h1 {
   text-align: center;
   color: $orange;
 }
-.splash-page-box .splash-page-box-btn {
+.splash-page-box-btn {
   display: block;
   width: 60%;
   padding: 0 20px;
@@ -108,8 +151,9 @@ h1 {
   cursor: pointer;
   transition: .3s background;
 }
-.splash-page-box .splash-page-box-btn:hover {
+.splash-page-box-btn:hover {
    background: $orange;
+   color: white;
 }
 
 .splash-text {

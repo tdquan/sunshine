@@ -1,13 +1,13 @@
 <div class="text-center">
 <%- if controller_name != 'sessions' %>
 	<button class="btn btn-default btn-login">
-	<%= link_to "Log in", new_session_path(resource_name) %>
+	<%= link_to "Log in", new_user_session_path %>
 	</button>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 <button class="btn btn-default btn-login">
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to "Sign up", new_user_registration_path %><br />
   </button>
 <% end -%>
 
@@ -25,9 +25,10 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-	<button class="btn btn-default btn-login">
-  	<%= link_to "#{OmniAuth::Utils.camelize(provider)}  ", omniauth_authorize_path(resource_name, provider) %>
-  	<i class="fa fa-facebook" aria-hidden="true"></i>
+  	<button class="btn btn-default btn-login">
+    	<i class="fa fa-facebook" aria-hidden="true"></i>
+      &nbsp;
+      <%= link_to "#{OmniAuth::Utils.camelize(provider)}  ", omniauth_authorize_path(resource_name, provider) %>
   	</button>
   <% end -%>
  </div>

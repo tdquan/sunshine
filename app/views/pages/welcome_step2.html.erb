@@ -1,39 +1,42 @@
-<div class="container padded">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 text-center">
-      <div class="join-us">
-        <div class="join-us-content">
-          <h3>Already <strong><%= @participants %> participants</strong> in your neighborhood!</h3>
-          <%= link_to 'Join the experiment', new_user_registration_path, class: "navbar-wagon-button-orange" %>
+<div class="video-container">
+  <%= render 'shared/fullscreen_video' %>
+  <div class="container padded">
+    <div class="row card">
+      <div class="col-xs-12 col-sm-6 text-center">
+        <div class="join-us">
+          <div class="join-us-content">
+            <h3>Already <strong><%= @participants %> participants</strong> in your neighborhood!</h3>
+            <%= link_to 'Signup as a participant', new_user_registration_path, class: "splash-page-box-btn" %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-    <div id="map" style="width: 100%; height: 500px;"></div>
-    <div class="map-legend">
-      <ul class="list-inline">
-        <li><%= image_tag "producer_label.png", width: "25px" %> producer</li>
-        <li><%= image_tag "consumer_label.png", width: "25px" %> consumer</li>
-      </ul>
-    </div>
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-      $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'roadmap'  }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw producer_markers.to_json %>);
-        markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.map.centerOn([38.736946, -9.142685]);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(20);
-        }
-      });
-      });
+      <div class="col-xs-12 col-sm-6">
+      <div id="map" style="width: 100%; height: 500px;"></div>
+      <div class="map-legend">
+        <ul class="list-inline">
+          <li><%= image_tag "producer_label.png", width: "25px" %> producer</li>
+          <li><%= image_tag "consumer_label.png", width: "25px" %> consumer</li>
+        </ul>
+      </div>
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false, mapTypeId: 'roadmap'  }, internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw producer_markers.to_json %>);
+          markers2 = handler.addMarkers(<%= raw consumer_markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.map.centerOn([38.736946, -9.142685]);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(20);
+          }
+        });
+        });
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
     </div>
   </div>
 </div>
