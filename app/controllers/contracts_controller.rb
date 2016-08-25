@@ -11,7 +11,6 @@ class ContractsController < ApplicationController
   end
 
   def show
-    @contract.transactions.any? || FetchUsageJob.perform_later(@contract.solar_panel.user.id)
     @transactions = @contract.transactions.limit(30)
     @cum_transfer = @transactions.inject(0){|sum,t| sum + t.excess }.round(2)
     @graph_points = []
@@ -36,6 +35,7 @@ class ContractsController < ApplicationController
     )
     authorize! :create, @contract
     @contract.save
+    @contract.transactions.any? || FetchUsageJob.perform_later(@contract.solar_panel.user.id)
     redirect_to contracts_path
 
     #FetchUsageJob.perform_later(current_user.id)
