@@ -11,7 +11,7 @@
 
 
       <% @solar_panels.each do |solar_panel| %>
-        <% unless current_user.solar_panel.id == solar_panel.id %>
+        <% unless current_user.id == solar_panel.user.id %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="solar-panel-card card">
               <div class="individual-map-container">
