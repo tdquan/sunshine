@@ -13,6 +13,15 @@ class ContractsController < ApplicationController
   def show
     @transactions = @contract.transactions.limit(30)
     @cum_transfer = @transactions.inject(0){|sum,t| sum + t.excess }.round(2)
+    @graph_points = []
+
+    counter = 0
+    cum = 0
+    @transactions.each do |transaction|
+      counter += 1
+      cum += transaction.excess
+      @graph_points << {x: counter, y: cum.round(2)}
+    end
   end
 
 

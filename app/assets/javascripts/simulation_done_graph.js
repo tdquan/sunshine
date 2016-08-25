@@ -1,8 +1,8 @@
-$(document).ready()
+$(document).ready(function(){
 
-var dps = [];
-
-    var chart = new CanvasJS.Chart("chartContainer",{
+var dps = $("#simulation-done-graph").data("points");
+console.log(dps)
+    var chart = new CanvasJS.Chart("simulation-done-graph",{
       title :{
         text: "Total Energy Transfer"
       },
@@ -19,6 +19,7 @@ var dps = [];
         viewportMaximum: 15,
       }
     });
-
+    chart.render();
+});
 
 

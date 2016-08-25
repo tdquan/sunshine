@@ -36,12 +36,16 @@
 
 <% else %>
 <div class="trade-container text-center">
-  <h1>Last 20 Transactions</h1>
+  <h1>Last 30 Transactions</h1>
   <div id="cum-transfer">
   Total Transfer <span id="total-transfer"><%= @cum_transfer %></span> kWh
   </div>
 
   <p>Simulation done</p>
+
+  <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
+
+  </div>
 
 <div class="transaction-container">
   <div class="row">
