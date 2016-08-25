@@ -8,54 +8,55 @@
           </div>
         </div>
     <% else %>
-      <div class="row map-container">
-        <div class="no-padding col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 box-shadow">
-          <div id="map" style="width: 100%; height: 300px;">
-          </div>
-        </div>
-      </div>
-      <% content_for(:after_js) do %>
-        <%= javascript_tag do %>
-        $(document).on('ready', function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false }, internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw producer_markers.to_json %>   );
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-        handler.map.centerOn([38.736946, -9.142685]);
-        } else if (markers.length == 1) {
-        handler.getMap().setZoom(20);
-        }
-        });
-        });
-        <% end %>
-      <% end %>
+
 
       <% @solar_panels.each do |solar_panel| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <div class="text-center">
-              <% if solar_panel.user.facebook_picture_url %>
-              <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar-large" %>
-              <% else %>
-              <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar-large"} %>
-              <% end %>
-            </div>
-            <br>
-            <div class="card-content-container text-left">
+        <% unless current_user.solar_panel.id == solar_panel.id %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="solar-panel-card card">
+              <div class="individual-map-container">
+                <div id="map-<%= solar_panel.id %>" style="height: 150px; width: 100%"></div>
+                <% content_for(:after_js) do %>
+                  <%= javascript_tag do %>
+                  $(document).on('ready', function() {
+                  var handler = Gmaps.build('Google');
+                  handler.buildMap({ provider: { scrollwheel: false, zoomControl: false }, internal: { id: 'map-<%= solar_panel.id  %>' } }, function() {
+                  markers = handler.addMarkers(<%= raw panel_marker(solar_panel).to_json %>   );
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                  if (markers.length == 0) {
+                  handler.map.centerOn([<%= solar_panel.longitude %>, <%= solar_panel.latitude %>]);
+                  } else if (markers.length == 1) {
+                  handler.getMap().setZoom(17);
+                  }
+                  });
+                  });
+                  <% end %>
+                <% end %>
+              </div>
 
-              <p><b><%=t('.producer')%></b>&nbsp;<span><%= solar_panel.user.first_name.capitalize %></span></p>
-              <p><b><%=t('.address')%></b>&nbsp;<span><%= solar_panel.address %></span></p>
-              <p><b><%=t('.production')%></b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/<%=t('.hour')%></p>
-              <p><b><%=t('.price')%></b>&nbsp;<span><%=t('.price_grid')%><%= solar_panel.price || 0 %>/kWh</span></p>
-            </div>
-            <br><br>
-            <div class="text-center">
-              <%= link_to("Get Energy", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" )%>
+              <div class="panel-avatar-container">
+                <% if solar_panel.user.facebook_picture_url %>
+                <%= image_tag solar_panel.user.facebook_picture_url, class: "avatar avatar-bordered panel-avatar" %>
+                <% else %>
+                <%= image_tag "avatar.png", {alt: "avatar img",class: "avatar avatar-bordered panel-avatar"} %>
+                <% end %>
+              </div>
+              <br>
+              <div class="card-content-container text-left">
 
+                <h3 class="text-center orange-text"><%= solar_panel.user.first_name.capitalize %></h3>
+                <p><b><%=t('.address')%></b>&nbsp;<span><%= solar_panel.address %></span></p>
+                <p><b><%=t('.production')%></b>&nbsp;<span><%= solar_panel.size || 0 %></span>&nbsp;kWh/<%=t('.hour')%></p>
+                <p><b><%=t('.price')%></b>&nbsp;<span><%=t('.price_grid')%><%= solar_panel.price || 0 %>/kWh</span></p>
+              </div>
+              <br><br>
+              <div class="text-center">
+                <%= link_to("Get Energy", solar_panel_path(solar_panel), class: "navbar-wagon-button-orange" )%>
+
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
   <% end %>

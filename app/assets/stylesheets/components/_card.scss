@@ -94,3 +94,14 @@
   align-items: center;
 }
 
+// Card of solar panels
+
+.panel-avatar-container {
+  height: 0;
+}
+
+.panel-avatar {
+  position: relative;
+  top: -25px;
+  left: 25px;
+}

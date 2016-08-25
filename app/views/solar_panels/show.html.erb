@@ -1,6 +1,6 @@
 <% @sidebar = true %>
 <div class="row">
-  <section class="col-xs-12 col-sm-12">
+  <section class="col-xs-12 col-sm-6 col-sm-offset-3">
     <div class="card text-center">
 
       <h3 class="text-center"><%=t('.title')%><%= @solar_panel.user.first_name.capitalize%></h3>
@@ -15,9 +15,9 @@
       <br>
 
       <% if current_user.facebook_picture_url.nil?%>
-      <%= image_tag "avatar.png", class: "avatar-large" %>
+        <%= image_tag "avatar.png", class: "avatar-large" %>
       <% else %>
-      <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
       <% end %>
 
       <div class="card-content-container">

@@ -30,4 +30,17 @@ module ApplicationHelper
     end
   end
 
+  def panel_marker(solar_panel)
+    Gmaps4rails.build_markers(solar_panel) do |solar_panel, marker|
+      marker.lat solar_panel.latitude
+      marker.lng solar_panel.longitude
+      marker.infowindow render("/solar_panels/map_box", solar_panel: solar_panel)
+       marker.picture({
+        "url" => image_path("producer_label.png"), #"http://placehold.it/350x150", #          # string,  mandatory
+        "width" => 45,          # integer, mandatory
+        "height" => 67          # integer, mandatory
+      })
+    end
+  end
+
 end
