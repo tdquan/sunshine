@@ -11,7 +11,17 @@ class ContractsController < ApplicationController
   end
 
   def show
+    @transactions = @contract.transactions.limit(30)
+    @cum_transfer = @transactions.inject(0){|sum,t| sum + t.excess }.round(2)
+    @graph_points = []
 
+    counter = 0
+    cum = 0
+    @transactions.each do |transaction|
+      counter += 1
+      cum += transaction.excess
+      @graph_points << {x: counter, y: cum.round(2)}
+    end
   end
 
 
@@ -39,7 +49,7 @@ class ContractsController < ApplicationController
 
   def start_transactions
     FetchUsageJob.perform_later(@contract.solar_panel.user.id)
-    @transactions = @contract.transactions.limit(20)
+    @transactions = @contract.transactions.limit(30)
     respond_to do |format|
       format.js
     end
