@@ -1,24 +1,38 @@
 <% @sidebar = true %>
 <div class="row">
   <section class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <div class="card text-center">
+    <div class="card">
 
-      <h3 class="text-center"><%=t('.title')%><%= @solar_panel.user.first_name.capitalize%></h3>
+      <h3 class="text-center"><%=t('.title')%></h3>
       <br>
+      <div id="solar-panel-map" style="width: 100%; height: 200px;">
+      </div>
+
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+        $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ provider: { scrollwheel: false, zoomControl: false }, internal: { id: 'solar-panel-map' } }, function() {
+        markers = handler.addMarkers(<%= raw panel_marker(@solar_panel).to_json %>   );
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+        handler.map.centerOn([<%= @solar_panel.longitude %>, <%= @solar_panel.latitude %>]);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(17);
+        }
+        });
+        });
+        <% end %>
+      <% end %>
+
       <% if @solar_panel.user.facebook_picture_url.nil?%>
-      <%= image_tag "avatar.png", class: "avatar-large" %>
+      <%= image_tag "avatar.png", class: "avatar-large avatar-bordered panel-avatar-large" %>
       <% else %>
-      <%= image_tag @solar_panel.user.facebook_picture_url, class: "avatar-large"%>
+      <%= image_tag @solar_panel.user.facebook_picture_url, class: "avatar-large avatar-bordered panel-avatar-large"%>
       <% end %>
 
-      <br>
-      <br>
-
-      <% if current_user.facebook_picture_url.nil?%>
-        <%= image_tag "avatar.png", class: "avatar-large" %>
-      <% else %>
-        <%= image_tag current_user.facebook_picture_url, class: "avatar-large"%>
-      <% end %>
+      <h3 class="text-center orange-text"><%= @solar_panel.user.first_name.capitalize%></h3>
 
       <div class="card-content-container">
         <br>
@@ -26,11 +40,16 @@
         </h3>
         <br>
         <% if current_user %>
-        <% if @solar_panel.user.id != current_user.id %>
-        <%= link_to "Get Energy from #{@solar_panel.user.first_name} ", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
-        <% end %>
+          <% if @solar_panel.user.id != current_user.id %>
+          <div class="text-center">
+            <%= link_to "Get Energy from #{@solar_panel.user.first_name} ", "#{contracts_path(@contract)}?sp_id=#{@solar_panel.id}", {method: :post, class: "navbar-wagon-item navbar-wagon-button-orange"} %>
+          </div>
+          <div class="text-center">By doing this, you agree to our <%= link_to "Terms & Conditions", "#", class: "navbar-wagon-link" %></div>
+          <% end %>
         <% else %>
-        <%= link_to(t('.purchase'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange") %>
+          <div class="text-center">
+          <%= link_to(t('.purchase'), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button-orange") %>
+          </div>
         <% end %>
       </div>
     </div>
