@@ -139,3 +139,37 @@
 //   text-decoration: none;
 //   color: white;
 // }
+.btn-treehouse {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: rgba(23,22,22,0.7);
+  transition: background 0.3s ease;
+  margin: 40px;
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: rgba(117, 116, 116, 0.5);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-error {
+  margin: 70px;
+}
+
+.title-box {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: rgba(117, 116, 116, 0.5);
+  transition: background 0.3s ease;
+  margin: 40px;
+  // opacity: 0.3;
+}
+
+.title-box .error-title {
+  opacity: 1;
+}
