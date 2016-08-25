@@ -66,17 +66,17 @@ function runner () {
          runner();
       }
 
-      if (i % 5 == 0){
+      if (i % 8 == 0){
         daysRunning += 1;
         $("#days-running").text(daysRunning)
       }
 
-      if (i % 2 == 0) {
+      if (i % 3 == 0) {
         lightingWeeks += 1;
         $("#lighting-weeks").text(lightingWeeks)
       }
 
-      if ( i % 4 == 0 ) {
+      if ( i % 5 == 0 ) {
         treesSaved += 1;
         $("#trees-saved").text(treesSaved)
       }
@@ -85,7 +85,7 @@ function runner () {
 
 
 
-   }, 1000)
+   }, 2000)
 }
 
 runner();
