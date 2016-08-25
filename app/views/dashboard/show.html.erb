@@ -18,21 +18,23 @@
     </div>
   </div>
   <div class="contract-simulation-body">
+
     <div class="pie-container">
-    <div class="pie">
-      <div class="slice-right"></div>
-      <div class="slice-left"></div>
-      <div class="percent">
-      <div class="number">49%</div>
+      <div class="pie">
+        <div class="slice-right"></div>
+        <div class="slice-left"></div>
+        <div class="percent">
+          <div class="number">49%</div>
+        </div>
+      </div>
+      <h4>Of the energy you consume</h4><h3><strong>Is being produced locally</strong></h3>
+      <div class="col-xs-12 text-center">
+        <%= link_to("What impact for my neighborhood?", dashboard_neighbour_path, class: "navbar-wagon-button-orange" )%>
       </div>
     </div>
-    <h4>Of the energy you consume</h4><h3><strong>Is being produced locally</strong></h3>
-    <div class="col-xs-12 text-center">
-    <%= link_to("What impact for my neighborhood?", dashboard_neighbour_path, class: "navbar-wagon-button-orange" )%>
   </div>
+
 </div>
-    </div>
-  </div>
 </div>
 
 <% if false %>
@@ -40,15 +42,13 @@
   <div class="text-center">
     <h2 class="text-center"><%=t('title')%></h2>
     <div class="contract-details-wrapper">
-
-
       <div class="card">
-      <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> <%= t('.firstentry') %></h1>
-      <p>You have an ongoing agreement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
-      <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
-      <p>Way to go!</p>
+        <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> <%= t('.firstentry') %></h1>
+        <p>You have an ongoing agreement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
+        <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
+        <p>Way to go!</p>
 
-    </div>
+      </div>
 
 
 
@@ -76,22 +76,21 @@
         </div>
 
         <% if @contract.end_date %>
-          <div class="row">
-            <div class="col-xs-6 text-left">End date</div>
-            <b class="col-xs-6 text-center orange-text"><%= @contract.end_date %></b>
-          </div>
+        <div class="row">
+          <div class="col-xs-6 text-left">End date</div>
+          <b class="col-xs-6 text-center orange-text"><%= @contract.end_date %></b>
+        </div>
         <% end %>
 
         <br><br>
 
         <% if @contract.end_date %>
-          <%= link_to 'Back', contracts_path, class: "navbar-wagon-button-orange" %>
+        <%= link_to 'Back', contracts_path, class: "navbar-wagon-button-orange" %>
         <% else %>
-          <%= link_to "Cancel Contract", contract_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
-          <%= link_to 'Back', dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
+        <%= link_to "Cancel Contract", contract_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
+        <%= link_to 'Back', dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
         <% end %>
       </div>
-
 
       <div class="col-sm-4 col-sm-offset-1 card">
         <h3 class="contract-details-title">Latest Transactions</h3>
@@ -100,10 +99,8 @@
         <% end %>
       </div>
 
-      </div>
+    </div>
 
   </div>
 </div>
 <% end %>
-
-
