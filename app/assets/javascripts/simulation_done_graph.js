@@ -1,4 +1,5 @@
 if ($("#simulation-done-graph")[0]) {
+  console.log("HI");
 
 $(document).ready(function(){
 

@@ -3,26 +3,26 @@
   </div>
 </div>
 
-<div class="transaction-container card">
+<div class="transaction-container col-xs-12 card">
   <div>
     <div class="transaction-header">
       <span class="transaction-time col-xs-4">Time</span>
       <span class="transaction-from col-xs-4">From</span>
-      <span class="transaction-amount col-xs-4">Amount</span>
+      <span class="transaction-amount col-xs-4">Amount(kWh)</span>
     </div>
     <ul class="listed-transactions text-center">
       <% transactions.each do |transaction| %>
         <li class="transaction-line" id="transaction-<%= transaction.id %>" style="display: none">
-          <span class="col-xs-4 text-center"><%= transaction.time %></span>
-          <span class="col-xs-4 text-center"><%= transaction.id %></span>
+          <span class="col-xs-4 text-center"><%= transaction.date %></span>
+          <span class="col-xs-4 text-center"><%= transaction.contract.solar_panel.user.first_name %></span>
           <span class="col-xs-4 text-center"><%= transaction.excess %></span>
-        <li>
+        </li>
       <% end %>
     </ul>
     <div class="transaction-summary">
       <span class="text-center col-xs-4">Total energy received</span>
       <span class="col-xs-4"></span>
-      <span class="transaction-total orange-text text-center col-xs-4">20.6 Kwh</span>
+      <span class="orange-text text-center col-xs-4" id="total-transfer">0</span>
     </div>
   </div>
 </div>

@@ -26,10 +26,16 @@
 
 .transaction-header, .transaction-summary {
   background-color: $darkest-blue;
+
+}
+
+.transaction-line {
+  transition: all 0.3 ease;
 }
 
 .transaction-line.latest {
-  background-color: $darkest-blue;
+  color: green;
+  font-weight: bold;
 }
 
 .trade-container {
@@ -46,5 +52,9 @@
 
 .excess-amount {
   color: #78CA6A;
+  font-weight: bold;
+}
+
+#total-transfer {
   font-weight: bold;
 }

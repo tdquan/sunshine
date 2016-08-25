@@ -24,10 +24,6 @@
 <div class="trade-container text-center">
   <h1>Transactions</h1>
   <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange", id: "start-transaction-btn" %>
-  <div id="cum-transfer">
-    Total Transfer <span id="total-transfer">0</span>
-  </div>
-
   <div id="transactions">
 
   </div>
@@ -35,98 +31,34 @@
 </div>
 
 <% else %>
-  <div class="trade-container text-center">
-    <h1>Last 30 Transactions</h1>
-    <div id="cum-transfer">
-      Total Transfer <span id="total-transfer"><%= @cum_transfer %></span> kWh
-    </div>
 
-    <p>Simulation done</p>
-
-    <div class="transaction-container">
-      <div class="row">
-        <div class="col-xs-6">
-          <% @transactions.each do |transaction| %>
-            <p class="transaction-line" id="transaction-<%= transaction.id %>">Transaction <%= transaction.id %>: Transferred Amount: <span class="excess-amount"><%= transaction.excess %> kWh</span> </p>
-          <% end %>
-        </div>
-        <div class="col-xs-6">
-          <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
-
-          </div>
-        </div>
-      </div>
+  <div class="col-xs-12 card">
+    <div id="simulation-done-graph" data-points="<%= @graph_points.to_json %>" style="height: 300px; width:100%;">
     </div>
   </div>
-<% end %>
 
-<% if false %>
-<div class="row profile">
-  <div class="text-center">
-    <h2 class="text-center"><%=t('title')%></h2>
-    <div class="contract-details-wrapper">
-
-
-      <div class="card">
-      <h1 class="title text-center"><%= @contract.solar_panel.user.first_name.capitalize %> <%= t('.firstentry') %></h1>
-      <p>You have an ongoing agreement between <strong><%= @contract.solar_panel.user.first_name.capitalize %></strong> and yourself since <%= @contract.start_date %>. Whenever <%= @contract.solar_panel.user.first_name.capitalize %> has excess of energy, you are consuming it.</p>
-      <p>So far this month, you have consummed <strong><%= "120kWh" %></strong> from <%= @contract.solar_panel.user.first_name.capitalize %> which represents <strong><%= "20%" %></strong> of your consumption over the same period of time. In other words, together with <%= @contract.solar_panel.user.first_name.capitalize %> you are contributing locally as if you were growing <strong><%= "2" %></strong> trees!</p>
-      <p>Way to go!</p>
-
-    </div>
-
-
-
-      <div class="col-sm-4 col-sm-offset-1 card">
-
-        <h3 class="contract-details-title">Agreement #<%= @contract.id %></h3>
-        <div class="row">
-          <div class="col-xs-6 text-left">Producer</div>
-          <b class="col-xs-6 text-center orange-text"><%= @contract.solar_panel.user.first_name.capitalize %></b>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 text-left">Consumer</div>
-          <b class="col-xs-6 text-center orange-text"><%= @contract.user.first_name.capitalize %></b>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 text-left">Price</div>
-          <b class="col-xs-6 text-center orange-text">$0.12 (grid) - $<%= @contract.solar_panel.price %> / Kwh</b>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-6 text-left">Start date</div>
-          <b class="col-xs-6 text-center orange-text"><%= @contract.start_date %></b>
-        </div>
-
-        <% if @contract.end_date %>
-          <div class="row">
-            <div class="col-xs-6 text-left">End date</div>
-            <b class="col-xs-6 text-center orange-text"><%= @contract.end_date %></b>
-          </div>
-        <% end %>
-
-        <br><br>
-
-        <% if @contract.end_date %>
-          <%= link_to 'Back', contracts_path, class: "navbar-wagon-button-orange" %>
-        <% else %>
-          <%= link_to "Cancel Contract", contract_path(@contract), :method => :patch, class: "navbar-wagon-button-orange"  %>
-          <%= link_to 'Back', dashboard_path, class: "navbar-wagon-button-orange back-btn" %>
-        <% end %>
+  <div class="transaction-container col-xs-12 card text-center">
+    <div>
+      <div class="transaction-header">
+        <span class="transaction-time col-xs-4">Time</span>
+        <span class="transaction-from col-xs-4">From</span>
+        <span class="transaction-amount col-xs-4">Amount(kWh)</span>
       </div>
-
-
-      <div class="col-sm-4 col-sm-offset-1 card">
-        <h3 class="contract-details-title">Latest Transactions</h3>
+      <ul class="listed-transactions text-center">
         <% @transactions.each do |transaction| %>
-        <li>Transaction<%= transaction.id %>: <%= transaction.excess %>kWh <span class="transaction-amount">-<%= transaction.fee  %> €</span></li>
+          <li class="transaction-line" id="transaction-<%= transaction.id %>">
+            <span class="col-xs-4 text-center"><%= transaction.date %> <%= transaction.time %></span>
+            <span class="col-xs-4 text-center"><%= transaction.contract.solar_panel.user.first_name %></span>
+            <span class="col-xs-4 text-center"><%= transaction.excess %></span>
+          </li>
         <% end %>
+      </ul>
+      <div class="transaction-summary">
+        <span class="text-center col-xs-4">Total energy received</span>
+        <span class="col-xs-4"></span>
+        <span class="orange-text text-center col-xs-4" id="total-transfer"><%= @cum_transfer %></span>
       </div>
-
-      </div>
-
+    </div>
   </div>
-</div>
+
 <% end %>

@@ -10,57 +10,56 @@ $(document).ready(function(){
   var lightingWeeks = 0;
   var treesSaved = 0;
   var cumulativeTransfer = 0;
+  var dps = [];
 
-  // var dps = [];
-
-  // function runner () {
-  //   var chart = new CanvasJS.Chart("chartContainer",{
-  //        title :{
-  //       text: "Total Energy Transfer",
-  //       fontColor: "#F5A623",
-  //     },
-  //     data: [{
-  //       type: "area",
-  //       dataPoints: dps,
-  //       color: "#F5A623",
-  //       fillOpacity: .3,
-  //     }],
-  //     axisX:{
-  //       viewportMinimum: 0,
-  //       viewportMaximum: 30,
-  //     },
-  //     axisY:{
-  //       viewportMinimum: 0,
-  //       viewportMaximum: 15,
-  //     },
-  //      backgroundColor: ""
-  //   });
-
-
-  //   var dataLength = 30; // number of dataPoints visible at any point
-
-  //   var updateChart = function (xVal, yVal) {
-
-  //       dps.push({
-  //         x: xVal,
-  //         y: yVal
-  //       });
+  function runner () {
+    var chart = new CanvasJS.Chart("chartContainer",{
+      title :{
+        text: "Total Energy Transfer",
+        fontColor: "#F5A623",
+      },
+      data: [{
+        type: "area",
+        dataPoints: dps,
+        color: "#F5A623",
+        fillOpacity: .3,
+      }],
+      axisX:{
+        viewportMinimum: 0,
+        viewportMaximum: 30,
+      },
+      axisY:{
+        viewportMinimum: 0,
+        viewportMaximum: 15,
+      },
+       backgroundColor: ""
+    });
 
 
-  //     chart.render();
+    var dataLength = 30; // number of dataPoints visible at any point
 
-  //   };
+    var updateChart = function (xVal, yVal) {
 
-  //   // generates first set of dataPoints
-  //   updateChart(i, cumulativeTransfer);
+        dps.push({
+          x: xVal,
+          y: yVal
+        });
 
 
-   setTimeout(function () {
-      nextLine.fadeIn(300);
+      chart.render();
+
+    };
+
+    // generates first set of dataPoints
+    updateChart(i, cumulativeTransfer);
+
+    setTimeout(function () {
+      nextLine.fadeIn(500).addClass('latest').prev().removeClass('latest');
       container.animate({
-          scrollTop: container.offset().top - scrollTo.offset().top + container.scrollTop()
+        scrollTop: container.offset().top - scrollTo.offset().top + container.scrollTop()
       });
-      transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
+      console.log(nextLine);
+      transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[2].textContent);
       cumulativeTransfer += transferAmount;
       i++;
       updateChart(i, cumulativeTransfer);
@@ -88,7 +87,7 @@ $(document).ready(function(){
 
 
      }, 1000)
-  }
+    }
 
   runner();
 })
