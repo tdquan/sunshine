@@ -1,3 +1,5 @@
+if ($("#simulation-done-graph")[0]) {
+
 $(document).ready(function(){
 
 var dps = $("#simulation-done-graph").data("points");
@@ -26,4 +28,5 @@ console.log(dps)
     chart.render();
 });
 
+}
 
