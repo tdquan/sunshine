@@ -8,11 +8,11 @@
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
-      <h2>Consuming <strong><span id="lighting-weeks">0</span> week of lighting</strong></h2>
+      <h2>Consuming <strong><span id="lighting-weeks">0</span> days of lighting</strong></h2>
     </div>
     <div class="contract-trees">
       <%= render "shared/tree" %>
-      <h2>Saving <strong><span id="trees-saved">0</span> trees</strong></h2>
+      <h2>Saving <strong>0.<span id="trees-saved">0</span>0 % of a tree</strong></h2>
     </div>
   </div>
   <div class="contract-simulation-body">
@@ -20,17 +20,22 @@
   </div>
 </div>
 
+
 <div class="trade-container text-center">
   <h1>Transactions</h1>
   <div id="cum-transfer">
-    Total Transfer <span id="total-transfer">0</span> kWh
+    Total Transfer <span id="total-transfer">0</span>
   </div>
-  <%= link_to "Start Trading", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange" %>
+  <%= link_to "Start Simulation", start_path(@contract), remote: true, method: :post, class: "navbar-wagon-button-orange", id: "start-navigation-button" %>
+
   <div id="transactions">
 
   </div>
 
 </div>
+
+
+
 
 <% if false %>
 <div class="row profile">

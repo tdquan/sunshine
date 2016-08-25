@@ -1,4 +1,6 @@
-$('#transactions').html("<%= j render 'transactions', transactions: @transactions %>")
+
+
+$('#transactions').html("<%= j render 'transactions', transactions: @transactions %>");
 
 var i = 1;
 var transLength =  $('.transaction-line').length;
@@ -8,30 +10,73 @@ var lightingWeeks = 0;
 var treesSaved = 0;
 var cumulativeTransfer = 0;
 
+var dps = [];
 
 function runner () {
-   setTimeout(function () {
-      console.log(cumulativeTransfer);
+    var chart = new CanvasJS.Chart("chartContainer",{
+         title :{
+        text: "Total Energy Transfer",
+        fontColor: "#F5A623",
+      },
+      data: [{
+        type: "area",
+        dataPoints: dps,
+        color: "#F5A623",
+        fillOpacity: .3,
+      }],
+      axisX:{
+        viewportMinimum: 0,
+        viewportMaximum: 30,
+      },
+      axisY:{
+        viewportMinimum: 0,
+        viewportMaximum: 15,
+      },
+       backgroundColor: ""
+    });
+
+
+    var dataLength = 30; // number of dataPoints visible at any point
+
+    var updateChart = function (xVal, yVal) {
+
+        dps.push({
+          x: xVal,
+          y: yVal
+        });
+
+
+      chart.render();
+
+    };
+
+    // generates first set of dataPoints
+    updateChart(i, cumulativeTransfer);
+
+  setTimeout(function () {
+      console.log(nextLine);
       nextLine.removeClass("hidden");
       transferAmount = parseFloat(nextLine[0].getElementsByTagName("span")[0].textContent);
       cumulativeTransfer += transferAmount;
       i++;
+      updateChart(i, cumulativeTransfer);
       nextLine = nextLine.next();
+      console.log(nextLine);
       if (i < transLength) {
          runner();
       }
 
-      if (i % 5 == 0){
+      if (i % 8 == 0){
         daysRunning += 1;
         $("#days-running").text(daysRunning)
       }
 
-      if (i % 2 == 0) {
+      if (i % 3 == 0) {
         lightingWeeks += 1;
         $("#lighting-weeks").text(lightingWeeks)
       }
 
-      if ( i % 4 == 0 ) {
+      if ( i % 5 == 0 ) {
         treesSaved += 1;
         $("#trees-saved").text(treesSaved)
       }
@@ -40,9 +85,17 @@ function runner () {
 
 
 
-   }, 1000)
+   }, 2000)
 }
 
 runner();
+
+
+
+
+
+
+
+
 
 
