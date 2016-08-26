@@ -6,15 +6,15 @@
   <div class="contract-simulation-header text-center">
     <div class="contract-running">
       <%= render "shared/contract" %>
-      <h2>In production for <strong><%=3600.round %> hours</strong></h2>
+      <h2>In production for <strong><%=2 %> day</strong></h2>
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
-      <h2>Producing <strong><%= 3 %> week of lighting</strong></h2>
+      <h2>Produced <strong><%= 1 %> day of lighting</strong></h2>
     </div>
     <div class="contract-trees">
       <%= render "shared/tree" %>
-      <h2>Saving <strong><%= 3 %> trees</strong></h2>
+      <h2>Saved <strong><%= 2 %> % of a tree</strong></h2>
     </div>
   </div>
   <div class="contract-simulation-body">
@@ -27,10 +27,7 @@
           <div class="number">49%</div>
         </div>
       </div>
-      <h4>Of the energy you consume</h4><h3><strong>Is being produced locally</strong></h3>
-      <div class="col-xs-12 text-center">
-        <%= link_to("What impact for my neighborhood?", dashboard_neighbour_path, class: "navbar-wagon-button-orange" )%>
-      </div>
+      <h4>of the energy you consume</h4><h3><strong>is being produced locally</strong></h3>
     </div>
   </div>
 

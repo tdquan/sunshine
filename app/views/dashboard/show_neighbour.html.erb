@@ -1,7 +1,8 @@
 <% @sidebar = true %>
    <div class="contract-energy text-center">
       <%= render "shared/sun" %>
-      <h2><strong><p><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p></strong>Solar Energy <strong>produced locally</strong></h2>
+      <h2><strong><p><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p></strong>consummed by the <%= @user_count %> participants</p>
+      <p>is Solar Energy <strong>produced locally</strong></h2></p>
     </div>
   <div class="nb-container">
   <div class="nb-header text-center">
