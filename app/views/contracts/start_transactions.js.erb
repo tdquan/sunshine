@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.log("hello");
   $('#transactions').html("<%= j render 'transactions', transactions: @transactions %>");
 
   var i = 1;
@@ -87,7 +86,8 @@ $(document).ready(function(){
       $("#total-transfer").text((cumulativeTransfer).toFixed(2));
 
 
-    }, 1000)
+   }, 1000)
+
   }
 
   runner();
