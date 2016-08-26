@@ -21,7 +21,7 @@
         <%= render "producers" %>
       <% else %>
       <div class="card-dashboard text-center">
-        <h3>Welcome <strong><%= current_user.first_name.capitalize %></strong>, you have no producer for the moment :(</h3>
+        <h3>Welcome <strong><%= current_user.first_name.capitalize %></strong>, you have no producer for the moment</h3>
         <br>
         <%=  link_to "Find a local producer", solar_panels_path, class: "navbar-wagon-button-orange"  %>
       </div>

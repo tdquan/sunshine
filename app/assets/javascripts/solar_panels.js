@@ -1,12 +1,14 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$('#set-up-panel').click(function(){
+  $(this).parent().hide();
+  $('#solar-setup-card-content').hide();
+  $(this).parent().next().fadeIn(500);
+  setTimeout(function () {
+    $("#detecting-panel").hide();
+    $("#detecting-panel").next().fadeIn(500);
+  }, 3000);
+})
 
 
-
-// $('.navbar-wagon-button-orange').click(function(){
-//     $('.address-pop-up.hidden:first').removeClass('hidden').fadeIn( "slow"
-//   );
-// });
 
 
 

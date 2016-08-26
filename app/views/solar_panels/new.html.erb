@@ -4,7 +4,7 @@
     <div class="card">
       <h3 class="text-center"><%=t('.first_title')%></h3>
       <div class="card-content-container">
-        <div><span><p><%= t('.first_paragraph_1') %><strong><%= t('.first_paragraph_2') %></strong></p>
+        <div id="solar-setup-card-content"><span><p><%= t('.first_paragraph_1') %><strong><%= t('.first_paragraph_2') %></strong></p>
           <p><%= t('.second_paragraph') %></p>
           <p>Investing into solar panels has great economical returns (about 10% over 20 years). Yet a typical solar panel of 45m2 costs 20000€ to install.</p>
           <p></p>
@@ -13,21 +13,32 @@
         </span>
       </div>
       <%= simple_form_for @solar_panel, url: {action: "create"} do |f| %>
-      <div class="form-inputs text-left card-content-container">
-        <%= f.input :size, required: true, autofocus: true,
-        :input_html => { :value => 45, class: "hidden"},
-        placeholder: "m2",
-        label: false%>
+        <div class="form-inputs text-left card-content-container">
+          <%= field_set_tag nil, class: 'form-inputs' do %>
+            <%= f.input :size, required: true, autofocus: true,
+            :input_html => { :value => 45, class: "hidden"},
+            placeholder: "m2",
+            label: false%>
 
-        <%= f.input :price, required: true, autofocus: true,
-        :input_html => { :value => 0.2, class: "hidden"},
-        placeholder: "Price per kWh",
-        label: false%>
+            <%= f.input :price, required: true, autofocus: true,
+            :input_html => { :value => 0.2, class: "hidden"},
+            placeholder: "Price per kWh",
+            label: false%>
 
-        <div class="form-actions text-center">
-          <%= (f.submit value: "Produce my energy", class: "navbar-wagon-item navbar-wagon-button-orange")%>
+            <%= button_tag(type: 'button', class: 'splash-page-box-btn next', id: 'set-up-panel') do %>
+              Set up my solar panel
+            <% end %>
+          <% end %>
+
+          <%= field_set_tag nil, class: 'form-inputs', id: "detecting-panel", style: "display: none" do %>
+            <h4 class="text-center">Detecting your solar panel...</h4>
+          <% end %>
+
+          <%= field_set_tag nil, class: 'form-inputs text-center', style: "display: none" do %>
+            <h4 class="text-center">Your solar panel is set up!</h4>
+            <%= (f.submit value: "Start producing your energy", class: "navbar-wagon-item navbar-wagon-button-orange")%>
+          <% end %>
         </div>
-      </div>
       <% end %>
     </div>
   </div>

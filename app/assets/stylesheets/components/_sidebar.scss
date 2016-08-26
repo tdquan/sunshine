@@ -180,11 +180,11 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: darken($orange, 30%);
+  font-size: 15px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $orange;
   text-decoration: none;
 }
 
