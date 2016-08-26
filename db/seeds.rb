@@ -32,17 +32,6 @@ users = [
 #   ),
 
 User.create!(
-  email: "maxime@gmail.com",
-  first_name: "Maxime",
-  last_name: "Longden",
-  family_size: 2,
-  apartment_size: 60,
-  address: "20 Rua Guarda-Mor",
-  password: "123456",
-  password_confirmation: "123456"
-  ),
-
-User.create!(
   email: "fernando@gmail.com",
   first_name: "Fernando",
   last_name: "Mesquita",
@@ -87,7 +76,7 @@ User.create!(
   facebook_picture_url: "amelia.jpg"
   ),
 User.create!(
-  email: "canapeantique@sapo.pt",
+  email: "canapeantique@gmail.com",
   first_name: "Assunção",
   last_name: "Tavares",
   family_size: 4,
@@ -110,7 +99,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "mercearia@saloia.pt",
+  email: "mercearia@gmail.com",
   first_name: "Mercearia",
   last_name: "Portuguesa",
   family_size: 4,
@@ -122,7 +111,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "atendimento@cnnatacao.pt",
+  email: "atendimento@gmail.com",
   first_name: "Clube",
   last_name: "Natação",
   family_size: 4,
@@ -133,7 +122,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "geral@iseg.pt",
+  email: "iseg@gmail.com",
   first_name:"ISEG",
   last_name: "University",
   family_size: 4,
@@ -145,7 +134,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "vethospital@iseg.pt",
+  email: "vethospital@gmail.com",
   first_name:"Hospital",
   last_name: "São Bento",
   family_size: 4,
@@ -157,7 +146,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "galeria@gmail.pt",
+  email: "galeria@gmail.com",
   first_name:"Galeria",
   last_name: "São Roque",
   family_size: 4,
@@ -168,7 +157,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "deposito@gmail.pt",
+  email: "deposito@gmail.com",
   first_name:"Depósito",
   last_name: "Marinha Grande",
   family_size: 4,
@@ -179,7 +168,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "bloop@gmail.pt",
+  email: "bloop@gmail.com",
   first_name:"Bloop",
   last_name: "Vinyl Shop",
   family_size: 4,
@@ -190,7 +179,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "museu@gmail.pt",
+  email: "museu@gmail.com",
   first_name:"Museu",
   last_name: "Marioneta",
   family_size: 4,
@@ -201,7 +190,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "phhostel@gmail.pt",
+  email: "phhostel@gmail.com",
   first_name:"PH Lisbon Hostel",
   last_name: "",
   family_size: 4,
@@ -212,7 +201,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "palacio@gmail.pt",
+  email: "palacio@gmail.com",
   first_name:"Palácio do Machadinho",
   last_name: "",
   family_size: 4,
@@ -223,7 +212,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "atelier145@gmail.pt",
+  email: "atelier145@gmail.com",
   first_name:"Atelier 145",
   last_name: "",
   family_size: 4,
@@ -234,7 +223,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "fadobedbreakfast@gmail.pt",
+  email: "fadobedbreakfast@gmail.com",
   first_name:"Fado Bed & Breakfast",
   last_name: "",
   family_size: 4,
@@ -245,7 +234,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "cavalopau@gmail.pt",
+  email: "cavalopau@gmail.com",
   first_name:"Loja Cavalo de Pau",
   last_name: "",
   family_size: 4,
@@ -256,7 +245,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "bocacafe@gmail.pt",
+  email: "bocacafe@gmail.com",
   first_name:"Boca Café",
   last_name: "",
   family_size: 4,
@@ -267,7 +256,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "cheeseandwinesuite@gmail.pt",
+  email: "cheeseandwinesuite@gmail.com",
   first_name:"Cheese & Wine",
   last_name: "Apartment Suites",
   family_size: 4,
@@ -278,7 +267,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "cafesaobento@gmail.pt",
+  email: "cafesaobento@gmail.com",
   first_name:"Café São Bento",
   last_name: "",
   family_size: 4,
@@ -289,7 +278,7 @@ User.create!(
   ),
 
 User.create!(
-  email: "mariosoares@gmail.pt",
+  email: "mariosoares@gmail.com",
   first_name:"Fundação Mário Soares",
   last_name: "",
   family_size: 4,
@@ -297,6 +286,67 @@ User.create!(
   address: "176 Rua São Bento",
   password: "123456",
   password_confirmation: "123456",
+  ),
+
+
+User.create!(
+  email: "james@gmail.com",
+  first_name:"James",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua Guarda-Mor 10 ",
+  password: "123456",
+  password_confirmation: "123456",
+  ),
+
+
+User.create!(
+  email: "kelly@gmail.com",
+  first_name:"Kelly",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua São Bento 30, Lisboa",
+  password: "123456",
+  password_confirmation: "123456",
+  facebook_picture_url: "kelly.jpg"
+  ),
+
+User.create!(
+  email: "maxime@gmail.com",
+  first_name:"Maxime",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua Guarda-Mor 30, Lisboa",
+  password: "123456",
+  password_confirmation: "123456",
+  facebook_picture_url: "maxime.jpg"
+  ),
+
+User.create!(
+  email: "freddie@gmail.com",
+  first_name:"Freddie",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Calcada da Estrela 20, Lisboa",
+  password: "123456",
+  password_confirmation: "123456",
+  facebook_picture_url: "freddie.jpg"
+  ),
+
+User.create!(
+  email: "esme@gmail.com",
+  first_name:"Esme",
+  last_name: "",
+  family_size: 4,
+  apartment_size: 100,
+  address: "Rua Machadinho 20, Lisboa",
+  password: "123456",
+  password_confirmation: "123456",
+  facebook_picture_url: "esme.jpg"
   ),
 
 ]
@@ -356,6 +406,7 @@ SolarPanel.create!(
   address: "10a Rua Guarda-Mor",
   user: users[10],
   )
+
 require 'csv'
 
 path = Dir.pwd
