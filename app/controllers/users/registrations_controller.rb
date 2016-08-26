@@ -29,6 +29,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    if current_user.first_name = "Thomas"
+      @user = current_user
+      @user.facebook_picture_url = "thomas.jpg"
+      @user.save
+    end
   end
 
 
