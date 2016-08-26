@@ -1,20 +1,20 @@
 <% @sidebar = true %>
 
-<h1>Number of Simulations <%= @number_of_simulations %></h1>
+<h1>Number of Simulations <span id="my-impact-simulations"><%= @number_of_simulations %></span></h1>
 
 <div class="contracts-container">
   <div class="contract-simulation-header text-center">
     <div class="contract-running">
       <%= render "shared/contract" %>
-      <h2>In production for <strong><%=2 %> day</strong></h2>
+      <h2>In production for <strong><span id="my-impact-days">0</span> day</strong></h2>
     </div>
     <div class="contract-energy">
       <%= render "shared/bulb" %>
-      <h2>Produced <strong><%= 1 %> day of lighting</strong></h2>
+      <h2>Produced <strong><span id="my-impact-lightning">1</span> day of lighting</strong></h2>
     </div>
     <div class="contract-trees">
       <%= render "shared/tree" %>
-      <h2>Saved <strong><%= 2 %> % of a tree</strong></h2>
+      <h2>Saved <strong><span id="my-impact-trees">2</span> % of a tree</strong></h2>
     </div>
   </div>
   <div class="contract-simulation-body">
