@@ -1,7 +1,6 @@
 
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<%if false %>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
   console.log("Hello");
@@ -9,53 +8,6 @@
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ['Hour', 'Production', 'Consumption'],
-      ['00',  0,      30],
-      ['01',  0,      30],
-      ['02',  0,      15],
-      ['03',  0,      15],
-      ['04',  0,      10],
-      ['05',  0,      10],
-      ['06',  0,      10],
-      ['07',  25,     10],
-      ['08',  49,     19],
-      ['09',  98,     19],
-      ['10',  172,    17],
-      ['11',  294,    17],
-      ['12',  368,    21],
-      ['13',  466,    21],
-      ['14',  515,    28],
-      ['15',  466,    28],
-      ['16',  368,    23],
-      ['17',  294,    23],
-      ['18',  172,    21],
-      ['19',  98,      21],
-      ['20',  49,      30],
-      ['21',  25,      30],
-      ['22',  0,      37],
-      ['23',  0,      37]
-      ]);
-
-    var options = {
-      title: 'Summer',
-      hAxis: {title: 'Hour',  titleTextStyle: {color: '#333'}},
-      vAxis: {minValue: 0}
-    };
-
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-  }
-</script>
-
-<div id="chart_div" style="width: 900px; height: 300px; margin: auto;"></div>
-
-<%end%>
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['corechart']});
-  console.log("Hello");
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Hour', 'Production in cents', 'Consumption in cents'],
       ['00',  0,      60],
       ['01',  0,      60],
       ['02',  0,      30],
@@ -84,8 +36,10 @@
 
     var options = {
       title: 'Winter',
-      hAxis: {title: 'Hour',  titleTextStyle: {color: '#333'}},
-      vAxis: {minValue: 0}
+      hAxis: {title: 'Hour',  titleTextStyle: {color: 'white'}, textStyle: {color: "#fff"}},
+      vAxis: { minValue: 0, titleTextStyle: {color: 'white'}, textStyle: {color: "#fff"},titleTextStyle: {color: 'white'}},
+      legendTextStyle: { color: '#FFF' },
+      backgroundColor: { fill:'transparent' }
     };
 
     var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
@@ -93,6 +47,6 @@
   }
 </script>
 
-<div id="chart_div2" style="width: 900px; height: 300px;"></div>
+<div id="chart_div2" class="card" style="width: 100%px; height: 300px;"></div>
 
 
