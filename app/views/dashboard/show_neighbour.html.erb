@@ -1,22 +1,22 @@
 <% @sidebar = true %>
    <div class="contract-energy text-center">
       <%= render "shared/sun" %>
-      <h2><strong><p><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p></strong>consummed by the <%= @user_count %> participants</p>
-      <p>is Solar Energy <strong>produced locally</strong></h2></p>
+      <h2><strong><p><%= (@solar_count*10000* 100 / (@user_count*2531) )%> %</p></strong></h2>
+      <h3><p>of the <%= @user_count %> participants' energy<br> comes from the Sun</p></h3>
     </div>
   <div class="nb-container">
   <div class="nb-header text-center">
     <div class="contract-energy">
     <div class="nb-txt-size">
       <%= render "shared/money_counter" %>
-      <h2><strong><%= (@solar_count * 10000 * 0.15/12).round %> <i class="fa fa-eur money" aria-hidden="true"></i> Monthly revenue </strong><br>among the <strong><%= @solar_count %> producers</strong></h2></br>
+      <h2><strong><%= (@solar_count * 10000 * 0.15/12).round %> <i class="fa fa-eur money" aria-hidden="true"></i> </strong><br>monthly revenue among the <strong><%= @solar_count %> producers</strong></h2></br>
     </div>
     </div>
 
     <div class="contract-energy">
     <div class="nb-txt-size">
       <%= render "shared/trees_saved" %>
-      <h2><strong><%= @solar_count * 10000 / 10000 %> trees</strong> Saved in the neighbourhood </h2>
+      <h2><strong><%= @solar_count * 10000 / 10000 %> trees</strong> saved by the neighbourhood </h2>
     </div>
     </div>
   </div>
